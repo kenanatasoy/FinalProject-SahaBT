@@ -1,4 +1,9 @@
 package com.example.domain.book;
 
-public class PublicationYear {
+public final class PublicationYear {
+    private final int value;
+
+    public PublicationYear(int value) {
+        this.value = value;
+    }
 }

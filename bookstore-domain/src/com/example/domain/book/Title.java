@@ -1,4 +1,9 @@
 package com.example.domain.book;
 
-public class Title {
+public final class Title {
+    private final String value;
+
+    public Title(String value) {
+        this.value = value;
+    }
 }

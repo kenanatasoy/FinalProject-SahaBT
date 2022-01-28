@@ -1,4 +1,9 @@
 package com.example.domain.book;
 
-public class Popularity {
+public final class Popularity {
+    private final String value;
+
+    public Popularity(String value) {
+        this.value = value;
+    }
 }

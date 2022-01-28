@@ -1,4 +1,9 @@
 package com.example.domain.book;
 
-public class Author {
+public final class Author {
+    private final String value;
+
+    public Author(String value) {
+        this.value = value;
+    }
 }
