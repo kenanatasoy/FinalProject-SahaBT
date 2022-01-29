@@ -7,9 +7,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="bookstore-microservice" />
+        <module name="bookstore-domain" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="bookstore-domain" target="1.5" />
       <module name="bookstore-microservice" target="17" />
     </bytecodeTargetLevel>
   </component>
