@@ -7,12 +7,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="bookstore-microservice" />
-        <module name="bookstore-domain" />
+        <module name="sale-domain" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="bookstore-domain" target="1.5" />
       <module name="bookstore-microservice" target="17" />
+      <module name="sale-domain" target="1.5" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
