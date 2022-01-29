@@ -10,6 +10,7 @@
         <module name="publisher-domain" />
         <module name="sale-domain" />
         <module name="category-domain" />
+        <module name="bookstore-domain" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
