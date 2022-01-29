@@ -5,6 +5,8 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/FinalProject-SahaBT.iml" filepath="$PROJECT_DIR$/.idea/FinalProject-SahaBT.iml" />
       <module fileurl="file://$PROJECT_DIR$/bookstore-domain/bookstore-domain.iml" filepath="$PROJECT_DIR$/bookstore-domain/bookstore-domain.iml" />
       <module fileurl="file://$PROJECT_DIR$/bookstore-microservice/bookstore-microservice.iml" filepath="$PROJECT_DIR$/bookstore-microservice/bookstore-microservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/category-domain/category-domain.iml" filepath="$PROJECT_DIR$/category-domain/category-domain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/publisher-domain/publisher-domain.iml" filepath="$PROJECT_DIR$/publisher-domain/publisher-domain.iml" />
     </modules>
   </component>
 </project>
