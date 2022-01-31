@@ -22,6 +22,7 @@ public final class Identity {
         }
         return identity;
     }
+
     private static boolean isValid(String value) {
         if (value == null)
             return false;

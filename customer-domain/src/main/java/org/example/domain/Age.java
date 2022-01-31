@@ -7,8 +7,9 @@ public final class Age {
     private Age(int value) {
         this.value = value;
     }
-    public static Age valueOf(int value){
-        if (value<12)
+
+    public static Age valueOf(int value) {
+        if (value < 12)
             throw new IllegalArgumentException("Customers age should be larger than 12");
         return new Age(value);
     }

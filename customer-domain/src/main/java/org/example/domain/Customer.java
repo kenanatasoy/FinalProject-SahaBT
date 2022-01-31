@@ -15,7 +15,7 @@ public class Customer {
     private Password password;
     private IsAdmin isAdmin;
 
-    public static class Builder{
+    public static class Builder {
         private Identity identity;
         private FullName fullName;
         private Age age;
@@ -32,10 +32,11 @@ public class Customer {
             return this;
         }
 
-        public Builder fullName(String first,String last) {
+        public Builder fullName(String first, String last) {
             this.fullName = FullName.valueOf(first, last);
             return this;
         }
+
         public Builder age(int age) {
             this.age = Age.valueOf(age);
             return this;
@@ -47,9 +48,9 @@ public class Customer {
         }
 
         public List<Interest> interests(Interest... interests1) {
-           Interest interest = Interest.valueOf(String.valueOf(interests1));
-           this.interests.add(interest);
-           return interests;
+            Interest interest = Interest.valueOf(String.valueOf(interests1));
+            this.interests.add(interest);
+            return interests;
         }
 
         public Builder email(String email) {
@@ -72,7 +73,7 @@ public class Customer {
             return this;
         }
 
-        public Customer build(){
+        public Customer build() {
             Customer customer = new Customer(this.identity);
             customer.setAge(age);
             customer.setEmail(email);
