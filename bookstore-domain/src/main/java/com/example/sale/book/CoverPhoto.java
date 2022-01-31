@@ -1,21 +1,21 @@
-package com.example.domain;
+package com.example.sale.book;
 
 import java.util.Base64;
 import java.util.Objects;
 
-public class PublisherLogo {
+public final class CoverPhoto {
     private final byte[] values;
 
-    public PublisherLogo(byte[] values) {
+    public CoverPhoto(byte[] values) {
         this.values = values;
     }
-    public static PublisherLogo valueOf(byte[] values) {
+    public static CoverPhoto valueOf(byte [] values) {
         Objects.requireNonNull(values);
-        return new PublisherLogo(values);
+        return new CoverPhoto(values);
     }
-    public static PublisherLogo valueOf(String values) {
+    public static CoverPhoto valueOf(String values) {
         Objects.requireNonNull(values);
-        return new PublisherLogo(Base64.getDecoder().decode(values));
+        return new CoverPhoto(Base64.getDecoder().decode(values));
     }
 
     public byte[] getValues() {
@@ -24,4 +24,5 @@ public class PublisherLogo {
     public String getBase64Values() {
         return String.valueOf(Base64.getEncoder().encode(values));
     }
+
 }

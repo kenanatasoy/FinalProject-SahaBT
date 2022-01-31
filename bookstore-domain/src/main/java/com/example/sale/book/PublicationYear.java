@@ -1,4 +1,4 @@
-package com.example.domain.book;
+package com.example.sale.book;
 
 public final class PublicationYear {
     private final int value;

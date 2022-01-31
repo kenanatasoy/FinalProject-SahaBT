@@ -1,4 +1,4 @@
-package com.example.domain;
+package com.example.sale.domain;
 
 public final class SaleId {
 

@@ -1,7 +1,7 @@
-package com.example.domain;
+package com.example.sale.domain;
 
 
-import com.example.domain.book.Book;
+import com.example.sale.book.Book;
 
 import java.util.Objects;
 import java.sql.Timestamp;
@@ -9,7 +9,7 @@ import java.sql.Timestamp;
 
 public class Sale {
     private SaleId saleId;
-    private Book isbn;
+    private Book book;
     private Customer customer;
     private Timestamp timestamp;
 
@@ -22,7 +22,7 @@ public class Sale {
     }
 
     public Book getBook() {
-        return isbn;
+        return book;
     }
 
     public Customer getCustomer() {
@@ -31,6 +31,22 @@ public class Sale {
 
     public Timestamp getTimestamp() {
         return timestamp;
+    }
+
+    public void setIsbn(Book book) {
+        this.book = book;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public void setTimestamp(Timestamp timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
     }
 
     @Override
@@ -50,7 +66,7 @@ public class Sale {
     public String toString() {
         return "Sale{" +
                 "saleId=" + saleId +
-                ", book=" + isbn +
+                ", book=" + book +
                 ", customer=" + customer +
                 ", timestamp=" + timestamp +
                 '}';
@@ -70,6 +86,38 @@ public class Sale {
         public Builder timestamp(Timestamp timestamp){
             this.timestamp=Timestamp.valueOf(String.valueOf(timestamp));
             return this;
+        }
+
+        public Builder book(Book book){
+
+            this.book=new Book.Builder()
+                    .isbn(book.getIsbn().getValue())
+                    .author(book.getAuthor().getValue())
+                    .popularity(book.getPopularity().getValue())
+                    .price(book.getPrice().getValue())
+                    .coverPhoto(book.getCoverPhoto().getBase64Values())
+                    .title(book.getTitle().getValue())
+                    .contents(book.getContents().getValue())
+                    .edition(book.getEdition().getValue())
+                    .reviews(book.getReviews().getValue())
+                    .build();
+            return this;
+
+
+
+            //this.isbn=BookRepository.GetById(value);
+            //return this;
+        }
+
+
+
+        public Sale build(){
+            Sale sale = new Sale(this.saleId);
+            sale.setTimestamp(timestamp);
+            sale.setCustomer(customer);
+            sale.setIsbn(isbn);
+            return sale;
+
         }
 
 

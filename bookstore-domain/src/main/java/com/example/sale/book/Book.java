@@ -1,8 +1,8 @@
-package com.example.domain.book;
+package com.example.sale.book;
 
 
-import com.example.domain.Category;
-import com.example.domain.Publisher;
+import com.example.sale.Category;
+import com.example.sale.Publisher;
 
 
 import java.util.Objects;

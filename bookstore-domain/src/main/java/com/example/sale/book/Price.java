@@ -1,6 +1,4 @@
-package com.example.domain.book;
-
-import java.util.Objects;
+package com.example.sale.book;
 
 public final class Price {
     private final double value;
