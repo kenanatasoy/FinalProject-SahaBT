@@ -6,6 +6,7 @@ import com.example.domain.Category;
 import java.util.Objects;
 
 public class Book {
+
     private Isbn isbn;
     private Title title;
     private Author author;
@@ -20,6 +21,7 @@ public class Book {
     private Category category;
 
     public static class Builder {
+
         private Isbn isbn;
         private Title title;
         private Author author;
@@ -32,7 +34,6 @@ public class Book {
         private CoverPhoto coverPhoto;
         private Popularity popularity;
         private Category category;
-
 
         public Builder isbn(String value) {
             this.isbn = Isbn.valueOf(value);
