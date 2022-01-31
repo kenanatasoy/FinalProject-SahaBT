@@ -24,7 +24,7 @@
       <module name="publisher-domain" target="1.5" />
       <module name="requisition-domain" target="17" />
       <module name="requisition-subdomain" target="17" />
-      <module name="sale-domain" target="1.5" />
+      <module name="sale-domain" target="7" />
       <module name="stock-subdomain" target="17" />
     </bytecodeTargetLevel>
   </component>

@@ -2,6 +2,8 @@ package com.example.domain.book;
 
 
 import com.example.domain.Category;
+import com.example.domain.Publisher;
+
 
 import java.util.Objects;
 
@@ -10,8 +12,8 @@ public class Book {
     private Isbn isbn;
     private Title title;
     private Author author;
-    private Publisher publisher;
     private Edition edition;
+    private Publisher publisher;
     private PublicationYear publicationYear;
     private Price price;
     private Reviews reviews;
@@ -51,7 +53,7 @@ public class Book {
         }
 
         public Builder publisher(String first, String last) {
-            this.publisher = Publisher.valueOf(first, last);
+            this.publisher = PublisherRepository.getByName(first, last);
             return this;
         }
 
@@ -91,7 +93,8 @@ public class Book {
         }
 
         public Builder category(String value) {
-            this.category = Category.valueOf(value);
+
+            this.category = CategoryRepository.getByName(value);
             return this;
         }
 
@@ -217,6 +220,15 @@ public class Book {
 
     public Book setCategory(Category category) {
         this.category = category;
+        return this;
+    }
+
+    public Isbn getIsbn() {
+        return isbn;
+    }
+
+    public Book setIsbn(Isbn isbn) {
+        this.isbn = isbn;
         return this;
     }
 

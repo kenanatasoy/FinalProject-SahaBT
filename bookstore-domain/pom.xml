@@ -14,6 +14,13 @@
         <artifactId>category-domain</artifactId>
         <version>1.0-SNAPSHOT</version>
     </dependency>
-</dependencies>
+        <dependency>
+            <groupId>groupId</groupId>
+            <artifactId>publisher-domain</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+
+    </dependencies>
 
 </project>
