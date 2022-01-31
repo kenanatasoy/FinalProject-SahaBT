@@ -12,5 +12,6 @@
     <orderEntry type="jdk" jdkName="17" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="bookstore-domain" />
+    <orderEntry type="library" name="Maven: groupId:category-domain:1.0-SNAPSHOT" level="project" />
   </component>
 </module>

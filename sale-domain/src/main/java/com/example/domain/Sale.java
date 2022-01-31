@@ -33,6 +33,19 @@ public class Sale {
         return timestamp;
     }
 
+    public void setIsbn(Book isbn) {
+        this.isbn = isbn;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public void setTimestamp(Timestamp timestamp) {
+        this.timestamp = timestamp;
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -58,7 +71,7 @@ public class Sale {
 
     public static class Builder{
         private SaleId saleId;
-        private Book book;
+        private Book isbn;
         private Customer customer;
         private Timestamp timestamp;
 
@@ -70,6 +83,27 @@ public class Sale {
         public Builder timestamp(Timestamp timestamp){
             this.timestamp=Timestamp.valueOf(String.valueOf(timestamp));
             return this;
+        }
+
+        public Builder book(Book book){
+
+            this.book=new Book.Builder()
+                    .getIsbn(book)
+                    .g
+
+            this.isbn=BookRepository.GetById(value);
+            return this;
+        }
+
+
+
+        public Sale build(){
+            Sale sale = new Sale(this.saleId);
+            sale.setTimestamp(timestamp);
+            sale.setCustomer(customer);
+            sale.setIsbn(isbn);
+            return sale;
+
         }
 
 

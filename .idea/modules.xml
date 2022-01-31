@@ -6,7 +6,6 @@
       <module fileurl="file://$PROJECT_DIR$/bookstore-domain/bookstore-domain.iml" filepath="$PROJECT_DIR$/bookstore-domain/bookstore-domain.iml" />
       <module fileurl="file://$PROJECT_DIR$/bookstore-microservice/bookstore-microservice.iml" filepath="$PROJECT_DIR$/bookstore-microservice/bookstore-microservice.iml" />
       <module fileurl="file://$PROJECT_DIR$/category-domain/category-domain.iml" filepath="$PROJECT_DIR$/category-domain/category-domain.iml" />
-      <module fileurl="file://$PROJECT_DIR$/customer-domain/customer-domain.iml" filepath="$PROJECT_DIR$/customer-domain/customer-domain.iml" />
       <module fileurl="file://$PROJECT_DIR$/publisher-domain/publisher-domain.iml" filepath="$PROJECT_DIR$/publisher-domain/publisher-domain.iml" />
       <module fileurl="file://$PROJECT_DIR$/sale-domain/sale-domain.iml" filepath="$PROJECT_DIR$/sale-domain/sale-domain.iml" />
     </modules>
