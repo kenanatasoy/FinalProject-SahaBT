@@ -1,13 +1,13 @@
-package com.example.sale;
+package com.example.category.domain;
 
-public class Id {
+public class CategoryId {
     private final int categoryId;
 
-    private Id(int categoryId) {
+    private CategoryId(int categoryId) {
         this.categoryId = categoryId;
     }
-    public static Id valueOf(int categoryId){
-        return new Id(categoryId);
+    public static CategoryId valueOf(int categoryId){
+        return new CategoryId(categoryId);
     }
 
     public int getCategoryId() {

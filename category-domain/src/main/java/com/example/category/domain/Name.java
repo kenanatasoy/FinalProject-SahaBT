@@ -1,4 +1,4 @@
-package com.example.sale;
+package com.example.category.domain;
 
 import java.util.Objects;
 

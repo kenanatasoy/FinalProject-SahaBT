@@ -1,4 +1,4 @@
-package com.example.sale;
+package com.example.publisher;
 
 import java.util.Objects;
 

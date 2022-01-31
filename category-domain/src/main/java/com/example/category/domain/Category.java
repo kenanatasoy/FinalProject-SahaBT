@@ -1,19 +1,19 @@
-package com.example.sale;
+package com.example.category.domain;
 
 import java.util.Objects;
 
 public class Category {
-    private Id id;
+    private CategoryId id;
     private Name name;
     private SubCategory subCategory;
 
     public static class Builder{
-        private Id id;
+        private CategoryId id;
         private Name name;
         private SubCategory subCategory;
 
         public Builder id(int categoryId) {
-            this.id = Id.valueOf(categoryId);
+            this.id = CategoryId.valueOf(categoryId);
             return this;
         }
 
@@ -36,15 +36,15 @@ public class Category {
 
     }
 
-    public Category(Id id) {
+    public Category(CategoryId id) {
         this.id = id;
     }
 
-    public Id getId() {
+    public CategoryId getId() {
         return id;
     }
 
-    public void setId(Id id) {
+    public void setId(CategoryId id) {
         this.id = id;
     }
 
