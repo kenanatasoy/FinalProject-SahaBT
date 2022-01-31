@@ -1,4 +1,4 @@
-package com.example.sale.book;
+package com.example.domain.book;
 
 public final class Contents {
     private final String value;

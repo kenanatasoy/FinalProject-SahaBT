@@ -1,6 +1,6 @@
 package com.example.sale.repository;
 
-import com.example.sale.book.Isbn;
+import com.example.domain.book.Isbn;
 import com.example.sale.domain.Sale;
 import com.example.sale.domain.SaleId;
 

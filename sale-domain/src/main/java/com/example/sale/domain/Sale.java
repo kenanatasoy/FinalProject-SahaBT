@@ -1,7 +1,7 @@
 package com.example.sale.domain;
 
 
-import com.example.sale.book.Book;
+import com.example.domain.book.Book;
 
 import java.util.Objects;
 import java.sql.Timestamp;
