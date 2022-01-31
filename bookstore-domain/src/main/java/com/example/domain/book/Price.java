@@ -6,4 +6,19 @@ public final class Price {
     public Price(double value) {
         this.value = value;
     }
+
+    public static Price valueOf(double value) {
+        return Price.valueOf(value);
+    }
+
+    public double getValue() {
+        return value;
+    }
+
+    @Override
+    public String toString() {
+        return "Price{" +
+                "value=" + value +
+                '}';
+    }
 }

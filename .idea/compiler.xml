@@ -15,7 +15,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="bookstore-domain" target="5" />
+      <module name="bookstore-domain" target="10" />
       <module name="bookstore-microservice" target="17" />
       <module name="category-domain" target="1.5" />
       <module name="customer-domain" target="1.5" />

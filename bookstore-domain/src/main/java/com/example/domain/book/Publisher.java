@@ -9,13 +9,16 @@ public final class Publisher {
         this.first = first;
         this.last = last;
     }
-    public static Publisher of(String first,String last) {
+    public static Publisher valueOf(String first,String last) {
         Objects.requireNonNull(first);
         Objects.requireNonNull(last);
         if(first.length()<2||last.length()<2)
             throw  new IllegalArgumentException("Fullname should have at least two characters");
         return new Publisher(first, last);
     }
+
+
+
     public String getFirst() {
         return first;
     }

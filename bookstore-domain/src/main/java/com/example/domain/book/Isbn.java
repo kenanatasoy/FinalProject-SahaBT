@@ -12,9 +12,14 @@ public final class Isbn {
         this.value = value;
     }
 
+    public String getValue() {
+        return value;
+    }
 
-    public static boolean isValid(String isbnn) {
-        char[] isbn =isbnn.toCharArray();
+
+
+    public static boolean isValid(String value) {
+        char[] isbn =value.toCharArray();
         int sum = 0;
         if(isbn.length == 10) {
             for(int i = 0; i < 10; i++) {
@@ -48,4 +53,23 @@ public final class Isbn {
         return isbn;
     }
 
+    @Override
+    public String toString() {
+        return "Isbn{" +
+                "value='" + value + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Isbn isbn = (Isbn) o;
+        return value.equals(isbn.value);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(value);
+    }
 }
