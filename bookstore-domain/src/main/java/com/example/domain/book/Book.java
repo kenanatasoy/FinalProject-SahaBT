@@ -46,19 +46,19 @@ public class Book {
             this.author=Author.valueOf(value);
             return this;}
 
-        public Builder publisher (String value) {
-            this.publisher=Publisher.valueOf(value);
+        public Builder publisher (String first,String last) {
+            this.publisher=Publisher.valueOf(first,last);
             return this;}
         public  Builder  edition(String value) {
             this.edition=Edition.valueOf(value);
             return this;}
-        public Builder publicationYear(String value) {
+        public Builder publicationYear(int value) {
             this.publicationYear=PublicationYear.valueOf(value);
             return this;}
-        public Builder price(String value) {
+        public Builder price(double value) {
             this.price=Price.valueOf(value);
             return this;}
-        public Builder reviews(String value) {
+        public Builder reviews(double value) {
             this.reviews=Reviews.valueOf(value);
             return this;}
         public Builder contents(String value) {
@@ -71,9 +71,7 @@ public class Book {
         public Builder  popularity(String value) {
             this.popularity=Popularity.valueOf(value);
             return this;}
-        public Builder  reviews(String value) {
-            this.reviews=Reviews.valueOf(value);
-            return this;}
+
         public Builder  category(String value) {
             this.category=Category.valueOf(value);
             return this;}
