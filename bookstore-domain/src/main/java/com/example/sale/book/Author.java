@@ -1,24 +1,24 @@
-package com.example.domain.book;
+package com.example.sale.book;
 
-public final class Title {
+public final class Author {
     private final String value;
 
-    private Title(String value) {
+    public Author(String value) {
         this.value = value;
+    }
+    public  static  Author valueOf(String value){
+        return Author.valueOf(value);
     }
 
     public String getValue() {
         return value;
     }
-    public  static Title valueOf(String value){
-        return Title.valueOf(value);
-    }
-
 
     @Override
     public String toString() {
-        return "Title{" +
+        return "Author{" +
                 "value='" + value + '\'' +
                 '}';
     }
 }
+

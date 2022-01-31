@@ -1,6 +1,6 @@
 package com.example.order.domain;
 
-import com.example.domain.book.Book;
+import com.example.sale.book.Book;
 
 import java.util.Objects;
 
