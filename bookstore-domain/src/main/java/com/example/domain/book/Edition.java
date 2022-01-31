@@ -1,23 +1,23 @@
-package com.example.sale.book;
+package com.example.domain.book;
 
-public final class Title {
+public final class Edition {
     private final String value;
 
-    private Title(String value) {
+   private Edition(String value) {
         this.value = value;
+    }
+
+    public static Edition valueOf(String value) {
+       return Edition.valueOf(value);
     }
 
     public String getValue() {
         return value;
     }
-    public  static Title valueOf(String value){
-        return Title.valueOf(value);
-    }
-
 
     @Override
     public String toString() {
-        return "Title{" +
+        return "Edition{" +
                 "value='" + value + '\'' +
                 '}';
     }
