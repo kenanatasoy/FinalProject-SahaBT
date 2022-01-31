@@ -9,7 +9,7 @@ import java.util.Optional;
 public class StandardRequisitionApplication implements RequisitionApplication {
 
     @Override
-    public Requisition makeOrder(Requisition order) {
+    public Requisition makeRequisition(Requisition requisition) {
         return null;
     }
 

@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface RequisitionApplication {
 
-    Requisition makeOrder(Requisition order);
+    Requisition makeRequisition(Requisition order);
     Optional<Requisition> findOrderById(RequisitionId orderId);
 
 
