@@ -7,19 +7,25 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="publisher-domain" />
+        <module name="bookstore-domain" />
         <module name="bookstore-microservice" />
+        <module name="requisition-subdomain" />
         <module name="sale-domain" />
         <module name="category-domain" />
-        <module name="bookstore-domain" />
+        <module name="stock-subdomain" />
+        <module name="order-subdomain" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="bookstore-domain" target="1.5" />
       <module name="bookstore-microservice" target="17" />
       <module name="category-domain" target="1.5" />
-      <module name="customer-domain" target="1.5" />
+      <module name="order-subdomain" target="17" />
       <module name="publisher-domain" target="1.5" />
+      <module name="requisition-domain" target="17" />
+      <module name="requisition-subdomain" target="17" />
       <module name="sale-domain" target="1.5" />
+      <module name="stock-subdomain" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

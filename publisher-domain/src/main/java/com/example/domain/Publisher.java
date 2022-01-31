@@ -1,6 +1,7 @@
 package com.example.domain;
 
 public class Publisher {
+
     private PublisherId publisherId;
     private PublisherName name;
     private PublisherLogo logo;

@@ -11,7 +11,7 @@ public final class Email {
         this.value = value;
     }
 
-    public static Email valueOf(String value){
+    public static Email valueOf(String value) {
         if (!patternMatches(value))
             throw new IllegalArgumentException("Email must follow the mail standards");
         return new Email(value);

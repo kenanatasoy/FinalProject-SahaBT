@@ -7,7 +7,8 @@
     <groupId>groupId</groupId>
     <artifactId>bookstore-domain</artifactId>
     <version>1.0-SNAPSHOT</version>
-<dependencies>
+
+    <dependencies>
     <dependency>
         <groupId>groupId</groupId>
         <artifactId>category-domain</artifactId>

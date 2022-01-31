@@ -8,7 +8,7 @@ public final class Location {
         this.value = value;
     }
 
-    public static Location valueOf(String value){
+    public static Location valueOf(String value) {
         return new Location(value);
     }
 

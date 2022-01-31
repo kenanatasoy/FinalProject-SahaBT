@@ -7,8 +7,8 @@ public final class Epurse {
         this.value = value;
     }
 
-    public static Epurse valueOf(double value){
-        if(value<0)
+    public static Epurse valueOf(double value) {
+        if (value < 0)
             throw new IllegalArgumentException("Value must be bigger than 0");
         return new Epurse(value);
     }

@@ -10,7 +10,7 @@ public final class Interest {
         this.interest = interest;
     }
 
-    public static Interest valueOf(String interest){
+    public static Interest valueOf(String interest) {
         if (Objects.isNull(interest))
             throw new IllegalArgumentException("Currency can not be null");
         return new Interest(interest);

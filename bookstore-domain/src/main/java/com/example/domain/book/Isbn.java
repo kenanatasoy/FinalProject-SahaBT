@@ -53,6 +53,7 @@ public final class Isbn {
         return isbn;
     }
 
+
     @Override
     public String toString() {
         return "Isbn{" +
@@ -72,4 +73,5 @@ public final class Isbn {
     public int hashCode() {
         return Objects.hash(value);
     }
+
 }
