@@ -2,7 +2,7 @@ package com.example.sale.application.business;
 
 import com.example.sale.application.SaleService;
 import com.example.sale.application.business.exception.SaleNotFoundException;
-import com.example.sale.book.Isbn;
+import com.example.domain.book.Isbn;
 import com.example.sale.domain.Sale;
 import com.example.sale.domain.SaleId;
 import com.example.sale.repository.SaleRepository;

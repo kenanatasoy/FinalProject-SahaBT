@@ -1,4 +1,4 @@
-package com.example.sale.book;
+package com.example.domain.book;
 
 
 import com.example.sale.Category;

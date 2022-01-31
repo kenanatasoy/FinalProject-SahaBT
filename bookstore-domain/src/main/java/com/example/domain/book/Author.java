@@ -1,14 +1,13 @@
-package com.example.sale.book;
+package com.example.domain.book;
 
-public final class Edition {
+public final class Author {
     private final String value;
 
-   private Edition(String value) {
+    public Author(String value) {
         this.value = value;
     }
-
-    public static Edition valueOf(String value) {
-       return Edition.valueOf(value);
+    public  static  Author valueOf(String value){
+        return Author.valueOf(value);
     }
 
     public String getValue() {
@@ -17,8 +16,9 @@ public final class Edition {
 
     @Override
     public String toString() {
-        return "Edition{" +
+        return "Author{" +
                 "value='" + value + '\'' +
                 '}';
     }
 }
+

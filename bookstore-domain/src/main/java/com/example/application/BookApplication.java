@@ -1,7 +1,7 @@
 package com.example.application;
 
-import com.example.sale.book.Book;
-import com.example.sale.book.Isbn;
+import com.example.domain.book.Book;
+import com.example.domain.book.Isbn;
 
 import java.util.Optional;
 
