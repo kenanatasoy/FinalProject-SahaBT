@@ -1,5 +1,7 @@
 package com.example.domain.book;
 
+import java.util.Objects;
+
 public final class Price {
     private final double value;
 
@@ -8,8 +10,11 @@ public final class Price {
     }
 
     public static Price valueOf(double value) {
-        return Price.valueOf(value);
+        if(value<=0.0)
+            throw new IllegalArgumentException("Price cannot be zero or negative");
+        return new Price(value);
     }
+
 
     public double getValue() {
         return value;
