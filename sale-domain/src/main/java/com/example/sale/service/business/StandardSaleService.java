@@ -3,8 +3,10 @@ package com.example.sale.service.business;
 import com.example.domain.book.Isbn;
 import com.example.sale.domain.Sale;
 import com.example.sale.domain.SaleId;
+import com.example.sale.infrastructure.EventPublisher;
 import com.example.sale.repository.SaleRepository;
 import com.example.sale.service.SaleService;
+import com.example.sale.service.business.events.SaleMakeSaleEvent;
 import com.example.sale.service.business.exception.SaleNotFoundException;
 import com.example.stock.domain.StockNumber;
 import com.example.stock.service.StockService;
@@ -15,11 +17,12 @@ public class StandardSaleService implements SaleService {
 
 
     private final SaleRepository saleRepository;
-    private final StockService stockService;
+  private EventPublisher eventPublisher;
 
-    public StandardSaleService(SaleRepository saleRepository, StockService stockService) {
+    public StandardSaleService(SaleRepository saleRepository,EventPublisher eventPublisher) {
         this.saleRepository = saleRepository;
-        this.stockService = stockService;
+        this.eventPublisher=eventPublisher;
+
     }
 
     @Override
@@ -45,12 +48,8 @@ public class StandardSaleService implements SaleService {
             throw new SaleNotFoundException("Order already exists", saleId.getSaleId());
         Sale savedSale = saleRepository.saveSale(sale);
         //TODO stock-domain yazıldığında burada kitap satılınca stockdan düşecek kodu yaz.
-
-      //  var stock = stockService.findStockByBookIsbn(sale.getBook().getIsbn());
-     //   stock.sellFromStock(StockNumber.of(1).getValue());
-
-      //  stockService.updateStockInfo(stock);
-        //TODO burası komple hocaya sorulacak.
+        var businessEvent= new SaleMakeSaleEvent(savedSale);
+        eventPublisher.publishEvent(businessEvent);
         return savedSale;
     }
 
