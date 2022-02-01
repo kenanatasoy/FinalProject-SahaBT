@@ -41,12 +41,12 @@ public class StandardSaleService implements SaleService {
     //TODO customer için de getByCustomerId yapılacak.
 
     @Override
-    public Sale makeSale(Sale sale) {
+    public Sale makeSale(Sale sale,int amount) {
         var saleId = sale.getSaleId();
         if (saleRepository.existBySaleId(saleId))
             throw new SaleNotFoundException("Order already exists", saleId.getSaleId());
         Sale savedSale = saleRepository.saveSale(sale);
-        var businessEvent= new MakeSaleEvent(savedSale);
+        var businessEvent= new MakeSaleEvent(savedSale,amount);
         eventPublisher.publishEvent(businessEvent);
         return savedSale;
     }
