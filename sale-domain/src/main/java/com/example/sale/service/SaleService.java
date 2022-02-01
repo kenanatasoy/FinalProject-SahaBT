@@ -13,7 +13,7 @@ public interface SaleService {
 
     List<Sale> getByBookId(Isbn isbn);
 
-    Sale makeSale(Sale sale);
+    Sale makeSale(Sale sale,int amount);
 
     List<Sale> listSales();
 
