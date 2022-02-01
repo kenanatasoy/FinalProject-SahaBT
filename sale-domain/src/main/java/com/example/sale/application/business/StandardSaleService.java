@@ -7,6 +7,8 @@ import com.example.sale.domain.Sale;
 import com.example.sale.domain.SaleId;
 import com.example.sale.repository.SaleRepository;
 
+import java.util.List;
+
 public class StandardSaleService implements SaleService {
 
     private SaleRepository saleRepository;
@@ -39,4 +41,17 @@ public class StandardSaleService implements SaleService {
         Sale savedSale = saleRepository.saveSale(sale);
         return savedSale;
     }
+
+    @Override
+    public List<Sale> listSales() {
+        return saleRepository.listSales();
+    }
+
+    @Override
+    public Sale getByCustomerId(Identity customerId) {
+
+        return null;
+    }
+
+
 }
