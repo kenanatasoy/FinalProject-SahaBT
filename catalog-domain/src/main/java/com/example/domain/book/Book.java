@@ -1,9 +1,9 @@
 package com.example.domain.book;
 
 
-import com.example.sale.Category;
-import com.example.sale.Publisher;
-
+import com.example.category.domain.CategoryId;
+import com.example.publisher.PublisherId;
+import com.example.shared.domain.Isbn;
 
 import java.util.Objects;
 
@@ -13,21 +13,21 @@ public class Book {
     private Title title;
     private Author author;
     private Edition edition;
-    private Publisher publisher;
+    private PublisherId publisherId;
     private PublicationYear publicationYear;
     private Price price;
     private Reviews reviews;
     private Contents contents;
     private CoverPhoto coverPhoto;
     private Popularity popularity;
-    private Category category;
+    private CategoryId categoryId;
 
     public static class Builder {
 
         private Isbn isbn;
         private Title title;
         private Author author;
-        private Publisher publisher;
+        private PublisherId publisherId;
         private Edition edition;
         private PublicationYear publicationYear;
         private Price price;
@@ -35,7 +35,7 @@ public class Book {
         private Contents contents;
         private CoverPhoto coverPhoto;
         private Popularity popularity;
-        private Category category;
+        private CategoryId categoryId;
 
         public Builder isbn(String value) {
             this.isbn = Isbn.valueOf(value);
@@ -52,8 +52,8 @@ public class Book {
             return this;
         }
 
-        public Builder publisher(String first, String last) {
-            this.publisher = PublisherRepository.getByName(first, last);
+        public Builder publisherId(int value) {
+            this.publisherId = PublisherId.valueOf(value);
             return this;
         }
 
@@ -92,17 +92,17 @@ public class Book {
             return this;
         }
 
-        public Builder category(String value) {
+        public Builder categoryId(int value) {
 
-            this.category = CategoryRepository.getByName(value);
+            this.categoryId = CategoryId.valueOf(value);
             return this;
         }
 
 
-        public Book build(){
-            var book =new Book(this.isbn);
+        public Book build() {
+            var book = new Book(this.isbn);
             book.setAuthor(author);
-            book.setCategory(category);
+            book.setCategory(categoryId);
             book.setContents(contents);
             book.setEdition(edition);
             book.setCoverPhoto(coverPhoto);
@@ -111,7 +111,7 @@ public class Book {
             book.setReviews(reviews);
             book.setTitle(title);
             book.setPrice(price);
-            book.setPublisher(publisher);
+            book.setPublisher(publisherId);
             return book;
 
         }
@@ -142,12 +142,12 @@ public class Book {
         return this;
     }
 
-    public Publisher getPublisher() {
-        return publisher;
+    public PublisherId getPublisher() {
+        return publisherId;
     }
 
-    public Book setPublisher(Publisher publisher) {
-        this.publisher = publisher;
+    public Book setPublisher(PublisherId publisherId) {
+        this.publisherId = publisherId;
         return this;
     }
 
@@ -214,12 +214,12 @@ public class Book {
         return this;
     }
 
-    public Category getCategory() {
-        return category;
+    public CategoryId getCategory() {
+        return categoryId;
     }
 
-    public Book setCategory(Category category) {
-        this.category = category;
+    public Book setCategory(CategoryId categoryId) {
+        this.categoryId = categoryId;
         return this;
     }
 
@@ -233,35 +233,33 @@ public class Book {
     }
 
     @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-            Builder builder = (Builder) o;
-            return isbn.equals(builder.isbn);
-        }
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Builder builder = (Builder) o;
+        return isbn.equals(builder.isbn);
+    }
 
-        @Override
-        public int hashCode() {
-            return Objects.hash(isbn);
-        }
+    @Override
+    public int hashCode() {
+        return Objects.hash(isbn);
+    }
 
-        @Override
-        public String toString() {
-            return "Builder{" +
-                    "isbn=" + isbn +
-                    ", title=" + title +
-                    ", author=" + author +
-                    ", publisher=" + publisher +
-                    ", edition=" + edition +
-                    ", publicationYear=" + publicationYear +
-                    ", price=" + price +
-                    ", reviews=" + reviews +
-                    ", contents=" + contents +
-                    ", popularity=" + popularity +
-                    ", reviews=" + reviews +
-                    ", category=" + category +
-                    '}';
-        }
-
+    @Override
+    public String toString() {
+        return "Book{" +
+                "isbn=" + isbn +
+                ", title=" + title +
+                ", author=" + author +
+                ", edition=" + edition +
+                ", publisherId=" + publisherId +
+                ", publicationYear=" + publicationYear +
+                ", price=" + price +
+                ", reviews=" + reviews +
+                ", contents=" + contents +
+                ", popularity=" + popularity +
+                ", categoryId=" + categoryId +
+                '}';
+    }
 }
 

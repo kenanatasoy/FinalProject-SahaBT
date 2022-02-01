@@ -11,8 +11,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="bookstore-domain" />
-    <orderEntry type="module" module-name="category-domain" />
-    <orderEntry type="module" module-name="publisher-domain" />
+    <orderEntry type="library" name="Maven: groupId:bookstore-domain:1.0-SNAPSHOT" level="project" />
   </component>
 </module>

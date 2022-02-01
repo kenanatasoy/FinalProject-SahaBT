@@ -12,6 +12,8 @@
         <option value="$PROJECT_DIR$/order-subdomain/pom.xml" />
         <option value="$PROJECT_DIR$/requisition-subdomain/pom.xml" />
         <option value="$PROJECT_DIR$/stock-subdomain/pom.xml" />
+        <option value="$PROJECT_DIR$/shared-kernel/pom.xml" />
+        <option value="$PROJECT_DIR$/catalog-domain/pom.xml" />
       </list>
     </option>
   </component>

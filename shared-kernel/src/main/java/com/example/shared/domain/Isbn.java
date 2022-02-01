@@ -1,4 +1,4 @@
-package com.example.domain.book;
+package com.example.shared.domain;
 
 import java.util.HashMap;
 import java.util.Map;
