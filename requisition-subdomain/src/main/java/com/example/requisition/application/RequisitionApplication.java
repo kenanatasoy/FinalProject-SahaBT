@@ -1,7 +1,7 @@
 package com.example.requisition.application;
 
-import com.example.requisition.domain.Requisition;
-import com.example.requisition.domain.RequisitionId;
+import com.example.requisition.application.business.domain.Requisition;
+import com.example.requisition.application.business.domain.RequisitionId;
 
 import java.util.List;
 

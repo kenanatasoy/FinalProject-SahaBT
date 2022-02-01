@@ -9,8 +9,8 @@
         <module name="publisher-domain" />
         <module name="catalog-domain" />
         <module name="shared-kernel" />
-        <module name="bookstore-microservice" />
         <module name="requisition-subdomain" />
+        <module name="bookstore-microservice" />
         <module name="sale-domain" />
         <module name="category-domain" />
         <module name="stock-subdomain" />

@@ -1,4 +1,4 @@
-package com.example.requisition.domain;
+package com.example.requisition.application.business.domain;
 
 import java.util.Objects;
 

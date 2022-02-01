@@ -1,6 +1,4 @@
-package com.example.requisition.domain;
-
-import com.example.publisher.Publisher;
+package com.example.requisition.application.business.domain;
 
 import java.util.Objects;
 
@@ -8,12 +6,12 @@ public class Requisition {
 
     private final RequisitionId requisitionId;
     private final Isbn isbn;
-    private final Publisher publisher;
+    private final PublisherId publisherId;
 
-    private Requisition(RequisitionId requisitionId, Isbn isbn, Publisher publisher) {
+    private Requisition(RequisitionId requisitionId, Isbn isbn, PublisherId publisherId) {
         this.requisitionId = requisitionId;
         this.isbn = isbn;
-        this.publisher = publisher;
+        this.publisherId = publisherId;
     }
 
     public RequisitionId getRequisitionId() {
@@ -24,8 +22,8 @@ public class Requisition {
         return isbn;
     }
 
-    public Publisher getPublisher() {
-        return publisher;
+    public PublisherId getPublisherId() {
+        return publisherId;
     }
 
     @Override
@@ -50,7 +48,7 @@ public class Requisition {
         return "Requisition{" +
                 "requisitionId=" + requisitionId +
                 ", isbn=" + isbn +
-                ", publisher=" + publisher +
+                ", publisherId=" + publisherId +
                 '}';
     }
 
@@ -58,9 +56,9 @@ public class Requisition {
 
         private RequisitionId requisitionId;
         private Isbn isbn;
-        private Publisher publisher;
+        private PublisherId publisherId;
 
-        public Builder requsitionId(Long value){
+        public Builder requisitionId(Long value){
             this.requisitionId = RequisitionId.of(value);
             return this;
         }
@@ -70,17 +68,13 @@ public class Requisition {
             return this;
         }
 
-        public Builder publisher(Publisher publisher){
-            this.publisher = new Publisher.Builder()
-                    .publisherId(publisher.getId())
-                    .name(publisher.getName())
-                    .logo(publisher.getLogo().getValues())
-                    .build();
+        public Builder publisher(PublisherId publisherId){
+            this.publisherId = PublisherId.valueOf(publisherId);
             return this;
         }
 
         public Requisition build(){
-            return new Requisition(requisitionId, isbn, publisher);
+            return new Requisition(requisitionId, isbn, publisherId);
         }
 
 

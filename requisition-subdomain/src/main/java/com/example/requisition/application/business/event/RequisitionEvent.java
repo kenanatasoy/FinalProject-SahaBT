@@ -1,6 +1,6 @@
 package com.example.requisition.application.business.event;
 
-import com.example.requisition.domain.Requisition;
+import com.example.requisition.application.business.domain.Requisition;
 
 import java.util.UUID;
 

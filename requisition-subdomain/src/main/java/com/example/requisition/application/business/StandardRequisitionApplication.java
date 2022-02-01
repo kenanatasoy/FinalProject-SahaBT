@@ -2,8 +2,8 @@ package com.example.requisition.application.business;
 
 import com.example.requisition.application.RequisitionApplication;
 import com.example.requisition.application.business.exception.RequisitionNotFoundException;
-import com.example.requisition.domain.Requisition;
-import com.example.requisition.domain.RequisitionId;
+import com.example.requisition.application.business.domain.Requisition;
+import com.example.requisition.application.business.domain.RequisitionId;
 import com.example.requisition.repository.RequisitionRepository;
 
 import java.util.List;
