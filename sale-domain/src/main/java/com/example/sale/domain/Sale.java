@@ -6,7 +6,7 @@ import com.example.shared.domain.Isbn;
 import java.sql.Timestamp;
 import java.util.Objects;
 
-
+//TODO customerId için gerekli işlemleri yapmayı unutma hem domain de hem standardServicede.
 public class Sale {
     private  SaleId saleId;
     private  Isbn isbn;
