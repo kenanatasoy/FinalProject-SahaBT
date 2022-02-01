@@ -1,15 +1,14 @@
 package com.example.sale.service.business;
 
-import com.example.domain.book.Isbn;
+
 import com.example.sale.domain.Sale;
 import com.example.sale.domain.SaleId;
 import com.example.sale.infrastructure.EventPublisher;
 import com.example.sale.repository.SaleRepository;
 import com.example.sale.service.SaleService;
-import com.example.sale.service.business.events.SaleMakeSaleEvent;
+import com.example.sale.service.business.events.MakeSaleEvent;
 import com.example.sale.service.business.exception.SaleNotFoundException;
-import com.example.stock.domain.StockNumber;
-import com.example.stock.service.StockService;
+import com.example.shared.domain.Isbn;
 
 import java.util.List;
 
@@ -47,8 +46,7 @@ public class StandardSaleService implements SaleService {
         if (saleRepository.existBySaleId(saleId))
             throw new SaleNotFoundException("Order already exists", saleId.getSaleId());
         Sale savedSale = saleRepository.saveSale(sale);
-        //TODO stock-domain yazıldığında burada kitap satılınca stockdan düşecek kodu yaz.
-        var businessEvent= new SaleMakeSaleEvent(savedSale);
+        var businessEvent= new MakeSaleEvent(savedSale);
         eventPublisher.publishEvent(businessEvent);
         return savedSale;
     }

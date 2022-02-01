@@ -2,7 +2,7 @@ package com.example.publisher;
 
 public class Publisher {
 
-    private PublisherId publisherId;
+    private final PublisherId publisherId;
     private PublisherName name;
     private PublisherLogo logo;
 
@@ -38,8 +38,12 @@ public class Publisher {
         }
     }
 
-    public Publisher(PublisherId publisherId) {
+    private Publisher(PublisherId publisherId) {
         this.publisherId = publisherId;
+    }
+
+    public PublisherId getPublisherId() {
+        return publisherId;
     }
 
     public PublisherName getName() {

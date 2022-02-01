@@ -1,53 +1,55 @@
 package com.example.sale.domain;
 
 
-import com.example.domain.book.Book;
+import com.example.shared.domain.Isbn;
 
-import java.util.Objects;
 import java.sql.Timestamp;
+import java.util.Objects;
 
 
 public class Sale {
-    private SaleId saleId;
-    private Book book;
-    private Customer customer;
-    private Timestamp timestamp= new Timestamp(System.currentTimeMillis());
+    private  SaleId saleId;
+    private  Isbn isbn;
+    private  CustomerId customerId;
+    private  Timestamp timestamp;
 
-
-    private Sale(SaleId saleId) {
+    private Sale(SaleId saleId, Isbn isbn, CustomerId customerId) {
         this.saleId = saleId;
+        this.isbn = isbn;
+        this.customerId = customerId;
+        this.timestamp = new Timestamp(System.currentTimeMillis());
     }
 
     public SaleId getSaleId() {
         return saleId;
     }
 
-    public Book getBook() {
-        return book;
+    public Isbn getIsbn() {
+        return isbn;
     }
 
-    public Customer getCustomer() {
-        return customer;
+    public CustomerId getCustomerId() {
+        return customerId;
     }
 
     public Timestamp getTimestamp() {
         return timestamp;
     }
 
-    public void setIsbn(Book book) {
-        this.book = book;
+    public void setSaleId(SaleId saleId) {
+        this.saleId = saleId;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public void setIsbn(Isbn isbn) {
+        this.isbn = isbn;
+    }
+
+    public void setCustomerId(CustomerId customerId) {
+        this.customerId = customerId;
     }
 
     public void setTimestamp(Timestamp timestamp) {
         this.timestamp = timestamp;
-    }
-
-    public void setBook(Book book) {
-        this.book = book;
     }
 
     @Override
@@ -67,56 +69,37 @@ public class Sale {
     public String toString() {
         return "Sale{" +
                 "saleId=" + saleId +
-                ", book=" + book +
-                ", customer=" + customer +
+                ", isbn=" + isbn +
+                ", customerId=" + customerId +
                 ", timestamp=" + timestamp +
                 '}';
     }
 
-    public static class Builder{
+    public static class Builder {
         private SaleId saleId;
-        private Book book;
-        private Customer customer;
+        private Isbn isbn;
+        private CustomerId customerId;
         private Timestamp timestamp;
 
-        public Builder saleId(int saleId){
-            this.saleId=SaleId.valueOf(saleId);
+        public Builder saleId(int saleId) {
+            this.saleId = SaleId.valueOf(saleId);
             return this;
         }
 
-        public Builder timestamp(Timestamp timestamp){
-            this.timestamp=Timestamp.valueOf(String.valueOf(timestamp));
+        public Builder timestamp(Timestamp timestamp) {
+            this.timestamp = Timestamp.valueOf(String.valueOf(timestamp));
             return this;
         }
 
-        public Builder book(Book book){
-
-            this.book=new Book.Builder()
-                    .isbn(book.getIsbn().getValue())
-                    .author(book.getAuthor().getValue())
-                    .popularity(book.getPopularity().getValue())
-                    .price(book.getPrice().getValue())
-                    .coverPhoto(book.getCoverPhoto().getBase64Values())
-                    .title(book.getTitle().getValue())
-                    .contents(book.getContents().getValue())
-                    .edition(book.getEdition().getValue())
-                    .reviews(book.getReviews().getValue())
-                    .build();
+        public Builder isbn(Isbn isbn) {
+            this.isbn = Isbn.valueOf(isbn.getValue());
             return this;
-
-
-
-            //this.isbn=BookRepository.GetById(value);
-            //return this;
         }
 
 
+        public Sale build() {
+            Sale sale = new Sale(this.saleId,this.isbn,this.customerId);
 
-        public Sale build(){
-            Sale sale = new Sale(this.saleId);
-            sale.setTimestamp(timestamp);
-            sale.setCustomer(customer);
-            sale.setIsbn(book);
             return sale;
 
         }
