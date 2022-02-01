@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: groupId:bookstore-domain:1.0-SNAPSHOT">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../DEVEL/stage/var/repository/groupId/bookstore-domain/1.0-SNAPSHOT/bookstore-domain-1.0-SNAPSHOT.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/groupId/bookstore-domain/1.0-SNAPSHOT/bookstore-domain-1.0-SNAPSHOT.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$PROJECT_DIR$/../DEVEL/stage/var/repository/groupId/bookstore-domain/1.0-SNAPSHOT/bookstore-domain-1.0-SNAPSHOT-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/groupId/bookstore-domain/1.0-SNAPSHOT/bookstore-domain-1.0-SNAPSHOT-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$PROJECT_DIR$/../DEVEL/stage/var/repository/groupId/bookstore-domain/1.0-SNAPSHOT/bookstore-domain-1.0-SNAPSHOT-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/groupId/bookstore-domain/1.0-SNAPSHOT/bookstore-domain-1.0-SNAPSHOT-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

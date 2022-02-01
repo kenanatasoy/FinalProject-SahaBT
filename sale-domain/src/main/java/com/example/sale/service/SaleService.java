@@ -1,8 +1,9 @@
 package com.example.sale.service;
 
-import com.example.domain.book.Isbn;
+
 import com.example.sale.domain.Sale;
 import com.example.sale.domain.SaleId;
+import com.example.shared.domain.Isbn;
 
 import java.util.List;
 

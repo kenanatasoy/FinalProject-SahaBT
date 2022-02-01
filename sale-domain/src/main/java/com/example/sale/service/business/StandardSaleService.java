@@ -1,6 +1,6 @@
 package com.example.sale.service.business;
 
-import com.example.domain.book.Isbn;
+
 import com.example.sale.domain.Sale;
 import com.example.sale.domain.SaleId;
 import com.example.sale.infrastructure.EventPublisher;
@@ -8,6 +8,7 @@ import com.example.sale.repository.SaleRepository;
 import com.example.sale.service.SaleService;
 import com.example.sale.service.business.events.MakeSaleEvent;
 import com.example.sale.service.business.exception.SaleNotFoundException;
+import com.example.shared.domain.Isbn;
 
 import java.util.List;
 
