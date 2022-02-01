@@ -18,6 +18,8 @@ public interface SaleRepository {
     Optional<Sale> findByBookIsbn(Isbn isbn);
     Optional<Sale> findByCustomerId(Identity customerId);
 
+    Boolean  existByBookId(Isbn bookId);
+
      Sale saveSale(Sale sale);
 
 }

@@ -6,6 +6,7 @@ import com.example.domain.book.Isbn;
 import com.example.sale.domain.Sale;
 import com.example.sale.domain.SaleId;
 import com.example.sale.repository.SaleRepository;
+import jdk.incubator.foreign.SymbolLookup;
 
 import java.util.List;
 
@@ -30,7 +31,13 @@ public class StandardSaleService implements SaleService {
 
     @Override
     public Sale getByBookId(Isbn isbn) {
-        return null;
+
+        if(saleRepository.existByBookId(isbn))
+           System.out.println("deneme get book ıd");
+        //throw new exception
+
+        var book = saleRepository.findByBookIsbn(isbn).get();
+        return book;
     }
 
     @Override
