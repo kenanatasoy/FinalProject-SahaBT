@@ -4,16 +4,21 @@ import com.example.domain.book.Isbn;
 import com.example.sale.domain.Sale;
 import com.example.sale.domain.SaleId;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface SaleRepository {
 
-    Boolean  existBySaleId(SaleId saleId);
+    Boolean existBySaleId(SaleId saleId);
 
-     Optional<Sale> findBySaleId(SaleId saleId);
+    Optional<Sale> findBySaleId(SaleId saleId);
 
-    Optional<Sale> findByBookIsbn(Isbn isbn);
+    List<Sale> listSales();
 
-     Sale saveSale(Sale sale);
+    List<Sale> findByBookIsbn(Isbn isbn);
+
+   // List<Sale> findByCustomerId(Identity customerId);
+
+    Sale saveSale(Sale sale);
 
 }
