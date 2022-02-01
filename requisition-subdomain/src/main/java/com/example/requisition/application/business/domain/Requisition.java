@@ -69,7 +69,7 @@ public class Requisition {
         }
 
         public Builder publisher(PublisherId publisherId){
-            this.publisherId = PublisherId.valueOf(publisherId);
+            this.publisherId = PublisherId.valueOf(publisherId.getPublisherId());
             return this;
         }
 

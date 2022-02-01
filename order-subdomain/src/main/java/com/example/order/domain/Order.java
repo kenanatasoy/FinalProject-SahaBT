@@ -1,18 +1,18 @@
 package com.example.order.domain;
 
-import com.example.domain.book.Book;
+import com.example.shared.domain.Isbn;
 
 import java.util.Objects;
 
 public class Order {
 
     private final OrderId orderId;
-    private final Customer customer;
-    private final Book book;
+    private final CustomerId customerId;
+    private final Isbn book;
 
-    private Order(OrderId orderId, Customer customer, Book book) {
+    private Order(OrderId orderId, CustomerId customerId, Isbn book) {
         this.orderId = orderId;
-        this.customer = customer;
+        this.customerId = customerId;
         this.book = book;
     }
 
@@ -20,11 +20,11 @@ public class Order {
         return orderId;
     }
 
-    public Customer getCustomer() {
-        return customer;
+    public CustomerId getCustomerId() {
+        return customerId;
     }
 
-    public Book getBook() {
+    public Isbn getBook() {
         return book;
     }
 
@@ -62,7 +62,7 @@ public class Order {
     public String toString() {
         return "Order{" +
                 "orderId=" + orderId +
-                ", customer=" + customer +
+                ", customerId=" + customerId +
                 ", book=" + book +
                 '}';
     }
@@ -70,27 +70,26 @@ public class Order {
     public static class Builder {
 
         private OrderId orderId;
-        private Customer customer;
-        private Book book;
+        private CustomerId customerId;
+        private Isbn book;
 
         public Builder orderId(String value) {
             this.orderId = OrderId.of(value);
             return this;
         }
 
-        public Builder customer(Customer customer) {
-            this.customer = Customer.valueOf(value);
+        public Builder customer(CustomerId customerId) {
+            this.customerId = CustomerId.valueOf(customerId);
             return this;
         }
 
-        public Builder book(Book book){
-            this.book = Book.valueOf(book);
+        public Builder isbn(Isbn isbn){
+            this.isbn = Isbn.valueOf(isbn.getValue());
             return this;
         }
 
         public Order build() {
-            var order = new Order(orderId, customer, book);
-            return order;
+            return new Order(orderId, customerId, book);
         }
 
     }

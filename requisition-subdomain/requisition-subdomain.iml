@@ -11,7 +11,5 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="publisher-domain" />
-    <orderEntry type="module" module-name="order-subdomain" />
   </component>
 </module>
