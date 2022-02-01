@@ -1,6 +1,6 @@
 package com.example.requisition.domain;
 
-import com.example.sale.Publisher;
+import com.example.publisher.Publisher;
 
 import java.util.Objects;
 

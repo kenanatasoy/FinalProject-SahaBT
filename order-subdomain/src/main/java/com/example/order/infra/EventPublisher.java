@@ -1,7 +1,9 @@
 package com.example.order.infra;
 
 
-public interface EventPublisher<OrderMadeEvent> {
+import com.example.order.application.business.event.OrderMadeEvent;
+
+public interface EventPublisher {
 
     void publishEvent(OrderMadeEvent businessEvent);
 

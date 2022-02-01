@@ -3,6 +3,7 @@ package com.example.stock.domain;
 import java.util.Objects;
 
 public final class StockKeepingUnit {
+
 	private final String value;
 
 	private StockKeepingUnit(String value) {
