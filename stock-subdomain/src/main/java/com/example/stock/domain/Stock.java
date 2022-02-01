@@ -98,7 +98,6 @@ public class Stock {
 
 		public Stock build() {
 			var stock = new Stock(sku, isbn, numberOfBooksLeft, numberOfBooksSold);
-
 			return stock;
 		}
 	}

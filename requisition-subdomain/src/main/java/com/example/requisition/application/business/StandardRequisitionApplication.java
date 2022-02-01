@@ -25,7 +25,7 @@ public class StandardRequisitionApplication implements RequisitionApplication {
     @Override
     public Requisition findRequisitionById(RequisitionId requisitionId) {
         return requisitionRepository.findOneById(requisitionId)
-                .orElseThrow(() -> new RequisitionNotFoundException("Requsition has not been found", requisitionId.getValue()));
+                .orElseThrow(() -> new RequisitionNotFoundException("Requisition has not been found", requisitionId.getValue()));
     }
 
     @Override

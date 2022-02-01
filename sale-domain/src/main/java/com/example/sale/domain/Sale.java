@@ -116,7 +116,7 @@ public class Sale {
             Sale sale = new Sale(this.saleId);
             sale.setTimestamp(timestamp);
             sale.setCustomer(customer);
-            sale.setIsbn(isbn);
+            sale.setIsbn(book);
             return sale;
 
         }

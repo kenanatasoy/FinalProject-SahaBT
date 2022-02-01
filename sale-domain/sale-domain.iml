@@ -14,5 +14,6 @@
     <orderEntry type="module" module-name="catalog-domain" />
     <orderEntry type="module" module-name="category-domain" />
     <orderEntry type="module" module-name="publisher-domain" />
+    <orderEntry type="module" module-name="stock-subdomain" />
   </component>
 </module>
