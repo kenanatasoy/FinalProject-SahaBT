@@ -4,6 +4,7 @@ import com.example.category.domain.Category;
 import com.example.category.domain.CategoryId;
 import com.example.category.domain.SubCategory;
 import com.example.domain.book.Book;
+import com.example.shared.domain.Isbn;
 
 import java.util.List;
 import java.util.Optional;

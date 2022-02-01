@@ -11,6 +11,7 @@ import com.example.category.domain.SubCategory;
 import com.example.domain.book.Book;
 import com.example.infrastructure.EventPublisher;
 import com.example.repository.CatalogRepository;
+import com.example.shared.domain.Isbn;
 
 import java.util.List;
 import java.util.Optional;
