@@ -4,11 +4,13 @@ import com.example.application.CatalogApplication;
 import com.example.application.business.events.BookAddedEvent;
 import com.example.application.business.events.BookDeletedEvent;
 import com.example.application.business.exception.BookNotFoundException;
+import com.example.application.business.exception.CategoryNotFoundException;
 import com.example.application.business.exception.ExistingBookException;
-import com.example.category.domain.Category;
-import com.example.category.domain.CategoryId;
-import com.example.category.domain.SubCategory;
+
+import com.example.application.business.exception.ExistingCategoryException;
 import com.example.domain.book.Book;
+import com.example.domain.category.Category;
+import com.example.domain.category.CategoryId;
 import com.example.infrastructure.EventPublisher;
 import com.example.repository.CatalogRepository;
 import com.example.shared.domain.Isbn;
@@ -26,12 +28,12 @@ public class StandardCatalogApplication implements CatalogApplication {
     }
 
     @Override
-    public Book addBook(Book book) {
-        var isbn = book.getIsbn();
-        if (catalogRepository.existByIsbn(isbn))
+    public Book addBook(Book book,int amount) {
+        Isbn isbn = book.getIsbn();
+        if (catalogRepository.existBookByIsbn(isbn))
             throw new ExistingBookException("Book already exist", isbn.getValue());
         Book addedBook = catalogRepository.save(book);
-        var businessEvent = new BookAddedEvent(addedBook);
+        var businessEvent = new BookAddedEvent(addedBook, amount);
         eventPublisher.publishEvent(businessEvent);
         return addedBook;
     }
@@ -41,49 +43,44 @@ public class StandardCatalogApplication implements CatalogApplication {
         Optional<Book> deletedBook=catalogRepository.delete(isbn);
         var book= deletedBook.orElseThrow(()->new BookNotFoundException("Book does not exist",isbn.getValue()));
         eventPublisher.publishEvent(new BookDeletedEvent(book));
-        return null;
+        return book;
     }
 
     @Override
     public Optional<Book> findBookByIsbn(Isbn isbn) {
-        return Optional.empty();
+        return catalogRepository.findByID(isbn);
+
+
     }
 
     @Override
     public List<Book> findByCategoryId(CategoryId categoryId) {
+        return catalogRepository.findBooksByCategoryId(categoryId);
 
-        return null;
     }
 
     @Override
     public Category getCategoryById(CategoryId categoryId) {
-        return null;
+        return catalogRepository.findCategoryById(categoryId)
+                .orElseThrow(()->new CategoryNotFoundException("Category not found",categoryId.getCategoryId()));
     }
 
     @Override
     public Category addCategory(Category category) {
-        return null;
+        CategoryId categoryId = category.getId();
+        if (catalogRepository.existCategoryByCategoryId(categoryId))
+            throw new ExistingCategoryException("Book already exist", categoryId.getCategoryId());
+        Category addedCategory = catalogRepository.saveCategory(category);
+
+        return addedCategory;
     }
 
-    @Override
-    public SubCategory addSubCategory(Category subCategory) {
-        return null;
-    }
 
     @Override
     public List<Category> listCategories() {
-        return null;
+        return catalogRepository.listCategories();
     }
 
-    @Override
-    public List<SubCategory> listSubCategories() {
-        return null;
-    }
-
-    @Override
-    public List<SubCategory> listSubCategoriesByCategoryId(CategoryId categoryId) {
-        return null;
-    }
 }
 
 

@@ -1,8 +1,10 @@
 package com.example.infrastructure;
 
-import com.example.application.business.events.BookAddedEvent;
+
+import com.example.application.business.events.BookEvent;
 
 public interface EventPublisher {
 
-    void publishEvent(BookAddedEvent businessEvent);
+    void publishEvent(BookEvent businessEvent);
+
 }
