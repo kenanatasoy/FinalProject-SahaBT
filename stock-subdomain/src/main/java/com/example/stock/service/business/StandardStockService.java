@@ -1,5 +1,6 @@
 package com.example.stock.service.business;
 
+import com.example.stock.domain.Isbn;
 import com.example.stock.domain.Stock;
 import com.example.stock.domain.StockKeepingUnit;
 import com.example.stock.repository.StockRepository;
@@ -24,6 +25,12 @@ public class StandardStockService implements StockService {
     public Stock findStockBySku(StockKeepingUnit sku) {
         return stockRepository.findStockBySku(sku)
                 .orElseThrow(() -> new StockNotFoundException("Stock has not been found", sku.getValue()));
+    }
+
+    @Override
+    public Stock findStockByBookIsbn(Isbn isbn) {
+        return stockRepository.findStockByBookIsbn(isbn)
+                .orElseThrow(() -> new StockNotFoundException("Stock has not been found", isbn.getValue()));
     }
 
 
