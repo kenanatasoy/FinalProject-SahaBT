@@ -1,4 +1,4 @@
-package com.example.sale.application.business.exception;
+package com.example.sale.service.business.exception;
 @SuppressWarnings("serial")
 public class SaleNotFoundException extends RuntimeException {
 

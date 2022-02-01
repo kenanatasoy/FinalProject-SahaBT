@@ -11,7 +11,8 @@ public class Sale {
     private SaleId saleId;
     private Book book;
     private Customer customer;
-    private Timestamp timestamp;
+    private Timestamp timestamp= new Timestamp(System.currentTimeMillis());
+
 
     private Sale(SaleId saleId) {
         this.saleId = saleId;
