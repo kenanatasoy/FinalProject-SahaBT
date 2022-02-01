@@ -9,7 +9,6 @@ import com.example.category.domain.Category;
 import com.example.category.domain.CategoryId;
 import com.example.category.domain.SubCategory;
 import com.example.domain.book.Book;
-import com.example.domain.book.Isbn;
 import com.example.infrastructure.EventPublisher;
 import com.example.repository.CatalogRepository;
 

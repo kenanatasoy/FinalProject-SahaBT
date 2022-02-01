@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="publisher-domain" />
         <module name="catalog-domain" />
+        <module name="shared-kernel" />
         <module name="bookstore-microservice" />
         <module name="requisition-subdomain" />
         <module name="sale-domain" />
@@ -19,12 +20,13 @@
     <bytecodeTargetLevel>
       <module name="bookstore-microservice" target="17" />
       <module name="catalog-domain" target="17" />
-      <module name="category-domain" target="17" />
+      <module name="category-domain" target="1.5" />
       <module name="order-subdomain" target="17" />
-      <module name="publisher-domain" target="17" />
+      <module name="publisher-domain" target="1.5" />
       <module name="requisition-domain" target="17" />
       <module name="requisition-subdomain" target="17" />
-      <module name="sale-domain" target="17" />
+      <module name="sale-domain" target="1.5" />
+      <module name="shared-kernel" target="17" />
       <module name="stock-subdomain" target="17" />
     </bytecodeTargetLevel>
   </component>
