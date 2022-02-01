@@ -13,7 +13,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="publisher-domain" />
     <orderEntry type="module" module-name="order-subdomain" />
-    <orderEntry type="module" module-name="bookstore-domain" />
+    <orderEntry type="module" module-name="catalog-domain" />
     <orderEntry type="module" module-name="category-domain" />
   </component>
 </module>
