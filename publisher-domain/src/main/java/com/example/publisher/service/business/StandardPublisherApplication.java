@@ -5,10 +5,12 @@ import com.example.publisher.domain.PublisherId;
 import com.example.publisher.infrastructure.EventPublisher;
 import com.example.publisher.repository.PublisherRepository;
 import com.example.publisher.service.PublisherApplication;
+import com.example.publisher.service.business.event.BookSupplyEvent;
 import com.example.publisher.service.business.exception.ExistingPublisherException;
 import com.example.publisher.service.business.exception.PublisherNotFoundException;
 import com.example.requisition.application.RequisitionApplication;
 import com.example.requisition.application.business.domain.Requisition;
+import com.example.shared.domain.Isbn;
 
 import java.util.List;
 import java.util.Optional;
@@ -40,8 +42,16 @@ public class StandardPublisherApplication implements PublisherApplication {
 
     @Override
     public List<Requisition> inspectRequisition(PublisherId publisherId) {
-        requisitionApplication.findRequisitionsByPublisherId(publisherId);
-        return null;
+        var requisitions = requisitionApplication.findRequisitionsByPublisherId(publisherId);
+        return requisitions;
     }
+
+    @Override
+    public boolean supplyBooks(Isbn isbn, PublisherId publisherId, int amount) {
+        BookSupplyEvent bookSupplyEvent= new BookSupplyEvent(isbn, publisherId, amount);
+        eventPublisher.publishEvent(bookSupplyEvent);
+        return true;
+    }
+
 
 }
