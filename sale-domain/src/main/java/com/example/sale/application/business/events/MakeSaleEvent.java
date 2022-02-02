@@ -1,4 +1,4 @@
-package com.example.sale.service.business.events;
+package com.example.sale.application.business.events;
 
 import com.example.sale.domain.Sale;
 

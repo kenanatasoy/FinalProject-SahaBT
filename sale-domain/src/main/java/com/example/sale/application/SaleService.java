@@ -1,4 +1,4 @@
-package com.example.sale.service;
+package com.example.sale.application;
 
 
 import com.example.sale.domain.Sale;
@@ -16,6 +16,8 @@ public interface SaleService {
     Sale makeSale(Sale sale,int amount);
 
     List<Sale> listSales();
+    List<Sale> getLastThreeMonthSale();
+
 
     List<Sale> getByCustomerId(Identity customerId);
     //Todo:Customer
