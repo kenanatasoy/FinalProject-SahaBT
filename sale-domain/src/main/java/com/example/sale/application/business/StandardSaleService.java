@@ -13,6 +13,7 @@ import com.example.shared.domain.Isbn;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class StandardSaleService implements SaleService {
 
@@ -65,12 +66,16 @@ public class StandardSaleService implements SaleService {
     }
 
     @Override
-    public List<Sale> getLastThreeMonthSale() {
-
+    public List<Sale> getLastThreeMonthSales() {
         return saleRepository.listSales().stream()
                 .filter((s) -> s.getTimestamp().isAfter(LocalDateTime.now().minusMonths(3)))
-                .toList();
-        //TODO .collect(Collectors.toList());
+                .collect(Collectors.toList());
+
+    }
+
+    @Override
+    public int getNumberOfLastThreeMonthSales() {
+        return getLastThreeMonthSales().size();
     }
 
 
