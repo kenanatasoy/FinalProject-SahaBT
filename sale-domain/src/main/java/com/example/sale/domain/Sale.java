@@ -4,6 +4,7 @@ package com.example.sale.domain;
 import com.example.shared.domain.Isbn;
 
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 //TODO customerId için gerekli işlemleri yapmayı unutma hem domain de hem standardServicede.
@@ -11,13 +12,13 @@ public class Sale {
     private  SaleId saleId;
     private  Isbn isbn;
     private  CustomerId customerId;
-    private  Timestamp timestamp;
+    private LocalDateTime timestamp;
 
     private Sale(SaleId saleId, Isbn isbn, CustomerId customerId) {
         this.saleId = saleId;
         this.isbn = isbn;
         this.customerId = customerId;
-        this.timestamp = new Timestamp(System.currentTimeMillis());
+        this.timestamp =  LocalDateTime.now();
     }
 
     public SaleId getSaleId() {
@@ -32,7 +33,7 @@ public class Sale {
         return customerId;
     }
 
-    public Timestamp getTimestamp() {
+    public LocalDateTime getTimestamp() {
         return timestamp;
     }
 
@@ -48,7 +49,7 @@ public class Sale {
         this.customerId = customerId;
     }
 
-    public void setTimestamp(Timestamp timestamp) {
+    public void setTimestamp(LocalDateTime timestamp) {
         this.timestamp = timestamp;
     }
 
@@ -71,7 +72,7 @@ public class Sale {
                 "saleId=" + saleId +
                 ", isbn=" + isbn +
                 ", customerId=" + customerId +
-                ", timestamp=" + timestamp +
+                ", localDate=" + timestamp +
                 '}';
     }
 
@@ -79,15 +80,15 @@ public class Sale {
         private SaleId saleId;
         private Isbn isbn;
         private CustomerId customerId;
-        private Timestamp timestamp;
+        private LocalDateTime timestamp;
 
         public Builder saleId(int saleId) {
             this.saleId = SaleId.valueOf(saleId);
             return this;
         }
 
-        public Builder timestamp(Timestamp timestamp) {
-            this.timestamp = Timestamp.valueOf(String.valueOf(timestamp));
+        public Builder timestamp(LocalDateTime timestamp) {
+            this.timestamp =LocalDateTime.of(timestamp.toLocalDate(),timestamp.toLocalTime());
             return this;
         }
 

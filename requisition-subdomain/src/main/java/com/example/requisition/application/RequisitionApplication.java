@@ -15,4 +15,5 @@ public interface RequisitionApplication {
     Requisition clearRequisition(RequisitionId requisitionId);
     List<Requisition> findRequisitionsByPublisherId(PublisherId publisherId);
 
+
 }

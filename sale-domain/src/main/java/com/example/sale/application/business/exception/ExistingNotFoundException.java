@@ -1,4 +1,4 @@
-package com.example.sale.service.business.exception;
+package com.example.sale.application.business.exception;
 
 public class ExistingNotFoundException extends RuntimeException {
 

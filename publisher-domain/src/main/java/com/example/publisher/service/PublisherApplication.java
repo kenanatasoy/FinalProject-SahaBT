@@ -11,6 +11,7 @@ public interface PublisherApplication {
     Publisher addPublisher(Publisher publisher);
     Publisher deletePublisher(PublisherId publisherId);
     List<Requisition> inspectRequisition(PublisherId publisherId);
+    boolean supplyBooks(Isbn isbn, PublisherId publisherId, int amount);
 
 
 

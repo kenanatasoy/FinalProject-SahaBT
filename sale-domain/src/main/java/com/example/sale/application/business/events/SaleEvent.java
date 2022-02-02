@@ -1,4 +1,4 @@
-package com.example.sale.service.business.events;
+package com.example.sale.application.business.events;
 import java.util.UUID;
 public class SaleEvent {
     private final String eventId;

@@ -1,15 +1,17 @@
-package com.example.sale.service.business;
+package com.example.sale.application.business;
 
 
 import com.example.sale.domain.Sale;
 import com.example.sale.domain.SaleId;
 import com.example.sale.infrastructure.EventPublisher;
 import com.example.sale.repository.SaleRepository;
-import com.example.sale.service.SaleService;
-import com.example.sale.service.business.events.MakeSaleEvent;
-import com.example.sale.service.business.exception.SaleNotFoundException;
+import com.example.sale.application.SaleService;
+import com.example.sale.application.business.events.MakeSaleEvent;
+import com.example.sale.application.business.exception.SaleNotFoundException;
 import com.example.shared.domain.Isbn;
 
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class StandardSaleService implements SaleService {
@@ -40,7 +42,9 @@ public class StandardSaleService implements SaleService {
     }
     //TODO customer için de getByCustomerId yapılacak.
     @Override
-    public List<Sale> getByCustomerId(Identity customerId) {
+    public List<Sale> getByCustomerId(Identity customerId)
+    {
+
         return saleRepository.findByCustomerId(customerId);
     }
 
@@ -60,6 +64,14 @@ public class StandardSaleService implements SaleService {
         return saleRepository.listSales();
     }
 
+    @Override
+    public List<Sale> getLastThreeMonthSale() {
+
+        return saleRepository.listSales().stream()
+                .filter((s) -> s.getTimestamp().isAfter(LocalDateTime.now().minusMonths(3)))
+                .toList();
+        //TODO .collect(Collectors.toList());
+    }
 
 
 }
