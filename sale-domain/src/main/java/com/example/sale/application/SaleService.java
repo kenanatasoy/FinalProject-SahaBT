@@ -16,7 +16,9 @@ public interface SaleService {
     Sale makeSale(Sale sale,int amount);
 
     List<Sale> listSales();
-    List<Sale> getLastThreeMonthSale();
+    List<Sale> getLastThreeMonthSales();
+
+    int getNumberOfLastThreeMonthSales();
 
 
     List<Sale> getByCustomerId(Identity customerId);
