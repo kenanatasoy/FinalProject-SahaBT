@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="customer-domain" />
         <module name="publisher-domain" />
         <module name="catalog-domain" />
         <module name="shared-kernel" />
@@ -21,6 +22,7 @@
       <module name="catalog-domain" target="1.5" />
       <module name="category-domain" target="17" />
       <module name="customer" target="1.5" />
+      <module name="customer-domain" target="17" />
       <module name="order-subdomain" target="17" />
       <module name="publisher-domain" target="1.5" />
       <module name="requisition-domain" target="17" />
