@@ -20,6 +20,10 @@ public interface SaleService {
 
     int getNumberOfLastThreeMonthSales();
 
+    List<Sale> getLastThreeMonthSalesByIsbn(Isbn isbn);
+
+    int getNumberOfLastThreeMonthSalesByIsbn(Isbn isbn);
+
 
     List<Sale> getByCustomerId(Identity customerId);
     //Todo:Customer

@@ -78,5 +78,18 @@ public class StandardSaleService implements SaleService {
         return getLastThreeMonthSales().size();
     }
 
+    @Override
+    public List<Sale> getLastThreeMonthSalesByIsbn(Isbn isbn) {
+        return saleRepository.listSales().stream()
+                .filter((s) -> s.getIsbn().equals(isbn))
+                .filter((s) -> s.getTimestamp().isAfter(LocalDateTime.now().minusMonths(3)))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public int getNumberOfLastThreeMonthSalesByIsbn(Isbn isbn) {
+        return getLastThreeMonthSalesByIsbn(isbn).size();
+    }
+
 
 }
