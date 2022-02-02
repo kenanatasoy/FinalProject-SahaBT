@@ -1,7 +1,7 @@
 package com.example.stock.service.business;
 
 import com.example.sale.application.SaleService;
-import com.example.stock.domain.Isbn;
+import com.example.shared.domain.Isbn;
 import com.example.stock.domain.Stock;
 import com.example.stock.domain.StockKeepingUnit;
 import com.example.stock.infra.EventPublisher;
@@ -43,18 +43,20 @@ public class StandardStockService implements StockService {
     }
 
     @Override
-    public Long getThreeMonthStockByIsbn(Isbn isbn) {
+    public Boolean maintainThreeMonthStockByIsbn(Isbn isbn) {
 
         Stock stock = findStockByBookIsbn(isbn);
-//        var lastThreeMonthStockInfo = saleService.getNumberOfLastThreeMonthSalesById();
-//
-//        if(stock.getNumberOfBooksLeft().getValue() < lastThreeMonthStockInfo){
-//            var requisitionAmount = lastThreeMonthStockInfo - stock.getNumberOfBooksLeft().getValue();
-//            StockUnderCriticalLevelEvent businessEvent = StockUnderCriticalLevelEvent();
-//            eventPublisher.publishEvent(businessEvent);
-//        }
+        Integer lastThreeMonthStockInfo = saleService.getNumberOfLastThreeMonthSalesByIsbn(isbn);
 
-        return null;
+        if(stock.getNumberOfBooksLeft().getValue() < lastThreeMonthStockInfo){
+            var requisitionAmount = lastThreeMonthStockInfo - stock.getNumberOfBooksLeft().getValue();
+            StockUnderCriticalLevelEvent businessEvent =
+                    new StockUnderCriticalLevelEvent(lastThreeMonthStockInfo, isbn);
+            eventPublisher.publishEvent(businessEvent);
+            return false;
+        }
+
+        return true;
     }
 
 

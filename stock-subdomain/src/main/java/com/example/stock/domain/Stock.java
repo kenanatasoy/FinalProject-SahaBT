@@ -1,5 +1,7 @@
 package com.example.stock.domain;
 
+import com.example.shared.domain.Isbn;
+
 import java.util.Objects;
 
 public class Stock {
@@ -82,7 +84,7 @@ public class Stock {
 		}
 
 		public Builder isbn(String value) {
-			this.isbn = Isbn.of(value);
+			this.isbn = Isbn.valueOf(value);
 			return this;
 		}
 

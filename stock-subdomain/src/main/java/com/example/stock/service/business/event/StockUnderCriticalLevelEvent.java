@@ -28,4 +28,5 @@ public class StockUnderCriticalLevelEvent  {
     public Isbn getIsbn() {
         return isbn;
     }
+
 }
