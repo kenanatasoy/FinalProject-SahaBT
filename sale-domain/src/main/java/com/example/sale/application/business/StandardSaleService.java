@@ -68,7 +68,9 @@ public class StandardSaleService implements SaleService {
     public List<Sale> getLastThreeMonthSale() {
 
         return saleRepository.listSales().stream()
-                .filter((s) -> s.getTimestamp().isAfter(LocalDateTime.now().minusMonths(3))).toList();
+                .filter((s) -> s.getTimestamp().isAfter(LocalDateTime.now().minusMonths(3)))
+                .toList();
+        //TODO .collect(Collectors.toList());
     }
 
 
