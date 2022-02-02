@@ -8,12 +8,12 @@ public class Order {
 
     private final OrderId orderId;
     private final CustomerId customerId;
-    private final Isbn book;
+    private final Isbn isbn;
 
-    private Order(OrderId orderId, CustomerId customerId, Isbn book) {
+    private Order(OrderId orderId, CustomerId customerId, Isbn isbn) {
         this.orderId = orderId;
         this.customerId = customerId;
-        this.book = book;
+        this.isbn = isbn;
     }
 
     public OrderId getOrderId() {
@@ -25,7 +25,7 @@ public class Order {
     }
 
     public Isbn getBook() {
-        return book;
+        return isbn;
     }
 
 
@@ -63,7 +63,7 @@ public class Order {
         return "Order{" +
                 "orderId=" + orderId +
                 ", customerId=" + customerId +
-                ", book=" + book +
+                ", isbn=" + isbn +
                 '}';
     }
 
@@ -71,7 +71,7 @@ public class Order {
 
         private OrderId orderId;
         private CustomerId customerId;
-        private Isbn book;
+        private Isbn isbn;
 
         public Builder orderId(String value) {
             this.orderId = OrderId.of(value);
@@ -89,7 +89,7 @@ public class Order {
         }
 
         public Order build() {
-            return new Order(orderId, customerId, book);
+            return new Order(orderId, customerId, isbn);
         }
 
     }
