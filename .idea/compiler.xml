@@ -20,6 +20,7 @@
       <module name="bookstore-microservice" target="17" />
       <module name="catalog-domain" target="1.5" />
       <module name="category-domain" target="17" />
+      <module name="customer" target="1.5" />
       <module name="order-subdomain" target="17" />
       <module name="publisher-domain" target="1.5" />
       <module name="requisition-domain" target="17" />

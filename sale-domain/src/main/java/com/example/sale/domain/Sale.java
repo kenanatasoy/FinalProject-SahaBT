@@ -96,14 +96,15 @@ public class Sale {
             return this;
         }
 
+        public Builder customerId(CustomerId customerId) {
+            this.isbn = Isbn.valueOf(customerId.getValue());
+            return this;
+        }
 
         public Sale build() {
             Sale sale = new Sale(this.saleId,this.isbn,this.customerId);
-
             return sale;
-
         }
-
 
     }
 

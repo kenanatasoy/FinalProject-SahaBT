@@ -17,7 +17,7 @@ public interface SaleService {
 
     List<Sale> listSales();
 
-   // List<Sale> getByCustomerId(Identity customerId);
+    List<Sale> getByCustomerId(Identity customerId);
     //Todo:Customer
 
 }
