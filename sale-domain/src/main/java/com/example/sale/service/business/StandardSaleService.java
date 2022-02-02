@@ -39,6 +39,10 @@ public class StandardSaleService implements SaleService {
         return saleRepository.findByBookIsbn(isbn);
     }
     //TODO customer için de getByCustomerId yapılacak.
+    @Override
+    public List<Sale> getByCustomerId(Identity customerId) {
+        return saleRepository.findByCustomerId(customerId);
+    }
 
     @Override
     public Sale makeSale(Sale sale,int amount) {
@@ -55,6 +59,7 @@ public class StandardSaleService implements SaleService {
     public List<Sale> listSales() {
         return saleRepository.listSales();
     }
+
 
 
 }
