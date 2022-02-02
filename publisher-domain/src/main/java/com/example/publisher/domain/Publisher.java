@@ -1,4 +1,4 @@
-package com.example.publisher;
+package com.example.publisher.domain;
 
 public class Publisher {
 
