@@ -1,6 +1,7 @@
 package com.example.requisition.application.business.domain;
 
-import com.example.publisher.PublisherId;
+
+import com.example.publisher.domain.PublisherId;
 
 import java.util.Objects;
 
