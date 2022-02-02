@@ -1,5 +1,8 @@
 package com.example.requisition.application.business.domain;
 
+
+import com.example.publisher.domain.PublisherId;
+
 import java.util.Objects;
 
 public class Requisition {
@@ -7,6 +10,7 @@ public class Requisition {
     private final RequisitionId requisitionId;
     private final Isbn isbn;
     private final PublisherId publisherId;
+
 
     private Requisition(RequisitionId requisitionId, Isbn isbn, PublisherId publisherId) {
         this.requisitionId = requisitionId;

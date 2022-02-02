@@ -1,5 +1,6 @@
 package com.example.requisition.application.business;
 
+import com.example.publisher.domain.PublisherId;
 import com.example.requisition.application.RequisitionApplication;
 import com.example.requisition.application.business.exception.RequisitionNotFoundException;
 import com.example.requisition.application.business.domain.Requisition;
@@ -41,4 +42,11 @@ public class StandardRequisitionApplication implements RequisitionApplication {
 //        eventPublisher.publishEvent(new RequisitionClearedEvent(requisition));
         return requisition;
     }
+
+    @Override
+    public List<Requisition> findRequisitionsByPublisherId(PublisherId publisherId) {
+        return requisitionRepository.findRequisitionsByPublisherId(publisherId);
+    }
+
+
 }

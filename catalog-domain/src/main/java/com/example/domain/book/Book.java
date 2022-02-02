@@ -1,8 +1,9 @@
 package com.example.domain.book;
 
 
-import com.example.category.domain.CategoryId;
-import com.example.publisher.PublisherId;
+
+import com.example.domain.category.CategoryId;
+import com.example.publisher.domain.PublisherId;
 import com.example.shared.domain.Isbn;
 
 import java.util.Objects;

@@ -1,4 +1,4 @@
-package com.example.publisher;
+package com.example.publisher.domain;
 
 import java.util.Base64;
 import java.util.Objects;
