@@ -1,5 +1,6 @@
 package com.example.requisition.repository;
 
+import com.example.publisher.domain.PublisherId;
 import com.example.requisition.application.business.domain.Requisition;
 import com.example.requisition.application.business.domain.RequisitionId;
 
