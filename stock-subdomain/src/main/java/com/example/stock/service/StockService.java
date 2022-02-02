@@ -12,4 +12,6 @@ public interface StockService {
 
     Stock findStockByBookIsbn(Isbn isbn);
 
+    Long getThreeMonthStockByIsbn(Isbn isbn);
+
 }

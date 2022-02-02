@@ -19,8 +19,8 @@ public class StandardRequisitionApplication implements RequisitionApplication {
     }
 
     @Override
-    public Requisition makeRequisition(Requisition requisition) {
-        return null;
+    public Optional<Requisition> makeRequisition(Requisition requisition) {
+        return Optional.ofNullable(requisitionRepository.saveRequisition(requisition));
     }
 
     @Override

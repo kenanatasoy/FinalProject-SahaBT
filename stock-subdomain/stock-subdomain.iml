@@ -11,5 +11,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="sale-domain" />
+    <orderEntry type="module" module-name="shared-kernel" />
   </component>
 </module>

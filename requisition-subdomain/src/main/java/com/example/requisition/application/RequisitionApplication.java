@@ -5,10 +5,11 @@ import com.example.requisition.application.business.domain.Requisition;
 import com.example.requisition.application.business.domain.RequisitionId;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface RequisitionApplication {
 
-    Requisition makeRequisition(Requisition requisition);
+    Optional<Requisition> makeRequisition(Requisition requisition);
     Requisition findRequisitionById(RequisitionId requisitionId);
     List<Requisition> findAllRequisitions();
     Requisition clearRequisition(RequisitionId requisitionId);
