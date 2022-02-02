@@ -27,14 +27,6 @@ public interface CatalogRepository {
 
 
 
-    boolean existCategoryByCategoryId(CategoryId categoryId);
-
-
-    Category saveCategory(Category category);
-
-    Optional<Category> findCategoryById(CategoryId categoryId);
-
-    List<Category> listCategories();
 
 
 }

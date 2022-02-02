@@ -13,6 +13,7 @@ import com.example.domain.category.Category;
 import com.example.domain.category.CategoryId;
 import com.example.infrastructure.EventPublisher;
 import com.example.repository.CatalogRepository;
+import com.example.repository.CategoryRepository;
 import com.example.shared.domain.Isbn;
 
 import java.util.List;
@@ -21,10 +22,12 @@ import java.util.Optional;
 public class StandardCatalogApplication implements CatalogApplication {
     private final EventPublisher eventPublisher;
     private final CatalogRepository catalogRepository;
+    private final CategoryRepository categoryRepository;
 
-    public StandardCatalogApplication(EventPublisher eventPublisher, CatalogRepository catalogRepository) {
+    public StandardCatalogApplication(EventPublisher eventPublisher, CatalogRepository catalogRepository, CategoryRepository categoryRepository) {
         this.eventPublisher = eventPublisher;
         this.catalogRepository = catalogRepository;
+        this.categoryRepository = categoryRepository;
     }
 
     @Override
@@ -61,16 +64,16 @@ public class StandardCatalogApplication implements CatalogApplication {
 
     @Override
     public Category getCategoryById(CategoryId categoryId) {
-        return catalogRepository.findCategoryById(categoryId)
+        return categoryRepository.findCategoryById(categoryId)
                 .orElseThrow(()->new CategoryNotFoundException("Category not found",categoryId.getCategoryId()));
     }
 
     @Override
     public Category addCategory(Category category) {
         CategoryId categoryId = category.getId();
-        if (catalogRepository.existCategoryByCategoryId(categoryId))
+        if (categoryRepository.existCategoryByCategoryId(categoryId))
             throw new ExistingCategoryException("Book already exist", categoryId.getCategoryId());
-        Category addedCategory = catalogRepository.saveCategory(category);
+        Category addedCategory = categoryRepository.saveCategory(category);
 
         return addedCategory;
     }
@@ -78,7 +81,7 @@ public class StandardCatalogApplication implements CatalogApplication {
 
     @Override
     public List<Category> listCategories() {
-        return catalogRepository.listCategories();
+        return categoryRepository.listCategories();
     }
 
 }
