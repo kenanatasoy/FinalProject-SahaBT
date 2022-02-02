@@ -40,7 +40,7 @@ public class StandardPublisherApplication implements PublisherApplication {
 
     @Override
     public List<Requisition> inspectRequisition(PublisherId publisherId) {
-        requisitionApplication.
+        requisitionApplication.findRequisitionsByPublisherId(publisherId);
         return null;
     }
 
