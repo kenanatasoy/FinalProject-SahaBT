@@ -1,5 +1,6 @@
 package com.example.order.domain;
 
+import com.example.shared.domain.CustomerId;
 import com.example.shared.domain.Isbn;
 
 import java.util.Objects;
@@ -79,7 +80,7 @@ public class Order {
         }
 
         public Builder customer(CustomerId customerId) {
-            this.customerId = CustomerId.valueOf(customerId);
+            this.customerId = CustomerId.valueOf(customerId.getValue());
             return this;
         }
 

@@ -3,6 +3,7 @@ package com.example.sale.repository;
 
 import com.example.sale.domain.Sale;
 import com.example.sale.domain.SaleId;
+import com.example.shared.domain.CustomerId;
 import com.example.shared.domain.Isbn;
 
 import java.util.List;
@@ -18,7 +19,7 @@ public interface SaleRepository {
 
     List<Sale> findByBookIsbn(Isbn isbn);
 
-    List<Sale> findByCustomerId(Identity customerId);
+    List<Sale> findByCustomerId(CustomerId customerId);
 
     Sale saveSale(Sale sale);
 

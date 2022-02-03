@@ -3,6 +3,7 @@ package com.example.sale.application;
 
 import com.example.sale.domain.Sale;
 import com.example.sale.domain.SaleId;
+import com.example.shared.domain.CustomerId;
 import com.example.shared.domain.Isbn;
 
 import java.util.List;
@@ -25,7 +26,7 @@ public interface SaleService {
     int getNumberOfLastThreeMonthSalesByIsbn(Isbn isbn);
 
 
-    List<Sale> getByCustomerId(Identity customerId);
+    List<Sale> getByCustomerId(CustomerId customerId);
     //Todo:Customer
 
 }

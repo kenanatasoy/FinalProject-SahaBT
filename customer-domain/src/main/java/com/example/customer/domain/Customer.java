@@ -1,13 +1,15 @@
 package com.example.customer.domain;
 
+import com.example.shared.domain.CustomerId;
+
 import java.util.List;
 import java.util.Objects;
 
 public class Customer {
 
-    private Identity identity;
-    private FullName fullName;
-    private Age age;
+    private final CustomerId customerId;
+    private final FullName fullName;
+    private final Age age;
     private Location location;
     private List<Interest> interests;
     private Email email;
@@ -16,15 +18,15 @@ public class Customer {
     private Password password;
     private IsAdmin isAdmin;
 
-    public Customer(Identity identity, FullName fullName, Age age) {
-        this.identity = identity;
+    public Customer(CustomerId customerId, FullName fullName, Age age) {
+        this.customerId = customerId;
         this.fullName = fullName;
         this.age = age;
     }
 
     public static class Builder {
 
-        private Identity identity;
+        private CustomerId customerId;
         private FullName fullName;
         private Age age;
         private Location location;
@@ -36,7 +38,7 @@ public class Customer {
         private IsAdmin isAdmin;
 
         public Builder identity(String id) {
-            this.identity = Identity.valueOf(identity.getValue());
+            this.customerId = CustomerId.valueOf(customerId.getValue());
             return this;
         }
 
@@ -55,10 +57,10 @@ public class Customer {
             return this;
         }
 
-        public List<Interest> interests(Interest... interestss) {
-            Interest interest = Interest.valueOf(String.valueOf(interestss));
+        public List<Interest> interests(Interest... interests) {
+            Interest interest = Interest.valueOf(String.valueOf(interests));
             this.interests.add(interest);
-            return interests;
+            return this.interests;
         }
 
         public Builder email(String email) {
@@ -82,7 +84,7 @@ public class Customer {
         }
 
         public Customer build() {
-            Customer customer = new Customer(this.identity, this.fullName, this.age);
+            Customer customer = new Customer(this.customerId, this.fullName, this.age);
             customer.setEmail(email);
             customer.setEpurse(epurse);
             customer.setInterests(interests);
@@ -94,8 +96,8 @@ public class Customer {
         }
     }
 
-    public Identity getIdentity() {
-        return identity;
+    public CustomerId getIdentity() {
+        return customerId;
     }
 
     public FullName getFullName() {
@@ -167,18 +169,18 @@ public class Customer {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Customer customer = (Customer) o;
-        return identity.equals(customer.identity);
+        return customerId.equals(customer.customerId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(identity);
+        return Objects.hash(customerId);
     }
 
     @Override
     public String toString() {
         return "Customer{" +
-                "identity=" + identity +
+                "identity=" + customerId +
                 ", fullName=" + fullName +
                 ", age=" + age +
                 ", location=" + location +

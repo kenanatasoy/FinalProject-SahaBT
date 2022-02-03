@@ -8,14 +8,14 @@ public class Stock {
 
 	private final StockKeepingUnit sku;
 	private final Isbn isbn;
-	private StockNumber numberOfBooksLeft = StockNumber.EMPTY;
-	private SellNumber numberOfBooksSold = SellNumber.EMPTY;
+	private NumberOfBooksLeft numberOfBooksLeft = NumberOfBooksLeft.EMPTY;
+	private NumberOfBooksSold numberOfBooksSold = NumberOfBooksSold.EMPTY;
 
 	private Stock(StockKeepingUnit sku, Isbn isbn) {
-		this(sku, isbn, StockNumber.EMPTY, SellNumber.EMPTY);
+		this(sku, isbn, NumberOfBooksLeft.EMPTY, NumberOfBooksSold.EMPTY);
 	}
 
-	private Stock(StockKeepingUnit sku, Isbn isbn, StockNumber numberOfBooksLeft, SellNumber numberOfBooksSold) {
+	private Stock(StockKeepingUnit sku, Isbn isbn, NumberOfBooksLeft numberOfBooksLeft, NumberOfBooksSold numberOfBooksSold) {
 		this.sku = sku;
 		this.isbn = isbn;
 		this.numberOfBooksLeft = numberOfBooksLeft;
@@ -30,20 +30,20 @@ public class Stock {
 		return isbn;
 	}
 
-	public StockNumber getNumberOfBooksLeft() {
+	public NumberOfBooksLeft getNumberOfBooksLeft() {
 		return numberOfBooksLeft;
 	}
 
-	public SellNumber getNumberOfBooksSold() {
+	public NumberOfBooksSold getNumberOfBooksSold() {
 		return numberOfBooksSold;
 	}
 
-	public StockNumber addStock(int newItems) {
+	public NumberOfBooksLeft addStock(int newItems) {
 		this.numberOfBooksLeft = numberOfBooksLeft.add(newItems);
 		return numberOfBooksLeft;
 	}
 
-	public StockNumber sellFromStock(int soldItems) {
+	public NumberOfBooksLeft sellFromStock(int soldItems) {
 		this.numberOfBooksLeft = numberOfBooksLeft.drop(soldItems);
 		numberOfBooksSold = numberOfBooksSold.add(soldItems);
 		return numberOfBooksLeft;
@@ -75,8 +75,8 @@ public class Stock {
 	public static class Builder {
 		private StockKeepingUnit sku;
 		private Isbn isbn;
-		private StockNumber numberOfBooksLeft;
-		private SellNumber numberOfBooksSold;
+		private NumberOfBooksLeft numberOfBooksLeft;
+		private NumberOfBooksSold numberOfBooksSold;
 
 		public Builder sku(String value) {
 			this.sku = StockKeepingUnit.of(value);
@@ -89,12 +89,12 @@ public class Stock {
 		}
 
 		public Builder numberOfBooksLeft(int value) {
-			this.numberOfBooksLeft = StockNumber.of(value);
+			this.numberOfBooksLeft = NumberOfBooksLeft.of(value);
 			return this;
 		}
 
 		public Builder numberOfBooksSold(int value) {
-			this.numberOfBooksSold = SellNumber.of(value);
+			this.numberOfBooksSold = NumberOfBooksSold.of(value);
 			return this;
 		}
 

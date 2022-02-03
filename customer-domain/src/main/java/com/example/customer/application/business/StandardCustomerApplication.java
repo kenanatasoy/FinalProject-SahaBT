@@ -24,11 +24,11 @@ public class StandardCustomerApplication implements CustomerApplication {
     }
 
     @Override
-    public Optional<Customer> getCustomerById(Identity identity) {
-        if(!customerRepository.exitsById(identity)){
-            throw new CustomerNotFoundException("Customer not found exception", identity.getValue());
+    public Optional<Customer> getCustomerById(CustomerId customerId) {
+        if(!customerRepository.exitsById(customerId)){
+            throw new CustomerNotFoundException("Customer not found exception", customerId.getValue());
         }
-        return Optional.ofNullable(customerRepository.findCustomerById(identity));
+        return Optional.ofNullable(customerRepository.findCustomerById(customerId));
         //TODO: Optional'ın of, ofNullable ve empty metotları hocaya sorulacak
         // Employee domain class'ı sorulacak hocaya
     }
@@ -58,7 +58,7 @@ public class StandardCustomerApplication implements CustomerApplication {
     }
 
     @Override
-    public Optional<Customer> deleteCustomer(Identity identity) {
-        return Optional.ofNullable(customerRepository.deleteCustomer(identity));
+    public Optional<Customer> deleteCustomer(CustomerId customerId) {
+        return Optional.ofNullable(customerRepository.deleteCustomer(customerId));
     }
 }

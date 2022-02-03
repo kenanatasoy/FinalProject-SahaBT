@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.Objects;
 
 public final class Isbn {
+
     private final static Map<String, Isbn> cache = new HashMap<>();
     private final String value;
 

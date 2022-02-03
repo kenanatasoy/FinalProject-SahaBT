@@ -1,16 +1,16 @@
 package com.example.sale.application.business;
 
 
+import com.example.sale.application.SaleService;
+import com.example.sale.application.business.events.MakeSaleEvent;
+import com.example.sale.application.business.exception.SaleNotFoundException;
 import com.example.sale.domain.Sale;
 import com.example.sale.domain.SaleId;
 import com.example.sale.infrastructure.EventPublisher;
 import com.example.sale.repository.SaleRepository;
-import com.example.sale.application.SaleService;
-import com.example.sale.application.business.events.MakeSaleEvent;
-import com.example.sale.application.business.exception.SaleNotFoundException;
+import com.example.shared.domain.CustomerId;
 import com.example.shared.domain.Isbn;
 
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -19,11 +19,11 @@ public class StandardSaleService implements SaleService {
 
 
     private final SaleRepository saleRepository;
-  private EventPublisher eventPublisher;
+    private final EventPublisher eventPublisher;
 
-    public StandardSaleService(SaleRepository saleRepository,EventPublisher eventPublisher) {
+    public StandardSaleService(SaleRepository saleRepository, EventPublisher eventPublisher) {
         this.saleRepository = saleRepository;
-        this.eventPublisher=eventPublisher;
+        this.eventPublisher = eventPublisher;
 
     }
 
@@ -41,21 +41,21 @@ public class StandardSaleService implements SaleService {
 
         return saleRepository.findByBookIsbn(isbn);
     }
+
     //TODO customer için de getByCustomerId yapılacak.
     @Override
-    public List<Sale> getByCustomerId(Identity customerId)
-    {
+    public List<Sale> getByCustomerId(CustomerId customerId) {
 
         return saleRepository.findByCustomerId(customerId);
     }
 
     @Override
-    public Sale makeSale(Sale sale,int amount) {
+    public Sale makeSale(Sale sale, int amount) {
         var saleId = sale.getSaleId();
         if (saleRepository.existBySaleId(saleId))
             throw new SaleNotFoundException("Order already exists", saleId.getSaleId());
         Sale savedSale = saleRepository.saveSale(sale);
-        var businessEvent= new MakeSaleEvent(savedSale,amount);
+        var businessEvent = new MakeSaleEvent(savedSale, amount);
         eventPublisher.publishEvent(businessEvent);
         return savedSale;
     }
