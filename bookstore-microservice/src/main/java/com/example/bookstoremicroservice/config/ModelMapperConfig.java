@@ -1,7 +1,10 @@
 package com.example.bookstoremicroservice.config;
 
+import com.example.bookstoremicroservice.document.SaleDocument;
 import com.example.bookstoremicroservice.dto.response.SaleResponse;
 import com.example.sale.domain.Sale;
+import com.example.shared.domain.CustomerId;
+import com.example.shared.domain.Isbn;
 import org.modelmapper.Converter;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
@@ -21,6 +24,21 @@ public class ModelMapperConfig {
 
                 System.err.println("SALE_TO_GET_SALE_RESPONSE_CONVERTER: "+response);
                 return response;
+            };
+
+    private static final Converter<SaleDocument, Sale>
+            SALE_DOCUMENT_TO_GET_SALE_CONVERTER =
+            (context) -> {
+                var sale = context.getSource();
+                var saleId = sale.getSaleId();
+                var response = new Sale.Builder();
+                response.saleId(sale.getSaleId());
+                response.isbn(Isbn.valueOf(sale.getBookId()));
+                response.customerId(CustomerId.valueOf(sale.getBookId()));
+                response.timestamp(sale.getTimestamp());
+
+                System.err.println("SALE_DOCUMENT_TO_GET_SALE_CONVERTER: "+response);
+                return response.build();
             };
 
     @Bean

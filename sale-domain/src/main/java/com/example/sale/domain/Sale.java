@@ -15,6 +15,7 @@ public class Sale {
     private  CustomerId customerId;
     private LocalDateTime timestamp;
 
+
     private Sale(SaleId saleId, Isbn isbn, CustomerId customerId) {
         this.saleId = saleId;
         this.isbn = isbn;
