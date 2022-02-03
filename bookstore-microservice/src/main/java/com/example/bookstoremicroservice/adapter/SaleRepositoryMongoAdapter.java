@@ -28,7 +28,8 @@ public class SaleRepositoryMongoAdapter implements SaleRepository {
 
     @Override
     public Optional<Sale> findBySaleId(SaleId saleId) {
-        return Optional.empty();
+        return saleDocumentRepository.findById(saleId.getSaleId())
+                .map(doc -> mapper.map(doc, Sale.class));
     }
 
     @Override
