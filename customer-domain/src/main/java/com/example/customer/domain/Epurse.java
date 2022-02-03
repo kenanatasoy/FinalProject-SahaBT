@@ -1,6 +1,7 @@
 package com.example.customer.domain;
 
 public final class Epurse {
+
     private final double value;
 
     private Epurse(double value) {
