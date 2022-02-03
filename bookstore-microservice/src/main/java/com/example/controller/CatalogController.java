@@ -2,7 +2,7 @@ package com.example.controller;
 
 import com.example.controller.dto.request.AddBookRequest;
 import com.example.dto.response.AddedBookResponse;
-import com.example.dto.response.DeletetBookResponse;
+import com.example.dto.response.DeleteBookResponse;
 import com.example.dto.response.GetBookResponse;
 import com.example.dto.response.GetCategoryResponse;
 import com.example.service.CatalogService;
@@ -32,7 +32,7 @@ public class CatalogController {
        return catalogService.addBook(request);
     }
     @DeleteMapping({"isbn"})
-    public DeletetBookResponse deleteBook(@PathVariable String isbn){
+    public DeleteBookResponse deleteBook(@PathVariable String isbn){
        return catalogService.deleteBook(isbn);
     }
 

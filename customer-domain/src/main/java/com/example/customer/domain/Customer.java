@@ -14,7 +14,7 @@ public class Customer {
     private List<Interest> interests;
     private Email email;
     private Epurse epurse;
-    private Username userName;
+    private Username username;
     private Password password;
     private IsAdmin isAdmin;
 
@@ -33,7 +33,7 @@ public class Customer {
         private List<Interest> interests;
         private Email email;
         private Epurse epurse;
-        private Username userName;
+        private Username username;
         private Password password;
         private IsAdmin isAdmin;
 
@@ -73,8 +73,8 @@ public class Customer {
             return this;
         }
 
-        public Builder userName(String userName) {
-            this.userName = Username.valueOf(userName);
+        public Builder username(String username) {
+            this.username = Username.valueOf(username);
             return this;
         }
 
@@ -91,7 +91,7 @@ public class Customer {
             customer.setIsAdmin(isAdmin);
             customer.setLocation(location);
             customer.setPassword(password);
-            customer.setUserName(userName);
+            customer.setUserName(username);
             return customer;
         }
     }
@@ -141,11 +141,11 @@ public class Customer {
     }
 
     public Username getUserName() {
-        return userName;
+        return username;
     }
 
-    public void setUserName(Username userName) {
-        this.userName = userName;
+    public void setUserName(Username username) {
+        this.username = username;
     }
 
     public Password getPassword() {
@@ -187,7 +187,7 @@ public class Customer {
                 ", interests=" + interests +
                 ", email=" + email +
                 ", epurse=" + epurse +
-                ", userName=" + userName +
+                ", username=" + username +
                 ", password=" + password +
                 ", isAdmin=" + isAdmin +
                 '}';
