@@ -1,4 +1,4 @@
-package com.example.stock.service.business.event;
+package com.example.requisition.application.business.event;
 
 import com.example.shared.domain.Isbn;
 
@@ -7,13 +7,13 @@ import java.util.UUID;
 public class StockUnderCriticalLevelEvent  {
 
     private final String eventId;
-    private final Integer requisitionAmount;
+    private final Long bookRequisitionAmount;
     private final Isbn isbn;
 
 
-    public StockUnderCriticalLevelEvent(Integer requisitionAmount, Isbn isbn){
+    public StockUnderCriticalLevelEvent(Long bookRequisitionAmount, Isbn isbn){
         this.eventId = UUID.randomUUID().toString();
-        this.requisitionAmount = requisitionAmount;
+        this.bookRequisitionAmount = bookRequisitionAmount;
         this.isbn = isbn;
     }
 
@@ -21,8 +21,8 @@ public class StockUnderCriticalLevelEvent  {
         return eventId;
     }
 
-    public Integer getRequisitionAmount() {
-        return requisitionAmount;
+    public Long getRequisitionAmount() {
+        return bookRequisitionAmount;
     }
 
     public Isbn getIsbn() {

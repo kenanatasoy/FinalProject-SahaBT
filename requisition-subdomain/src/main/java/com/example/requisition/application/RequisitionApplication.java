@@ -10,6 +10,7 @@ import java.util.Optional;
 public interface RequisitionApplication {
 
     Optional<Requisition> makeRequisition(Requisition requisition);
+    Optional<Requisition> makeImmediateRequisition(Requisition requisition);
     Requisition findRequisitionById(RequisitionId requisitionId);
     List<Requisition> findAllRequisitions();
     Requisition clearRequisition(RequisitionId requisitionId);

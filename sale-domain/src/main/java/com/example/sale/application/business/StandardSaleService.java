@@ -74,7 +74,7 @@ public class StandardSaleService implements SaleService {
     }
 
     @Override
-    public int getNumberOfLastThreeMonthSales() {
+    public long getNumberOfLastThreeMonthSales() {
         return getLastThreeMonthSales().size();
     }
 
@@ -87,7 +87,7 @@ public class StandardSaleService implements SaleService {
     }
 
     @Override
-    public int getNumberOfLastThreeMonthSalesByIsbn(Isbn isbn) {
+    public long getNumberOfLastThreeMonthSalesByIsbn(Isbn isbn) {
         return getLastThreeMonthSalesByIsbn(isbn).size();
     }
 

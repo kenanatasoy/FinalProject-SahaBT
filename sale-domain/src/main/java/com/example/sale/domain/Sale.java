@@ -1,6 +1,7 @@
 package com.example.sale.domain;
 
 
+import com.example.shared.domain.CustomerId;
 import com.example.shared.domain.Isbn;
 
 import java.sql.Timestamp;

@@ -9,7 +9,7 @@ import java.util.Optional;
 
 public interface RequisitionRepository {
 
-    boolean existsByRequisitionId(RequisitionId requisitionId);
+    Boolean existsByRequisitionId(RequisitionId requisitionId);
 
     Requisition saveRequisition(Requisition requisition);
 

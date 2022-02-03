@@ -2,6 +2,7 @@ package com.example.customer.application;
 
 import com.example.customer.domain.Customer;
 import com.example.customer.domain.Location;
+import com.example.shared.domain.CustomerId;
 
 import java.util.List;
 import java.util.Optional;

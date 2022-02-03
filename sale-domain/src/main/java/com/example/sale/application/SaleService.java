@@ -17,13 +17,14 @@ public interface SaleService {
     Sale makeSale(Sale sale,int amount);
 
     List<Sale> listSales();
+
     List<Sale> getLastThreeMonthSales();
 
-    int getNumberOfLastThreeMonthSales();
+    long getNumberOfLastThreeMonthSales();
 
     List<Sale> getLastThreeMonthSalesByIsbn(Isbn isbn);
 
-    int getNumberOfLastThreeMonthSalesByIsbn(Isbn isbn);
+    long getNumberOfLastThreeMonthSalesByIsbn(Isbn isbn);
 
 
     List<Sale> getByCustomerId(CustomerId customerId);

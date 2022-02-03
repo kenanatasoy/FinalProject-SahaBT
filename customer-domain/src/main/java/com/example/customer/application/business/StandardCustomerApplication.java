@@ -5,6 +5,7 @@ import com.example.customer.application.business.exception.CustomerNotFoundExcep
 import com.example.customer.application.business.exception.ExistingCustomerException;
 import com.example.customer.domain.*;
 import com.example.customer.repository.CustomerRepository;
+import com.example.shared.domain.CustomerId;
 
 import java.util.List;
 import java.util.Optional;
@@ -61,4 +62,7 @@ public class StandardCustomerApplication implements CustomerApplication {
     public Optional<Customer> deleteCustomer(CustomerId customerId) {
         return Optional.ofNullable(customerRepository.deleteCustomer(customerId));
     }
+
+
+
 }

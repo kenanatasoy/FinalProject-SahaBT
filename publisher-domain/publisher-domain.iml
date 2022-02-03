@@ -13,5 +13,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="shared-kernel" />
     <orderEntry type="module" module-name="requisition-subdomain" />
+    <orderEntry type="module" module-name="sale-domain" />
+    <orderEntry type="module" module-name="stock-subdomain" />
   </component>
 </module>

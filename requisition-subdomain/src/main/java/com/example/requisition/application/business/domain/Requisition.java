@@ -2,6 +2,7 @@ package com.example.requisition.application.business.domain;
 
 
 import com.example.publisher.domain.PublisherId;
+import com.example.shared.domain.Isbn;
 
 import java.util.Objects;
 
@@ -68,7 +69,7 @@ public class Requisition {
         }
 
         public Builder isbn(String value){
-            this.isbn = Isbn.of(value);
+            this.isbn = Isbn.valueOf(value);
             return this;
         }
 

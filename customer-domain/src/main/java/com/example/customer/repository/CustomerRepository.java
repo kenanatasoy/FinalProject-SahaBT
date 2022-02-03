@@ -2,6 +2,7 @@ package com.example.customer.repository;
 
 import com.example.customer.domain.Customer;
 import com.example.customer.domain.Location;
+import com.example.shared.domain.CustomerId;
 
 import java.util.List;
 
@@ -14,8 +15,6 @@ public interface CustomerRepository {
     Customer saveCustomer(Customer customer);
     Customer updateCustomer(Customer customer);
     Customer deleteCustomer(CustomerId customerId);
-
-
 
 
 }
