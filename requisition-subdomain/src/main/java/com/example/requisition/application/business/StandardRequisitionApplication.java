@@ -8,7 +8,7 @@ import com.example.requisition.application.business.domain.Requisition;
 import com.example.requisition.application.business.domain.RequisitionId;
 import com.example.requisition.infra.EventPublisher;
 import com.example.requisition.repository.RequisitionRepository;
-import com.example.sale.application.SaleService;
+import com.example.sale.application.SaleApplication;
 import com.example.stock.domain.Stock;
 import com.example.stock.service.StockService;
 
@@ -18,11 +18,11 @@ import java.util.Optional;
 public class StandardRequisitionApplication implements RequisitionApplication {
 
     private final RequisitionRepository requisitionRepository;
-    private final SaleService saleService;
+    private final SaleApplication saleService;
     private final StockService stockService;
     private final EventPublisher<StockUnderCriticalLevelEvent> eventPublisher;
 
-    public StandardRequisitionApplication(RequisitionRepository requisitionRepository, SaleService saleService, StockService stockService, EventPublisher eventPublisher) {
+    public StandardRequisitionApplication(RequisitionRepository requisitionRepository, SaleApplication saleService, StockService stockService, EventPublisher eventPublisher) {
         this.requisitionRepository = requisitionRepository;
         this.saleService = saleService;
         this.stockService = stockService;
