@@ -1,4 +1,4 @@
-package com.example.document;
+package com.example.document.book;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
