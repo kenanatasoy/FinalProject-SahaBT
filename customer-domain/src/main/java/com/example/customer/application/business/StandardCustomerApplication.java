@@ -26,12 +26,11 @@ public class StandardCustomerApplication implements CustomerApplication {
 
     @Override
     public Optional<Customer> getCustomerById(CustomerId customerId) {
+
         if(!customerRepository.exitsById(customerId)){
             throw new CustomerNotFoundException("Customer not found exception", customerId.getValue());
         }
         return Optional.ofNullable(customerRepository.findCustomerById(customerId));
-        //TODO: Optional'ın of, ofNullable ve empty metotları hocaya sorulacak
-        // Employee domain class'ı sorulacak hocaya
     }
 
     @Override
@@ -44,22 +43,21 @@ public class StandardCustomerApplication implements CustomerApplication {
 
     @Override
     public Optional<Customer> updateCustomer(Customer customer) {
-
         var customerToUpdate = customerRepository.findCustomerById(customer.getIdentity());
-//        TODO: fields that could be updated are below, identity, age and fullname cannot be updated;
-//        private Location location;
-//        private List<Interest> interests;
-//        private Email email;
-//        private Epurse epurse;
-//        private Username userName;
-//        private Password password;
-//        private IsAdmin isAdmin;
-
-        return Optional.ofNullable(customerRepository.updateCustomer(customer));
+        if (customerToUpdate!=null) {
+            customerToUpdate.setEmail(customer.getEmail());
+            customerToUpdate.setEpurse(customer.getEpurse());
+            customerToUpdate.setInterests(customer.getInterests());
+            customerToUpdate.setLocation(customer.getLocation());
+            customerToUpdate.setPassword(customer.getPassword());
+            customerToUpdate.setIsAdmin(customer.getIsAdmin());
+            customerToUpdate.setUserName(customer.getUserName());
+        }
+        return Optional.of(customerToUpdate);
     }
 
     @Override
-    public Optional<Customer> deleteCustomer(CustomerId customerId) {
+    public Optional<Customer> deleteCustomerById(CustomerId customerId) {
         return Optional.ofNullable(customerRepository.deleteCustomer(customerId));
     }
 

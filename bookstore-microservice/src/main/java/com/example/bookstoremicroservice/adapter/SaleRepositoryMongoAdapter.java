@@ -14,7 +14,7 @@ import java.util.Optional;
 
 public class SaleRepositoryMongoAdapter implements SaleRepository {
 
-        private SaleDocumentRepository saleDocumentRepository;
+    private SaleDocumentRepository saleDocumentRepository;
     private ModelMapper mapper;
     public SaleRepositoryMongoAdapter(SaleDocumentRepository saleDocumentRepository) {
         this.saleDocumentRepository = saleDocumentRepository;
