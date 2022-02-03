@@ -8,6 +8,7 @@ import com.example.sale.repository.SaleRepository;
 import com.example.shared.domain.CustomerId;
 import com.example.shared.domain.Isbn;
 import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.PageRequest;
 
 import java.util.List;
 import java.util.Optional;
@@ -33,12 +34,18 @@ public class SaleRepositoryMongoAdapter implements SaleRepository {
     @Override
     public List<Sale> listSales() {
 
-        return null;
+        var saleDocuments = saleDocumentRepository.findAll();
+
+       return saleDocuments.stream()
+               .map((sd) -> mapper.map(sd,Sale.class))
+               .toList();
     }
 
     @Override
     public List<Sale> findSalesByPages(int page, int size) {
-        return null;
+        var pageRequest = PageRequest.of(page, size);
+        return saleDocumentRepository.findAll(pageRequest).stream().map(emp -> mapper.map(emp, Sale.class))
+                .toList();
     }
 
     @Override
@@ -47,7 +54,7 @@ public class SaleRepositoryMongoAdapter implements SaleRepository {
     }
 
     @Override
-    public List<Sale> findByCustomerId(CustomerId customerId) {
+    public List<Sale> findSalesByCustomerId(CustomerId customerId) {
         return null;
     }
 
