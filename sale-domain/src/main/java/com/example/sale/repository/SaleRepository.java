@@ -17,9 +17,11 @@ public interface SaleRepository {
 
     List<Sale> listSales();
 
-    List<Sale> findByBookIsbn(Isbn isbn);
+    List<Sale> findSalesByPages(int page , int size);
 
-    List<Sale> findByCustomerId(CustomerId customerId);
+    List<Sale> findSalesByBookIsbn(Isbn isbn);
+
+    List<Sale> findSalesByCustomerId(CustomerId customerId);
 
     Sale saveSale(Sale sale);
 
