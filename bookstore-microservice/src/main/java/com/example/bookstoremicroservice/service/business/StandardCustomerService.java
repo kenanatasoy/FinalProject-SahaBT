@@ -4,7 +4,7 @@ import com.example.bookstoremicroservice.dto.request.CustomerRequest;
 import com.example.bookstoremicroservice.dto.response.CustomerResponse;
 import com.example.bookstoremicroservice.service.CustomerService;
 import com.example.customer.application.CustomerApplication;
-import org.modelmapper.ModelMapper;
+
 
 import java.util.List;
 import java.util.Optional;
@@ -12,7 +12,6 @@ import java.util.Optional;
 public class StandardCustomerService implements CustomerService {
 
     private CustomerApplication customerApplication;
-    private ModelMapper modelMapper;
 
     @Override
     public List<CustomerResponse> getAllCustomers() {
