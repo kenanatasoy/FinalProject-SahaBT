@@ -46,7 +46,7 @@ public class StandardSaleApplication implements SaleApplication {
     @Override
     public List<Sale> getByCustomerId(CustomerId customerId) {
 
-        return saleRepository.findByCustomerId(customerId);
+        return saleRepository.findSalesByCustomerId(customerId);
     }
 
     @Override

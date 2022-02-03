@@ -1,4 +1,4 @@
-package com.example.bookstoremicroservice.document;
+package com.example.bookstoremicroservice.document.book;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;

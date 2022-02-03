@@ -21,7 +21,7 @@ public interface SaleRepository {
 
     List<Sale> findSalesByBookIsbn(Isbn isbn);
 
-    List<Sale> findByCustomerId(CustomerId customerId);
+    List<Sale> findSalesByCustomerId(CustomerId customerId);
 
     Sale saveSale(Sale sale);
 
