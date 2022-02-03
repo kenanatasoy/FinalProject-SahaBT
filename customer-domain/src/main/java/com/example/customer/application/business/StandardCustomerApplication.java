@@ -29,7 +29,7 @@ public class StandardCustomerApplication implements CustomerApplication {
         if(!customerRepository.exitsById(customerId)){
             throw new CustomerNotFoundException("Customer not found exception", customerId.getValue());
         }
-        return Optional.ofNullable(customerRepository.findCustomerById(customerId));
+        return Optional.of(customerRepository.findCustomerById(customerId));
         //TODO: Optional'ın of, ofNullable ve empty metotları hocaya sorulacak
         // Employee domain class'ı sorulacak hocaya
     }

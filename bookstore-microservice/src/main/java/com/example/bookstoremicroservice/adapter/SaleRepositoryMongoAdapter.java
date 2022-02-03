@@ -51,12 +51,12 @@ public class SaleRepositoryMongoAdapter implements SaleRepository {
 
     @Override
     public List<Sale> findSalesByBookIsbn(Isbn isbn) {
-        return null;
+        return saleDocumentRepository.findByBookId(isbn.getValue());
     }
 
     @Override
     public List<Sale> findSalesByCustomerId(CustomerId customerId) {
-        return null;
+        return saleDocumentRepository.findByCustomerId(customerId.getValue());
     }
 
     @Override

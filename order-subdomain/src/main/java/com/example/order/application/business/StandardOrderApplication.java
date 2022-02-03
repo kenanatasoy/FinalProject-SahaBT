@@ -25,6 +25,7 @@ public class StandardOrderApplication implements OrderApplication {
     @Override
     public Order makeOrder(Order order) {
         var orderId = order.getOrderId();
+        //TODO : STOCK KONTROLÜ
         if(orderRepository.existsByOrderId(orderId))
             throw new ExistingOrderException("Order already exists", orderId.getValue());
         Order savedOrder = orderRepository.saveOrder(order);
@@ -33,7 +34,10 @@ public class StandardOrderApplication implements OrderApplication {
         return savedOrder;
     }
 
+
+
     @Override
+
     public Optional<Order> findOrderById(OrderId orderId) {
         return orderRepository.findOrderById(orderId);
     }
