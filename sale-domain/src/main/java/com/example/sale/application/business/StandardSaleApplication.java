@@ -14,6 +14,7 @@ import com.example.shared.domain.Isbn;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class StandardSaleApplication implements SaleApplication {
@@ -27,10 +28,10 @@ public class StandardSaleApplication implements SaleApplication {
     }
 
     @Override
-    public Sale getBySaleId(SaleId saleId) {
+    public Optional<Sale> getBySaleId(SaleId saleId) {
         if (saleRepository.findBySaleId(saleId).isPresent())
             throw new SaleNotFoundException("Sale not found, ", saleId.getSaleId());
-        return saleRepository.findBySaleId(saleId).get();
+        return saleRepository.findBySaleId(saleId);
     }
 
     @Override

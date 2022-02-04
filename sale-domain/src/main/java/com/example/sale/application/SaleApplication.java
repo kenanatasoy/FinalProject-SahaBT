@@ -7,10 +7,11 @@ import com.example.shared.domain.CustomerId;
 import com.example.shared.domain.Isbn;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface SaleApplication {
 
-    Sale getBySaleId(SaleId saleId); // yapıldı
+    Optional<Sale> getBySaleId(SaleId saleId); // yapıldı
 
     List<Sale> getSalesByBookId(Isbn isbn); //yapıldı
 
