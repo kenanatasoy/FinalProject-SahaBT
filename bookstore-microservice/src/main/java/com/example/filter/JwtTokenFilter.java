@@ -23,11 +23,11 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 
 public class JwtTokenFilter extends GenericFilterBean {
-    private String secret;
+    private final String secret;
 
     private static final String BEARER = "Bearer";
 
-    private UserDetailsService userDetailsService;
+    private final UserDetailsService userDetailsService;
 
     public JwtTokenFilter(UserDetailsService userDetailsService, String secret) {
         this.userDetailsService = userDetailsService;

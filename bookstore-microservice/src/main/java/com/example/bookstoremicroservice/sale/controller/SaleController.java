@@ -4,7 +4,6 @@ import com.example.bookstoremicroservice.sale.dto.request.MakeSaleRequest;
 import com.example.bookstoremicroservice.sale.dto.response.MakeSaleResponse;
 import com.example.bookstoremicroservice.sale.dto.response.SaleResponse;
 import com.example.bookstoremicroservice.sale.service.SaleService;
-import com.example.sale.domain.Sale;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.annotation.RequestScope;
 
@@ -36,7 +35,7 @@ public class SaleController {
         return saleService.getSalesByBookId(bookId);
     }
 
-    @GetMapping("{saleId")
+    @GetMapping("{saleId}")
     public SaleResponse getBySaleId(@PathVariable int saleId)
     {
         return saleService.findBySaleId(saleId);

@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface SaleDocumentMongoRepository extends MongoRepository<SaleDocument,Integer> {
     List<Sale> findByBookId(String value);
-
+    //TODO
     List<Sale> findByCustomerId(String value);
 }

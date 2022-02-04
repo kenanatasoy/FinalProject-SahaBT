@@ -1,4 +1,4 @@
-package com.example.config;
+package com.example.bookstoremicroservice.config;
 
 import java.util.Arrays;
 import java.util.Date;

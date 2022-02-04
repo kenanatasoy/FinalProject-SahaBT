@@ -1,4 +1,4 @@
-package com.example.config;
+package com.example.bookstoremicroservice.config;
 
 import com.example.sale.application.SaleApplication;
 import com.example.sale.application.business.StandardSaleApplication;
@@ -11,8 +11,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AppConfig {
 	@Bean
-	public SaleApplication saleApp(SaleRepository saleRepository,
-							   EventPublisher eventPublisher) {
-		return new StandardSaleApplication(saleRepository, eventPublisher);
+	public SaleApplication saleApp(SaleRepository saleRepository) {
+		return new StandardSaleApplication(saleRepository);
+		//TODO
 	}
 }

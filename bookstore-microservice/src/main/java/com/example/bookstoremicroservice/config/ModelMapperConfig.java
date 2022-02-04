@@ -1,4 +1,4 @@
-package com.example.config;
+package com.example.bookstoremicroservice.config;
 
 import com.example.bookstoremicroservice.sale.document.SaleDocument;
 import com.example.bookstoremicroservice.sale.dto.request.MakeSaleRequest;

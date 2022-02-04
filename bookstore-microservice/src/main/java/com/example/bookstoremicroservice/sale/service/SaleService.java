@@ -3,8 +3,6 @@ package com.example.bookstoremicroservice.sale.service;
 import com.example.bookstoremicroservice.sale.dto.request.MakeSaleRequest;
 import com.example.bookstoremicroservice.sale.dto.response.MakeSaleResponse;
 import com.example.bookstoremicroservice.sale.dto.response.SaleResponse;
-import com.example.sale.domain.Sale;
-import com.example.shared.domain.Isbn;
 
 import java.util.List;
 
