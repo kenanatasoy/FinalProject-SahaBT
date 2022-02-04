@@ -9,16 +9,19 @@ import com.example.shared.domain.CustomerId;
 import com.example.shared.domain.Isbn;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 public class SaleRepositoryMongoAdapter implements SaleRepository {
 
-    private SaleDocumentMongoRepository saleDocumentRepository;
-    private ModelMapper mapper;
-    public SaleRepositoryMongoAdapter(SaleDocumentMongoRepository saleDocumentRepository) {
+    private final SaleDocumentMongoRepository saleDocumentRepository;
+    private final ModelMapper mapper;
+    public SaleRepositoryMongoAdapter(SaleDocumentMongoRepository saleDocumentRepository, ModelMapper mapper) {
         this.saleDocumentRepository = saleDocumentRepository;
+        this.mapper = mapper;
     }
 
     @Override
