@@ -1,10 +1,10 @@
 package com.example.application.business;
 
 import com.example.application.CatalogApplication;
+import com.example.application.CategoryApplication;
 import com.example.application.business.events.BookAddedEvent;
 import com.example.application.business.events.BookDeletedEvent;
 import com.example.application.business.exception.BookNotFoundException;
-import com.example.application.business.exception.CategoryNotFoundException;
 import com.example.application.business.exception.ExistingBookException;
 
 import com.example.application.business.exception.ExistingCategoryException;
@@ -19,15 +19,16 @@ import com.example.shared.domain.Isbn;
 import java.util.List;
 import java.util.Optional;
 
-public class StandardCatalogApplication implements CatalogApplication {
+public class StandardCatalogApplication implements CatalogApplication, CategoryApplication {
     private final EventPublisher eventPublisher;
     private final CatalogRepository catalogRepository;
+    private final CategoryRepository categoryRepository;
 
 
-    public StandardCatalogApplication(EventPublisher eventPublisher, CatalogRepository catalogRepository) {
+    public StandardCatalogApplication(EventPublisher eventPublisher, CatalogRepository catalogRepository, CategoryRepository categoryRepository) {
         this.eventPublisher = eventPublisher;
         this.catalogRepository = catalogRepository;
-
+        this.categoryRepository = categoryRepository;
     }
 
     @Override
@@ -62,6 +63,25 @@ public class StandardCatalogApplication implements CatalogApplication {
 
     }
 
+    @Override
+    public Category getCategoryById(CategoryId categoryId) {
+
+        return categoryRepository.findCategoryById(categoryId).orElseThrow(()-> new IllegalArgumentException("Category Not found"));
+    }
+
+    @Override
+    public Category addCategory(Category category) {
+        CategoryId categoryId = category.getId();
+        if (categoryRepository.existCategoryByCategoryId(categoryId))
+            throw new ExistingCategoryException("Category already exist", categoryId.getCategoryId());
+        Category addedCategory = categoryRepository.saveCategory(category);
+        return addedCategory;
+    }
+
+    @Override
+    public List<Category> listCategories() {
+        return categoryRepository.listCategories();
+    }
 }
 
 
