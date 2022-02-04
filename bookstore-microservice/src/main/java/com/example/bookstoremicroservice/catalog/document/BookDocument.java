@@ -31,108 +31,96 @@ public class BookDocument {
         return isbn;
     }
 
-    public BookDocument setIsbn(String isbn) {
+    public void setIsbn(String isbn) {
         this.isbn = isbn;
-        return this;
     }
 
     public String getAuthor() {
         return author;
     }
 
-    public BookDocument setAuthor(String author) {
+    public void setAuthor(String author) {
         this.author = author;
-        return this;
     }
 
     public String getTitle() {
         return title;
     }
 
-    public BookDocument setTitle(String title) {
+    public void setTitle(String title) {
         this.title = title;
-        return this;
     }
 
     public String getContents() {
         return contents;
     }
 
-    public BookDocument setContents(String contents) {
+    public void setContents(String contents) {
         this.contents = contents;
-        return this;
     }
 
     public byte[] getCoverPhoto() {
         return coverPhoto;
     }
 
-    public BookDocument setCoverPhoto(byte[] coverPhoto) {
+    public void setCoverPhoto(byte[] coverPhoto) {
         this.coverPhoto = coverPhoto;
-        return this;
     }
 
     public String getEdition() {
         return edition;
     }
 
-    public BookDocument setEdition(String edition) {
+    public void setEdition(String edition) {
         this.edition = edition;
-        return this;
     }
 
     public String getPopularty() {
         return popularty;
     }
 
-    public BookDocument setPopularty(String popularty) {
+    public void setPopularty(String popularty) {
         this.popularty = popularty;
-        return this;
     }
 
     public double getPrice() {
         return price;
     }
 
-    public BookDocument setPrice(double price) {
+    public void setPrice(double price) {
         this.price = price;
-        return this;
     }
 
     public int getPublicationYear() {
         return publicationYear;
     }
 
-    public BookDocument setPublicationYear(int publicationYear) {
+    public void setPublicationYear(int publicationYear) {
         this.publicationYear = publicationYear;
-        return this;
     }
 
     public String getReview() {
         return review;
     }
 
-    public BookDocument setReview(String review) {
+    public void setReview(String review) {
         this.review = review;
-        return this;
     }
 
-    public String getCategory() {
-        return category;
+    public String getCategoryId() {
+        return categoryId;
     }
 
-    public BookDocument setCategory(String category) {
-        this.category = category;
-        return this;
+    public void setCategoryId(String categoryId) {
+        this.categoryId = categoryId;
     }
 
-    public String getPublisher() {
-        return publisher;
+    public String getPublisherId() {
+        return publisherId;
     }
 
-    public BookDocument setPublisher(String publisher) {
-        this.publisher = publisher;
-        return this;
+    public void setPublisherId(String publisherId) {
+        this.publisherId = publisherId;
     }
 
     @Override
@@ -160,8 +148,8 @@ public class BookDocument {
                 ", price=" + price +
                 ", publicationYear=" + publicationYear +
                 ", review='" + review + '\'' +
-                ", category='" + category + '\'' +
-                ", publisher='" + publisher + '\'' +
+                ", categoryId='" + categoryId + '\'' +
+                ", publisherId='" + publisherId + '\'' +
                 '}';
     }
 }
