@@ -45,10 +45,10 @@ public class StandardSaleService implements SaleService {
 
     @Override
     public SaleResponse findBySaleId(int saleId) {
-        var sale = saleApplication.getBySaleId(SaleId.valueOf(saleId));
-        if (sale.isEmpty())
+        var saleOptional = saleApplication.getBySaleId(SaleId.valueOf(saleId));
+        if (saleOptional.isEmpty())
             throw new SaleNotFoundException("Cannot find sale",saleId);
-        return modelMapper.map(sale.get(),SaleResponse.class);
+        return modelMapper.map(saleOptional.get(),SaleResponse.class);
     }
 
     @Override
