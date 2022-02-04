@@ -5,6 +5,7 @@ import com.example.bookstoremicroservice.sale.dto.response.MakeSaleResponse;
 import com.example.bookstoremicroservice.sale.dto.response.SaleResponse;
 import com.example.sale.application.SaleApplication;
 import com.example.bookstoremicroservice.sale.service.SaleService;
+import com.example.sale.application.business.exception.SaleNotFoundException;
 import com.example.sale.domain.Sale;
 import com.example.sale.domain.SaleId;
 import com.example.shared.domain.CustomerId;
@@ -45,7 +46,9 @@ public class StandardSaleService implements SaleService {
     @Override
     public SaleResponse findBySaleId(int saleId) {
         var sale = saleApplication.getBySaleId(SaleId.valueOf(saleId));
-        return modelMapper.map(sale,SaleResponse.class);
+        if (sale.isEmpty())
+            throw new SaleNotFoundException("Cannot find sale",saleId);
+        return modelMapper.map(sale.get(),SaleResponse.class);
     }
 
     @Override

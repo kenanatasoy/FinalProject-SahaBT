@@ -14,10 +14,10 @@ import com.example.shared.domain.Isbn;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class StandardSaleApplication implements SaleApplication {
-
 
     private final SaleRepository saleRepository;
     private final EventPublisher<SaleEvent> eventPublisher;
@@ -25,16 +25,13 @@ public class StandardSaleApplication implements SaleApplication {
     public StandardSaleApplication(SaleRepository saleRepository, EventPublisher<SaleEvent> eventPublisher) {
         this.saleRepository = saleRepository;
         this.eventPublisher = eventPublisher;
-
     }
 
     @Override
-    public Sale getBySaleId(SaleId saleId) {
-        if (saleRepository.existBySaleId(saleId))
+    public Optional<Sale> getBySaleId(SaleId saleId) {
+        if (saleRepository.findBySaleId(saleId).isPresent())
             throw new SaleNotFoundException("Sale not found, ", saleId.getSaleId());
-
-        return saleRepository.findBySaleId(saleId).get();
-
+        return saleRepository.findBySaleId(saleId);
     }
 
     @Override

@@ -17,7 +17,7 @@ public class EventPublisherKafkaAdapter implements EventPublisher<SaleEvent> {
 
     private static final Logger logger =
             LoggerFactory.getLogger(EventPublisherKafkaAdapter.class);
-    @Value("${employee.events.topic}")
+    @Value("${bookstore.events.topic}")
     private String topicName;
 
     private final KafkaTemplate<String, String> kafkaTemplate;

@@ -25,12 +25,11 @@ public class Order {
         return customerId;
     }
 
-    public Isbn getBook() {
+    public Isbn getIsbn() {
         return isbn;
     }
 
-
-//    public StockNumber addStock(int newItems) {
+    //    public StockNumber addStock(int newItems) {
 //        this.numberOfBooksLeft = numberOfBooksLeft.add(newItems);
 //        return numberOfBooksLeft;
 //    }
