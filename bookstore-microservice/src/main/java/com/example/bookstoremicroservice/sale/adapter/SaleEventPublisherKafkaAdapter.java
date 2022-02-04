@@ -7,23 +7,23 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
 import com.example.sale.application.business.events.SaleEvent;
-import com.example.sale.infrastructure.EventPublisher;
+import com.example.sale.infrastructure.SaleEventPublisher;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 // ACL: Anti Corruption Layer
 @Service
-public class EventPublisherKafkaAdapter implements EventPublisher<SaleEvent> {
+public class SaleEventPublisherKafkaAdapter implements SaleEventPublisher<SaleEvent> {
 
     private static final Logger logger =
-            LoggerFactory.getLogger(EventPublisherKafkaAdapter.class);
+            LoggerFactory.getLogger(SaleEventPublisherKafkaAdapter.class);
     @Value("${bookstore.events.topic}")
     private String topicName;
 
     private final KafkaTemplate<String, String> kafkaTemplate;
     private final ObjectMapper mapper;
 
-    public EventPublisherKafkaAdapter(KafkaTemplate<String, String> kafkaTemplate, ObjectMapper mapper) {
+    public SaleEventPublisherKafkaAdapter(KafkaTemplate<String, String> kafkaTemplate, ObjectMapper mapper) {
         this.kafkaTemplate = kafkaTemplate;
         this.mapper = mapper;
     }

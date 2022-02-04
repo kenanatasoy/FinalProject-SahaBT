@@ -7,7 +7,7 @@ import com.example.sale.application.business.events.SaleEvent;
 import com.example.sale.application.business.exception.SaleNotFoundException;
 import com.example.sale.domain.Sale;
 import com.example.sale.domain.SaleId;
-import com.example.sale.infrastructure.EventPublisher;
+import com.example.sale.infrastructure.SaleEventPublisher;
 import com.example.sale.repository.SaleRepository;
 import com.example.shared.domain.CustomerId;
 import com.example.shared.domain.Isbn;
@@ -20,11 +20,11 @@ import java.util.stream.Collectors;
 public class StandardSaleApplication implements SaleApplication {
 
     private final SaleRepository saleRepository;
-    private final EventPublisher<SaleEvent> eventPublisher;
+    private final SaleEventPublisher<SaleEvent> saleEventPublisher;
 
-    public StandardSaleApplication(SaleRepository saleRepository, EventPublisher<SaleEvent> eventPublisher) {
+    public StandardSaleApplication(SaleRepository saleRepository, SaleEventPublisher<SaleEvent> saleEventPublisher) {
         this.saleRepository = saleRepository;
-        this.eventPublisher = eventPublisher;
+        this.saleEventPublisher = saleEventPublisher;
     }
 
     @Override
@@ -54,7 +54,7 @@ public class StandardSaleApplication implements SaleApplication {
             throw new SaleNotFoundException("sale already exists", saleId.getSaleId());
         Sale savedSale = saleRepository.saveSale(sale);
         var businessEvent = new MakeSaleEvent(savedSale, amount);
-        eventPublisher.publishEvent(businessEvent);
+        saleEventPublisher.publishEvent(businessEvent);
         return savedSale;
     }
 

@@ -9,7 +9,7 @@ import com.example.repository.CategoryRepository;
 import com.example.sale.application.SaleApplication;
 import com.example.sale.application.business.StandardSaleApplication;
 import com.example.sale.application.business.events.SaleEvent;
-import com.example.sale.infrastructure.EventPublisher;
+import com.example.sale.infrastructure.SaleEventPublisher;
 import com.example.sale.repository.SaleRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,8 +19,8 @@ import org.springframework.context.annotation.Configuration;
 public class AppConfig {
 
 	@Bean
-	public SaleApplication saleApp(SaleRepository saleRepository, EventPublisher<SaleEvent> eventPublisher) {
-		return new StandardSaleApplication(saleRepository, eventPublisher);
+	public SaleApplication saleApp(SaleRepository saleRepository, SaleEventPublisher<SaleEvent> saleEventPublisher) {
+		return new StandardSaleApplication(saleRepository, saleEventPublisher);
 	}
 	@Bean
 	public CatalogApplication catalogApp(CatalogRepository catalogRepository, CategoryRepository categoryRepository, CatalogEventPublisher<BookEvent> catalogEventPublisher){
