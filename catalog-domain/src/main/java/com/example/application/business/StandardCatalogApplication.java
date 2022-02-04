@@ -11,7 +11,7 @@ import com.example.application.business.exception.ExistingCategoryException;
 import com.example.domain.book.Book;
 import com.example.domain.category.Category;
 import com.example.domain.category.CategoryId;
-import com.example.infrastructure.EventPublisher;
+import com.example.infrastructure.CatalogEventPublisher;
 import com.example.repository.CatalogRepository;
 import com.example.repository.CategoryRepository;
 import com.example.shared.domain.Isbn;
@@ -20,13 +20,13 @@ import java.util.List;
 import java.util.Optional;
 
 public class StandardCatalogApplication implements CatalogApplication, CategoryApplication {
-    private final EventPublisher eventPublisher;
+    private final CatalogEventPublisher catalogEventPublisher;
     private final CatalogRepository catalogRepository;
     private final CategoryRepository categoryRepository;
 
 
-    public StandardCatalogApplication(EventPublisher eventPublisher, CatalogRepository catalogRepository, CategoryRepository categoryRepository) {
-        this.eventPublisher = eventPublisher;
+    public StandardCatalogApplication(CatalogEventPublisher catalogEventPublisher, CatalogRepository catalogRepository, CategoryRepository categoryRepository) {
+        this.catalogEventPublisher = catalogEventPublisher;
         this.catalogRepository = catalogRepository;
         this.categoryRepository = categoryRepository;
     }
@@ -38,7 +38,7 @@ public class StandardCatalogApplication implements CatalogApplication, CategoryA
             throw new ExistingBookException("Book already exist", isbn.getValue());
         Book addedBook = catalogRepository.save(book);
         var businessEvent = new BookAddedEvent(addedBook, amount);
-        eventPublisher.publishEvent(businessEvent);
+        catalogEventPublisher.publishEvent(businessEvent);
         return addedBook;
     }
 
@@ -46,7 +46,7 @@ public class StandardCatalogApplication implements CatalogApplication, CategoryA
     public Book deleteBook(Isbn isbn) {
         Optional<Book> deletedBook = catalogRepository.delete(isbn);
         var book = deletedBook.orElseThrow(() -> new BookNotFoundException("Book does not exist", isbn.getValue()));
-        eventPublisher.publishEvent(new BookDeletedEvent(book));
+        catalogEventPublisher.publishEvent(new BookDeletedEvent(book));
         return book;
     }
 

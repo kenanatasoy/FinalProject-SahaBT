@@ -23,7 +23,7 @@ public class StandartCatalogService implements CatalogService {
     }
 
     @Override
-    public GetBookResponse findEmployeeByIdentity(String isbn) {
+    public GetBookResponse findBooksByIsbn(String isbn) {
         var book = catalogApplication.findBookByIsbn(Isbn.valueOf(isbn));
         if(book.isEmpty())
             throw  new BookNotFoundException("Cannot Find Book",isbn);
@@ -33,7 +33,7 @@ public class StandartCatalogService implements CatalogService {
 
     @Override
     public AddedBookResponse addBook(AddBookRequest request) {
-        var book = modelMapper.map(request, BookDocument.class)
+        var book = modelMapper.map(request, BookDocument.class);
         return null;
     }
 

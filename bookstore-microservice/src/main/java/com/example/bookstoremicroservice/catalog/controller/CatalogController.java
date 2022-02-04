@@ -7,8 +7,13 @@ import com.example.bookstoremicroservice.catalog.dto.response.GetBookResponse;
 import com.example.bookstoremicroservice.category.dto.response.GetCategoryResponse;
 import com.example.bookstoremicroservice.catalog.service.CatalogService;
 import com.example.bookstoremicroservice.category.service.CategoryService;
+import com.example.controller.dto.request.AddCategoryRequest;
+import com.example.dto.response.AddedCategoryResponse;
+import com.example.dto.response.DeleteCategoryResponse;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.annotation.RequestScope;
+
+import java.util.List;
 
 @RestController
 @RequestScope
@@ -25,7 +30,11 @@ public class CatalogController {
 
     @GetMapping("{isbn}")
     public GetBookResponse getBookByIsbn(@PathVariable String isbn){
-        return catalogService.findEmployeeByIdentity(isbn);
+        return catalogService.findBooksByIsbn(isbn);
+    }
+    @GetMapping("/books")
+    public List<GetBookResponse> getBooksByCategoryId(@RequestParam int categoryId){
+        return catalogService.findBooksByCategoryId(categoryId);
     }
     @PostMapping
     public AddedBookResponse addBook(@RequestBody AddBookRequest request){
@@ -36,9 +45,13 @@ public class CatalogController {
        return catalogService.deleteBook(isbn);
     }
 
-    @GetMapping ("{categoryId}")
-    public GetCategoryResponse addCategory(@PathVariable int categoryId ){
-        return categoryService.addCategory(categoryId);
+    @PostMapping("{category}")
+    public AddedCategoryResponse addCategory(@RequestBody AddCategoryRequest request ){
+        return categoryService.addCategory(request);
     }
+    @GetMapping("{categoryId}")
+    public
+
+
 
 }
