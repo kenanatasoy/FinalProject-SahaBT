@@ -74,7 +74,7 @@ public class Order {
         private CustomerId customerId;
         private Isbn isbn;
 
-        public Builder orderId(String value) {
+        public Builder orderId(Long value) {
             this.orderId = OrderId.of(value);
             return this;
         }

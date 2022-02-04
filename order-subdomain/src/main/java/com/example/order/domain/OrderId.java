@@ -4,17 +4,17 @@ import java.util.Objects;
 
 public final class OrderId {
 
-    private final String value;
+    private final Long value;
 
-    private OrderId(String value) {
+    private OrderId(Long value) {
         this.value = value;
     }
 
-    public String getValue() {
+    public Long getValue() {
         return value;
     }
 
-    public static OrderId of(String value) {
+    public static OrderId of(Long value) {
         return new OrderId(value);
     }
 
@@ -37,7 +37,8 @@ public final class OrderId {
 
     @Override
     public String toString() {
-        return "OrderId [value=" + value + "]";
+        return "OrderId{" +
+                "value=" + value +
+                '}';
     }
-
 }

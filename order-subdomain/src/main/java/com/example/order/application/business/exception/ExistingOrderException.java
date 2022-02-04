@@ -3,14 +3,14 @@ package com.example.order.application.business.exception;
 @SuppressWarnings("serial")
 public class ExistingOrderException extends RuntimeException {
 
-    private final String identity;
+    private final Long identity;
 
-    public ExistingOrderException(String message, String identity) {
+    public ExistingOrderException(String message, Long identity) {
         super(message);
         this.identity = identity;
     }
 
-    public String getIdentity() {
+    public Long getIdentity() {
         return identity;
     }
 
