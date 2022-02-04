@@ -1,6 +1,6 @@
 package com.example.bookstoremicroservice.controller;
 
-import com.example.bookstoremicroservice.controller.dto.request.AddBookRequest;
+import com.example.bookstoremicroservice.dto.request.AddBookRequest;
 import com.example.bookstoremicroservice.dto.response.AddedBookResponse;
 import com.example.bookstoremicroservice.dto.response.DeletetBookResponse;
 import com.example.bookstoremicroservice.dto.response.GetBookResponse;

@@ -1,7 +1,7 @@
 package com.example.bookstoremicroservice.adapter;
 
-import com.example.bookstoremicroservice.document.SaleDocument;
-import com.example.bookstoremicroservice.service.repository.SaleDocumentRepository;
+import com.example.bookstoremicroservice.document.sale.SaleDocument;
+import com.example.bookstoremicroservice.repository.SaleDocumentRepository;
 import com.example.sale.domain.Sale;
 import com.example.sale.domain.SaleId;
 import com.example.sale.repository.SaleRepository;

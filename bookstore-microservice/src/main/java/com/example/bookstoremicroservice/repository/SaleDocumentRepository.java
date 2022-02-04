@@ -1,6 +1,6 @@
-package com.example.bookstoremicroservice.service.repository;
+package com.example.bookstoremicroservice.repository;
 
-import com.example.bookstoremicroservice.document.SaleDocument;
+import com.example.bookstoremicroservice.document.sale.SaleDocument;
 import com.example.sale.domain.Sale;
 import org.springframework.data.mongodb.repository.MongoRepository;
 

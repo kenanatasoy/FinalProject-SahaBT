@@ -1,9 +1,6 @@
 package com.example.bookstoremicroservice.dto.request;
 
-import com.example.bookstoremicroservice.document.CustomerDocument;
-
 import java.util.List;
-import java.util.Objects;
 
 public class CustomerRequest {
     private String customerId;

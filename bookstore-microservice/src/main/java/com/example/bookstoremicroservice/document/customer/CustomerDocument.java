@@ -2,61 +2,49 @@ package com.example.bookstoremicroservice.document.customer;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.List;
 import java.util.Objects;
 
-@Document(collection = "customers")
+@Document(collection = "book")
 public class CustomerDocument {
 
-    //TODO: identity, fullname ve age final olmıycak mı
     @Id
-    private String identity;
-
-    @Field("full_name")
-    private String fullname;
-
-    private Integer age;
-
+    private String customerId;
+    private String fullName;
+    private int age;
     private String location;
-
     private List<String> interests;
-
     private String email;
-
-    private Epurse ePurse;
-
-    private String username;
-
+    private Double epurse;
+    private String userName;
     private String password;
-
     private Boolean isAdmin;
 
     public CustomerDocument() {
     }
 
-    public String getIdentity() {
-        return identity;
+    public String getCustomerId() {
+        return customerId;
     }
 
-    public void setIdentity(String identity) {
-        this.identity = identity;
+    public void setCustomerId(String customerId) {
+        this.customerId = customerId;
     }
 
-    public String getFullname() {
-        return fullname;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setFullname(String fullname) {
-        this.fullname = fullname;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
-    public Integer getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(Integer age) {
+    public void setAge(int age) {
         this.age = age;
     }
 
@@ -84,20 +72,20 @@ public class CustomerDocument {
         this.email = email;
     }
 
-    public EPurse getePurse() {
-        return ePurse;
+    public Double getEpurse() {
+        return epurse;
     }
 
-    public void setePurse(EPurse ePurse) {
-        this.ePurse = ePurse;
+    public void setEpurse(Double epurse) {
+        this.epurse = epurse;
     }
 
-    public String getUsername() {
-        return username;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getPassword() {
@@ -121,26 +109,25 @@ public class CustomerDocument {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CustomerDocument that = (CustomerDocument) o;
-        return identity.equals(that.identity);
+        return customerId.equals(that.customerId);
     }
 
-    //TODO: intelliJ'de equals ve hashcode nasıl oluşturulur
     @Override
     public int hashCode() {
-        return Objects.hash(identity);
+        return Objects.hash(customerId);
     }
 
     @Override
     public String toString() {
         return "CustomerDocument{" +
-                "identity='" + identity + '\'' +
-                ", fullname='" + fullname + '\'' +
+                "customerId='" + customerId + '\'' +
+                ", fullName='" + fullName + '\'' +
                 ", age=" + age +
                 ", location='" + location + '\'' +
                 ", interests=" + interests +
                 ", email='" + email + '\'' +
-                ", ePurse=" + ePurse +
-                ", username='" + username + '\'' +
+                ", epurse=" + epurse +
+                ", userName='" + userName + '\'' +
                 ", password='" + password + '\'' +
                 ", isAdmin=" + isAdmin +
                 '}';

@@ -1,6 +1,6 @@
 package com.example.bookstoremicroservice.config;
 
-import com.example.bookstoremicroservice.document.SaleDocument;
+import com.example.bookstoremicroservice.document.sale.SaleDocument;
 import com.example.bookstoremicroservice.dto.response.SaleResponse;
 import com.example.sale.domain.Sale;
 import com.example.shared.domain.CustomerId;

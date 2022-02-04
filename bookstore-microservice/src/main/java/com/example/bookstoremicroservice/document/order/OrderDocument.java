@@ -2,8 +2,11 @@ package com.example.bookstoremicroservice.document.order;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.util.Objects;
 
+@Document(collection = "orders")
 public class OrderDocument {
 
     @Id
@@ -66,6 +69,5 @@ public class OrderDocument {
                 ", isbn='" + isbn + '\'' +
                 '}';
     }
-
 
 }

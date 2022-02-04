@@ -1,4 +1,4 @@
-package com.example.repository;
+package com.example.bookstoremicroservice.repository;
 
 import com.example.bookstoremicroservice.document.book.BookDocument;
 import org.springframework.data.mongodb.repository.MongoRepository;
