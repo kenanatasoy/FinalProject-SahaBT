@@ -22,16 +22,16 @@ import java.util.Optional;
 public class StandardCatalogApplication implements CatalogApplication {
     private final EventPublisher eventPublisher;
     private final CatalogRepository catalogRepository;
-    private final CategoryRepository categoryRepository;
 
-    public StandardCatalogApplication(EventPublisher eventPublisher, CatalogRepository catalogRepository, CategoryRepository categoryRepository) {
+
+    public StandardCatalogApplication(EventPublisher eventPublisher, CatalogRepository catalogRepository) {
         this.eventPublisher = eventPublisher;
         this.catalogRepository = catalogRepository;
-        this.categoryRepository = categoryRepository;
+
     }
 
     @Override
-    public Book addBook(Book book,int amount) {
+    public Book addBook(Book book, int amount) {
         Isbn isbn = book.getIsbn();
         if (catalogRepository.existBookByIsbn(isbn))
             throw new ExistingBookException("Book already exist", isbn.getValue());
@@ -43,8 +43,8 @@ public class StandardCatalogApplication implements CatalogApplication {
 
     @Override
     public Book deleteBook(Isbn isbn) {
-        Optional<Book> deletedBook=catalogRepository.delete(isbn);
-        var book= deletedBook.orElseThrow(()->new BookNotFoundException("Book does not exist",isbn.getValue()));
+        Optional<Book> deletedBook = catalogRepository.delete(isbn);
+        var book = deletedBook.orElseThrow(() -> new BookNotFoundException("Book does not exist", isbn.getValue()));
         eventPublisher.publishEvent(new BookDeletedEvent(book));
         return book;
     }
@@ -60,28 +60,6 @@ public class StandardCatalogApplication implements CatalogApplication {
     public List<Book> findByCategoryId(CategoryId categoryId) {
         return catalogRepository.findBooksByCategoryId(categoryId);
 
-    }
-
-    @Override
-    public Category getCategoryById(CategoryId categoryId) {
-        return categoryRepository.findCategoryById(categoryId)
-                .orElseThrow(()->new CategoryNotFoundException("Category not found",categoryId.getCategoryId()));
-    }
-
-    @Override
-    public Category addCategory(Category category) {
-        CategoryId categoryId = category.getId();
-        if (categoryRepository.existCategoryByCategoryId(categoryId))
-            throw new ExistingCategoryException("Book already exist", categoryId.getCategoryId());
-        Category addedCategory = categoryRepository.saveCategory(category);
-
-        return addedCategory;
-    }
-
-
-    @Override
-    public List<Category> listCategories() {
-        return categoryRepository.listCategories();
     }
 
 }
