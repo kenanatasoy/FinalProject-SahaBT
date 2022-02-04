@@ -1,4 +1,4 @@
-package com.example.bookstoremicroservice.sale.repository.service;
+package com.example.bookstoremicroservice.sale.service;
 
 import com.example.bookstoremicroservice.sale.dto.response.SaleResponse;
 

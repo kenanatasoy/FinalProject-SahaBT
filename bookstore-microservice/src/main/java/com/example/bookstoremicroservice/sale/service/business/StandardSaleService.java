@@ -1,8 +1,8 @@
-package com.example.bookstoremicroservice.sale.repository.service.business;
+package com.example.bookstoremicroservice.sale.service.business;
 
 import com.example.bookstoremicroservice.sale.dto.response.SaleResponse;
+import com.example.bookstoremicroservice.sale.service.SaleService;
 import com.example.sale.application.SaleApplication;
-import com.example.bookstoremicroservice.sale.repository.service.SaleService;
 import com.example.sale.domain.SaleId;
 import com.example.shared.domain.CustomerId;
 import com.example.shared.domain.Isbn;

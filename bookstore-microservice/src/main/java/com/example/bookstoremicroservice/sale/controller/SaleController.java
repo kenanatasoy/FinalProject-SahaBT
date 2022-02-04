@@ -1,7 +1,7 @@
 package com.example.bookstoremicroservice.sale.controller;
 
 import com.example.bookstoremicroservice.sale.dto.response.SaleResponse;
-import com.example.bookstoremicroservice.sale.repository.service.SaleService;
+import com.example.bookstoremicroservice.sale.service.SaleService;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.annotation.RequestScope;
 
