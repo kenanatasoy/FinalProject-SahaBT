@@ -3,49 +3,23 @@ package com.example.domain.category;
 import java.util.Objects;
 
 public class Category {
-    private CategoryId id;
+    private CategoryId categoryId;
     private Name name;
     private Category subCategory;
 
-    public static class Builder{
-        private CategoryId id;
-        private Name name;
-        private Category subCategory;
-
-        public Builder id(int categoryId) {
-            this.id = CategoryId.valueOf(categoryId);
-            return this;
-        }
-
-        public Builder name(String categoryName) {
-            this.name = Name.of(categoryName);
-            return this;
-        }
-        public Builder subCategory(Category name) {
-            this.subCategory = name.subCategory;
-            return this;
-        }
-
-        public Category build(){
-            var category = new Category(this.id);
-            category.setName(name);
-            category.setSubCategory(subCategory);
-
-        return category;
-        }
-
+    public Category() {
     }
 
     public Category(CategoryId id) {
-        this.id = id;
+        this.categoryId = id;
     }
 
     public CategoryId getId() {
-        return id;
+        return categoryId;
     }
 
     public void setId(CategoryId id) {
-        this.id = id;
+        this.categoryId = id;
     }
 
     public Name getName() {
@@ -61,7 +35,7 @@ public class Category {
     }
 
     public void setSubCategory(Category subCategory) {
-        this.subCategory = subCategory.name;
+        this.subCategory = subCategory;
 
         //cacheleme
     }
@@ -69,7 +43,7 @@ public class Category {
     @Override
     public String toString() {
         return "Category{" +
-                "id=" + id +
+                "id=" + categoryId +
                 ", name=" + name +
                 ", subCategory=" + subCategory +
                 '}';
@@ -80,11 +54,11 @@ public class Category {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Category category = (Category) o;
-        return Objects.equals(id, category.id);
+        return Objects.equals(categoryId, category.categoryId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(categoryId);
     }
 }
