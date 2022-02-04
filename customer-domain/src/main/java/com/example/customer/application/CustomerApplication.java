@@ -15,6 +15,6 @@ public interface CustomerApplication {
     Optional<Customer> getCustomerById(CustomerId customerId);
     Optional<Customer> addCustomer(Customer customer);
     Optional<Customer> updateCustomer(Customer customer);
-    Optional<Customer> deleteCustomer(CustomerId customerId);
+    Optional<Customer> deleteCustomerById(CustomerId customerId);
 
 }

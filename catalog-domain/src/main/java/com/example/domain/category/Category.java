@@ -62,6 +62,8 @@ public class Category {
 
     public void setSubCategory(Category subCategory) {
         this.subCategory = subCategory.name;
+
+        //cacheleme
     }
 
     @Override
