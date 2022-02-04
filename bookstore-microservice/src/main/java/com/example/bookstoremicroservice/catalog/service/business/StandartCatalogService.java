@@ -9,6 +9,10 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class StandartCatalogService implements CatalogService {
+  private  Book
+
+
+
     @Override
     public GetBookResponse findEmployeeByIdentity(String isbn) {
         return null;

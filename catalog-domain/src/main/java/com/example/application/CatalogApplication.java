@@ -15,10 +15,6 @@ public interface CatalogApplication {
     Optional<Book> findBookByIsbn(Isbn isbn);
     List<Book> findByCategoryId(CategoryId categoryId);
 
-    Category getCategoryById(CategoryId categoryId);
-    Category addCategory(Category category);
-    List<Category> listCategories();
-
 
 
 }
