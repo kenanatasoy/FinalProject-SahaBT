@@ -14,7 +14,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import com.example.filter.JwtTokenFilter;
+import com.example.bookstoremicroservice.filter.JwtTokenFilter;
 
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {

@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class AppConfig {
+
 	@Bean
 	public SaleApplication saleApp(SaleRepository saleRepository) {
 		return new StandardSaleApplication(saleRepository);
