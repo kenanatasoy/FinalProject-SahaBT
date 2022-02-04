@@ -1,19 +1,19 @@
-package com.example.stock.service.business;
+package com.example.stock.application.business;
 
 import com.example.sale.application.SaleApplication;
 import com.example.shared.domain.Isbn;
 import com.example.stock.domain.Stock;
 import com.example.stock.domain.StockKeepingUnit;
 import com.example.stock.repository.StockRepository;
-import com.example.stock.service.StockService;
-import com.example.stock.service.business.exception.StockNotFoundException;
+import com.example.stock.application.StockApplication;
+import com.example.stock.application.business.exception.StockNotFoundException;
 
-public class StandardStockService implements StockService {
+public class StandardStockApplication implements StockApplication {
 
     private final StockRepository stockRepository;
     private final SaleApplication saleService;
 
-    public StandardStockService(StockRepository stockRepository, SaleApplication saleService) {
+    public StandardStockApplication(StockRepository stockRepository, SaleApplication saleService) {
         this.stockRepository = stockRepository;
         this.saleService = saleService;
     }

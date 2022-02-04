@@ -3,6 +3,7 @@ package com.example.sale.application.business;
 
 import com.example.sale.application.SaleApplication;
 import com.example.sale.application.business.events.MakeSaleEvent;
+import com.example.sale.application.business.events.SaleEvent;
 import com.example.sale.application.business.exception.SaleNotFoundException;
 import com.example.sale.domain.Sale;
 import com.example.sale.domain.SaleId;
@@ -19,9 +20,9 @@ public class StandardSaleApplication implements SaleApplication {
 
 
     private final SaleRepository saleRepository;
-    private final EventPublisher eventPublisher;
+    private final EventPublisher<SaleEvent> eventPublisher;
 
-    public StandardSaleApplication(SaleRepository saleRepository, EventPublisher eventPublisher) {
+    public StandardSaleApplication(SaleRepository saleRepository, EventPublisher<SaleEvent> eventPublisher) {
         this.saleRepository = saleRepository;
         this.eventPublisher = eventPublisher;
 

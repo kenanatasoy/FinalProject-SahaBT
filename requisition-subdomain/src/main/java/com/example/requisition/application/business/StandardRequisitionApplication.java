@@ -10,7 +10,7 @@ import com.example.requisition.infra.EventPublisher;
 import com.example.requisition.repository.RequisitionRepository;
 import com.example.sale.application.SaleApplication;
 import com.example.stock.domain.Stock;
-import com.example.stock.service.StockService;
+import com.example.stock.application.StockApplication;
 
 import java.util.List;
 import java.util.Optional;
@@ -19,20 +19,20 @@ public class StandardRequisitionApplication implements RequisitionApplication {
 
     private final RequisitionRepository requisitionRepository;
     private final SaleApplication saleService;
-    private final StockService stockService;
+    private final StockApplication stockApplication;
     private final EventPublisher<StockUnderCriticalLevelEvent> eventPublisher;
 
-    public StandardRequisitionApplication(RequisitionRepository requisitionRepository, SaleApplication saleService, StockService stockService, EventPublisher eventPublisher) {
+    public StandardRequisitionApplication(RequisitionRepository requisitionRepository, SaleApplication saleService, StockApplication stockApplication, EventPublisher eventPublisher) {
         this.requisitionRepository = requisitionRepository;
         this.saleService = saleService;
-        this.stockService = stockService;
+        this.stockApplication = stockApplication;
         this.eventPublisher = eventPublisher;
     }
 
     @Override
     public Optional<Requisition> makeRequisition(Requisition requisition) {
 
-        Stock bookStock = stockService.findStockByBookIsbn(requisition.getIsbn());
+        Stock bookStock = stockApplication.findStockByBookIsbn(requisition.getIsbn());
         long numberOfBooksLeft = bookStock.getNumberOfBooksLeft().getValue();
         long lastThreeMonthSaleCountOfBook = saleService.getNumberOfLastThreeMonthSalesByIsbn(requisition.getIsbn());
         

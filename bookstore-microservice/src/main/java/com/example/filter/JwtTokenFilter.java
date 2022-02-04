@@ -1,4 +1,4 @@
-package com.example.bookstoremicroservice.filter;
+package com.example.filter;
 
 import java.io.IOException;
 import java.util.Base64;
