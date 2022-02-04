@@ -18,7 +18,7 @@ import java.util.List;
 @CrossOrigin
 public class SaleController {
 
-    private SaleService saleService;
+    private final SaleService saleService;
 
     public SaleController(SaleService saleService) {
         this.saleService = saleService;

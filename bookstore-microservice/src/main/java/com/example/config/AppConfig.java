@@ -10,10 +10,9 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class AppConfig {
-
 	@Bean
-	public SaleApplication hrApp(SaleRepository saleRepository,
-								 EventPublisher eventPublisher) {
+	public SaleApplication saleApp(SaleRepository saleRepository,
+							   EventPublisher eventPublisher) {
 		return new StandardSaleApplication(saleRepository, eventPublisher);
 	}
 }
