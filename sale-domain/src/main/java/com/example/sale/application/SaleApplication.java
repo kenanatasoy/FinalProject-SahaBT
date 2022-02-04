@@ -18,13 +18,15 @@ public interface SaleApplication {
 
     List<Sale> findSalesByPages(int page , int size); //yapıldı
 
-    Sale makeSale(Sale sale,int amount);
-
-    List<Sale> listSales();
+    Sale makeSale(Sale sale,int amount); // yapıldı
 
     List<Sale> getLastThreeMonthSalesByIsbn(Isbn isbn);
 
     long getNumberOfLastThreeMonthSalesByIsbn(Isbn isbn);
+
+    List<Sale> listSales();
+
+
 
    // List<Sale> getLastThreeMonthSales();
 

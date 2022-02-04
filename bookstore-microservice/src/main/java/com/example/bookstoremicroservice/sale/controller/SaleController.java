@@ -1,7 +1,10 @@
 package com.example.bookstoremicroservice.sale.controller;
 
+import com.example.bookstoremicroservice.sale.dto.request.MakeSaleRequest;
+import com.example.bookstoremicroservice.sale.dto.response.MakeSaleResponse;
 import com.example.bookstoremicroservice.sale.dto.response.SaleResponse;
 import com.example.bookstoremicroservice.sale.service.SaleService;
+import com.example.sale.domain.Sale;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.annotation.RequestScope;
 
@@ -43,6 +46,13 @@ public class SaleController {
     public List<SaleResponse> getSalesByCustomerId(@PathVariable  String customerId){
 
         return saleService.getSalesByCustomerId(customerId);
+    }
+
+    @PostMapping
+    public MakeSaleResponse makeSale(
+            @RequestBody MakeSaleRequest sale, int amount){
+
+        return saleService.makeSale(sale,amount);
     }
 
 

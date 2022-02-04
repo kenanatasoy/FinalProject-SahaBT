@@ -1,7 +1,7 @@
 package com.example.bookstoremicroservice.sale.adapter;
 
 import com.example.bookstoremicroservice.sale.document.SaleDocument;
-import com.example.bookstoremicroservice.sale.repository.SaleDocumentRepository;
+import com.example.bookstoremicroservice.sale.repository.SaleDocumentMongoRepository;
 import com.example.sale.domain.Sale;
 import com.example.sale.domain.SaleId;
 import com.example.sale.repository.SaleRepository;
@@ -15,9 +15,9 @@ import java.util.Optional;
 
 public class SaleRepositoryMongoAdapter implements SaleRepository {
 
-    private SaleDocumentRepository saleDocumentRepository;
+    private SaleDocumentMongoRepository saleDocumentRepository;
     private ModelMapper mapper;
-    public SaleRepositoryMongoAdapter(SaleDocumentRepository saleDocumentRepository) {
+    public SaleRepositoryMongoAdapter(SaleDocumentMongoRepository saleDocumentRepository) {
         this.saleDocumentRepository = saleDocumentRepository;
     }
 
