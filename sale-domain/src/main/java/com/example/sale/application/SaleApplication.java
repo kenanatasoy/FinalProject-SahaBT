@@ -16,7 +16,7 @@ public interface SaleApplication {
 
     List<Sale> getByCustomerId(CustomerId customerId);// yapıldı
 
-    List<Sale> findSalesByPages(int page , int size); //yapıldı
+    List<Sale> findSalesByPages(int page , int size); // yapıldı
 
     Sale makeSale(Sale sale,int amount); // yapıldı
 
