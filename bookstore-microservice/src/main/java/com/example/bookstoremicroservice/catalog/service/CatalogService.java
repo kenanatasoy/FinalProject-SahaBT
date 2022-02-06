@@ -10,7 +10,7 @@ import java.util.List;
 public interface CatalogService {
     GetBookResponse findBooksByIsbn(String isbn);
 
-    AddedBookResponse addBook(AddBookRequest request);
+    AddedBookResponse addBook(AddBookRequest request,int amount);
 
     DeleteBookResponse deleteBook(String isbn);
 
