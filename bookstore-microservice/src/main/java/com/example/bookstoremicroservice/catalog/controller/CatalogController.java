@@ -4,6 +4,7 @@ import com.example.bookstoremicroservice.catalog.dto.request.AddBookRequest;
 import com.example.bookstoremicroservice.catalog.dto.response.AddedBookResponse;
 import com.example.bookstoremicroservice.catalog.dto.response.DeleteBookResponse;
 import com.example.bookstoremicroservice.catalog.dto.response.GetBookResponse;
+import com.example.bookstoremicroservice.category.dto.response.CategoryResponse;
 import com.example.bookstoremicroservice.category.dto.response.GetCategoryResponse;
 import com.example.bookstoremicroservice.catalog.service.CatalogService;
 import com.example.bookstoremicroservice.category.service.CategoryService;
@@ -36,9 +37,9 @@ public class CatalogController {
     public List<GetBookResponse> getBooksByCategoryId(@RequestParam int categoryId){
         return catalogService.findBooksByCategoryId(categoryId);
     }
-    @PostMapping
-    public AddedBookResponse addBook(@RequestBody AddBookRequest request){
-       return catalogService.addBook(request);
+    @PostMapping("addbook")
+    public AddedBookResponse addBook(@RequestBody AddBookRequest request,int amount){
+       return catalogService.addBook(request,amount);
     }
     @DeleteMapping({"isbn"})
     public DeleteBookResponse deleteBook(@PathVariable String isbn){
@@ -50,7 +51,14 @@ public class CatalogController {
         return categoryService.addCategory(request);
     }
     @GetMapping("{categoryId}")
-    public
+    public CategoryResponse getCategory (@PathVariable int categoryId){
+        return categoryService.getCategoryByCategoryId(categoryId);
+    }
+    @GetMapping("{categorys}}")
+    public  List<CategoryResponse> getAllCategories (){
+        return categoryService.getAllCatagories();
+    }
+
 
 
 
