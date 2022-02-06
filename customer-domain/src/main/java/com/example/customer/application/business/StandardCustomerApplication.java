@@ -14,6 +14,10 @@ public class StandardCustomerApplication implements CustomerApplication {
 
     private CustomerRepository customerRepository;
 
+    public StandardCustomerApplication(CustomerRepository customerRepository) {
+        this.customerRepository = customerRepository;
+    }
+
     @Override
     public List<Customer> getAllCustomers() {
         return customerRepository.findAllCustomers();
@@ -30,8 +34,6 @@ public class StandardCustomerApplication implements CustomerApplication {
             throw new CustomerNotFoundException("Customer not found exception", customerId.getValue());
         }
         return Optional.of(customerRepository.findCustomerById(customerId));
-        //TODO: Optional'ın of, ofNullable ve empty metotları hocaya sorulacak
-        // Employee domain class'ı sorulacak hocaya
     }
 
     @Override
@@ -44,24 +46,18 @@ public class StandardCustomerApplication implements CustomerApplication {
 
     @Override
     public Optional<Customer> updateCustomer(Customer customer) {
-
         var customerToUpdate = customerRepository.findCustomerById(customer.getIdentity());
-//        TODO: fields that could be updated are below, identity, age and fullname cannot be updated;
-//        private Location location;
-//        private List<Interest> interests;
-//        private Email email;
-//        private Epurse epurse;
-//        private Username userName;
-//        private Password password;
-//        private IsAdmin isAdmin;
-
         return Optional.ofNullable(customerRepository.updateCustomer(customer));
     }
 
     @Override
-    public Optional<Customer> deleteCustomer(CustomerId customerId) {
-        return Optional.ofNullable(customerRepository.deleteCustomer(customerId));
+    public Optional<Customer> deleteCustomerById(CustomerId customerId) {
+        if(!customerRepository.exitsById(customerId)){
+            throw new CustomerNotFoundException("Customer has already deleted", customerId.getValue());
+        }
+        return Optional.of(customerRepository.deleteCustomer(customerId));
     }
+
 
 
 

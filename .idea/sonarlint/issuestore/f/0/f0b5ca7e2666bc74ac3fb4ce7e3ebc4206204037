@@ -1,0 +1,7 @@
+
+f
+java:S1206#"PThis class overrides "equals()" and should therefore also override "hashCode()".(ÜÑã
+d
+java:S6206"IRefactor this class declaration to use 'record CustomerId(String value)'.(ú„ûÕıÿÿÿÿ
+[
+java:S1124	"EReorder the modifiers to comply with the Java Language Specification.(Êğ‘Œ
