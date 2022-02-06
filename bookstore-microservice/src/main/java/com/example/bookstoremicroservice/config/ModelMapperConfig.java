@@ -1,9 +1,13 @@
 package com.example.bookstoremicroservice.config;
 
+import com.example.bookstoremicroservice.publisher.dto.request.PublisherRequest;
+import com.example.bookstoremicroservice.publisher.dto.response.PublisherResponse;
 import com.example.bookstoremicroservice.sale.document.SaleDocument;
 import com.example.bookstoremicroservice.sale.dto.request.MakeSaleRequest;
 import com.example.bookstoremicroservice.sale.dto.response.MakeSaleResponse;
 import com.example.bookstoremicroservice.sale.dto.response.SaleResponse;
+import com.example.publisher.domain.Publisher;
+import com.example.publisher.domain.PublisherName;
 import com.example.sale.domain.Sale;
 import com.example.sale.domain.SaleId;
 import com.example.shared.domain.CustomerId;
@@ -65,6 +69,32 @@ public class ModelMapperConfig {
                         .build();
             };
 
+    private static final Converter<Publisher, PublisherResponse>
+            PUBLISHER_TO_ADD_PUBLISHER_RESPONSE_CONVERTER =
+            (context) -> {
+                var publisher = context.getSource();
+                var fullname = publisher.getName();
+                var response = new PublisherResponse();
+                response.setPublisherId(publisher.getPublisherId().getPublisherId());
+                response.setName(String.format("%s %s",
+                        fullname.getFirst(), fullname.getLast()));
+                ;
+                return response;
+            };
+
+    private static final Converter<PublisherRequest, Publisher>
+            ADD_PUBLISHER_REQUEST_TO_PUBLISH_CONVERTER =
+            (context) -> {
+                var request = context.getSource();
+                return new Publisher.Builder()
+                        .publisherId(request.getPublisherId())
+                        .logo(request.getLogo())
+                        .name(request.getFirstName(), request.getLastName())
+                        .build();
+            };
+
+
+
 
     @Bean
     public ModelMapper modelMapper() {
@@ -78,10 +108,10 @@ public class ModelMapperConfig {
                Sale.class, MakeSaleResponse.class);
         mapper.addConverter( MAKE_SALE_REQUEST_TO_SALE_CONVERTER ,
                MakeSaleRequest.class, Sale.class);
-//        mapper.addConverter(EMPLOYEE_TO_HIRE_EMPLOYEE_RESPONSE_CONVERTER,
-//                Employee.class, HireEmployeeResponse.class);
-//        mapper.addConverter(HIRE_EMPLOYEE_REQUEST_TO_EMPLOYEE_CONVERTER,
-//                HireEmployeeRequest.class, Employee.class);
+        mapper.addConverter(PUBLISHER_TO_ADD_PUBLISHER_RESPONSE_CONVERTER ,
+                Publisher.class, PublisherResponse.class);
+        mapper.addConverter(ADD_PUBLISHER_REQUEST_TO_PUBLISH_CONVERTER,
+                PublisherRequest.class, Publisher.class);
         return mapper;
     }
 }

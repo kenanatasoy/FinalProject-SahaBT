@@ -21,9 +21,9 @@ public interface SaleApplication {
 
     Sale makeSale(Sale sale,int amount); // yapıldı
 
-    List<Sale> getLastThreeMonthSalesByIsbn(Isbn isbn);
+    List<Sale> getLastThreeMonthSalesByIsbn(Isbn isbn); //yapıldı
 
-    long getNumberOfLastThreeMonthSalesByIsbn(Isbn isbn);
+    long getNumberOfLastThreeMonthSalesByIsbn(Isbn isbn); //yapıldı
 
     List<Sale> listSales();
 
