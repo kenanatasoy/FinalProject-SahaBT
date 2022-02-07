@@ -10,9 +10,10 @@ import java.util.Objects;
 
 //TODO customerId için gerekli işlemleri yapmayı unutma hem domain de hem standardServicede.
 public class Sale {
-    private  SaleId saleId;
-    private  Isbn isbn;
-    private  CustomerId customerId;
+
+    private SaleId saleId;
+    private Isbn isbn;
+    private CustomerId customerId;
     private LocalDateTime timestamp;
 
     private Sale(SaleId saleId, Isbn isbn, CustomerId customerId) {

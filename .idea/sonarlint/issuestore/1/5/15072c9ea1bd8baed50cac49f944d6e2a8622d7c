@@ -1,0 +1,7 @@
+
+k
+java:S1206B"PThis class overrides "equals()" and should therefore also override "hashCode()".(Ý¢êÍýÿÿÿÿ
+^
+java:S6206"CRefactor this class declaration to use 'record Isbn(String value)'.(Á©Ù²ýÿÿÿÿ
+`
+java:S1124	"EReorder the modifiers to comply with the Java Language Specification.(µìëœøÿÿÿÿ

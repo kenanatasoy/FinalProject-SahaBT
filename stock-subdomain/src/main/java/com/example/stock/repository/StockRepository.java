@@ -8,6 +8,10 @@ import java.util.Optional;
 
 public interface StockRepository {
 
+    Stock save(Stock stock);
+
+    boolean existsBySku(StockKeepingUnit sku);
+
     Optional<Stock> updateStock(Stock stock);
 
     Optional<Stock> findStockBySku(StockKeepingUnit sku);

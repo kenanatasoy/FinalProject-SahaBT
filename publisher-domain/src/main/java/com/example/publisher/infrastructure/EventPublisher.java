@@ -1,8 +1,7 @@
 package com.example.publisher.infrastructure;
 
 
-import com.example.publisher.service.business.event.BookSupplyEvent;
-import com.example.publisher.service.business.event.PublisherEvent;
+import com.example.publisher.application.business.event.BookSupplyEvent;
 
 public interface EventPublisher {
 

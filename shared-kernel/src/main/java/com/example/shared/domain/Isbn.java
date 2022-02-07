@@ -43,6 +43,7 @@ public final class Isbn {
 
         return false;
     }
+
     public static Isbn valueOf(String value) {
         if (!isValid(value))
             throw new IllegalArgumentException("This is not a valid identity no!");

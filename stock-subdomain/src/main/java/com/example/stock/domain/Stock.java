@@ -99,8 +99,7 @@ public class Stock {
 		}
 
 		public Stock build() {
-			var stock = new Stock(sku, isbn, numberOfBooksLeft, numberOfBooksSold);
-			return stock;
+			return new Stock(sku, isbn, numberOfBooksLeft, numberOfBooksSold);
 		}
 	}
 }
