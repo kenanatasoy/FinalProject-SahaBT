@@ -2,7 +2,7 @@ package com.example.publisher.application.business;
 
 import com.example.publisher.domain.Publisher;
 import com.example.publisher.domain.PublisherId;
-import com.example.publisher.infrastructure.EventPublisher;
+import com.example.publisher.infrastructure.RequisitionEventPublisher;
 import com.example.publisher.repository.PublisherRepository;
 import com.example.publisher.application.PublisherApplication;
 import com.example.publisher.application.business.event.BookSupplyEvent;
@@ -16,12 +16,12 @@ import java.util.List;
 import java.util.Optional;
 
 public class StandardPublisherApplication implements PublisherApplication {
-    private final EventPublisher eventPublisher;
+    private final RequisitionEventPublisher requisitionEventPublisher;
     private final PublisherRepository publisherRepository;
     private final RequisitionApplication requisitionApplication;
 
-    public StandardPublisherApplication(EventPublisher eventPublisher, PublisherRepository publisherRepository,RequisitionApplication requisitionApplication) {
-        this.eventPublisher = eventPublisher;
+    public StandardPublisherApplication(RequisitionEventPublisher requisitionEventPublisher, PublisherRepository publisherRepository, RequisitionApplication requisitionApplication) {
+        this.requisitionEventPublisher = requisitionEventPublisher;
         this.publisherRepository = publisherRepository;
         this.requisitionApplication=requisitionApplication;
     }
@@ -49,7 +49,7 @@ public class StandardPublisherApplication implements PublisherApplication {
     @Override
     public boolean supplyBooks(Isbn isbn, PublisherId publisherId, int amount) {
         BookSupplyEvent bookSupplyEvent= new BookSupplyEvent(isbn, publisherId, amount);
-        eventPublisher.publishEvent(bookSupplyEvent);
+        requisitionEventPublisher.publishEvent(bookSupplyEvent);
         return true;
     }
 

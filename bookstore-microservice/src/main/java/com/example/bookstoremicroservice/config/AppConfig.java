@@ -6,6 +6,7 @@ import com.example.application.business.events.BookEvent;
 import com.example.infrastructure.CatalogEventPublisher;
 import com.example.publisher.application.PublisherApplication;
 import com.example.publisher.application.business.StandardPublisherApplication;
+import com.example.publisher.infrastructure.RequisitionEventPublisher;
 import com.example.publisher.repository.PublisherRepository;
 import com.example.repository.CatalogRepository;
 import com.example.repository.CategoryRepository;
@@ -39,8 +40,8 @@ public class AppConfig {
 		return new StandardStockApplication(stockRepository);
 	}
 	@Bean
-	public PublisherApplication PublisherApp(SaleEventPublisher<SaleEvent> PublisherEvent, PublisherRepository publisherRepository,RequisitionApplication requisitionApplication) {
-		return new StandardPublisherApplication(PublisherEvent,PublisherRepository,requisitionApplication);
+	public PublisherApplication PublisherApp(RequisitionEventPublisher requisitionEventPublisher, PublisherRepository publisherRepository, RequisitionApplication requisitionApplication) {
+		return new StandardPublisherApplication(requisitionEventPublisher,publisherRepository,requisitionApplication);
 	}
 
 }
