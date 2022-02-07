@@ -5,13 +5,20 @@ import com.example.application.business.exception.BookNotFoundException;
 import com.example.application.business.exception.CategoryNotFoundException;
 import com.example.bookstoremicroservice.catalog.dto.response.GetBookResponse;
 import com.example.bookstoremicroservice.category.dto.request.AddCategoryRequest;
+import com.example.bookstoremicroservice.category.dto.response.AddedCategoryResponse;
 import com.example.bookstoremicroservice.category.dto.response.CategoryResponse;
 import com.example.bookstoremicroservice.category.service.CategoryService;
 import com.example.bookstoremicroservice.category.dto.response.GetCategoryResponse;
-import com.example.controller.dto.request.AddCategoryRequest;
+import com.example.bookstoremicroservice.sale.dto.response.MakeSaleResponse;
+import com.example.bookstoremicroservice.sale.dto.response.SaleResponse;
+
 import com.example.domain.category.Category;
-import com.example.dto.response.DeleteCategoryResponse;
+import com.example.domain.category.CategoryId;
+
 import com.example.repository.CategoryRepository;
+import com.example.sale.application.business.exception.SaleNotFoundException;
+import com.example.sale.domain.Sale;
+import com.example.sale.domain.SaleId;
 import com.example.shared.domain.Isbn;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -28,22 +35,30 @@ public class StandardCategoryService implements CategoryService {
         this.modelMapper = modelMapper;
     }
 
-    @Override
-    public GetCategoryResponse addCategory(AddCategoryRequest request) {
-        var category = categoryApplication.addCategory(request);
-        if(category.equals(null))
-            throw  new CategoryNotFoundException("Cannot Find Book",categoryId);
-        return  modelMapper.map(category , GetCategoryResponse.class);
-    }
+
 
 
     @Override
     public CategoryResponse getCategoryByCategoryId(int categoryId) {
-        return null;
+        var category = categoryApplication.getCategoryById(CategoryId.valueOf(categoryId));
+        if (category==null)
+            throw new CategoryNotFoundException("Cannot find category",categoryId);
+        return modelMapper.map(category, CategoryResponse.class);
+
     }
 
     @Override
     public List<CategoryResponse> getAllCatagories() {
-        return null;
+
+        var category= categoryApplication.listCategories();
+        return category.stream()
+                .map((s) -> modelMapper.map(s,CategoryResponse.class)).toList();
+    }
+
+    @Override
+    public AddedCategoryResponse addCategory(AddCategoryRequest request) {
+        var category=modelMapper.map(request, Category.class);
+        var addedCategory=categoryApplication.addCategory(category);
+        return modelMapper.map(addedCategory, AddedCategoryResponse.class);
     }
 }
