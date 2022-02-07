@@ -1,9 +1,8 @@
 package com.example.bookstoremicroservice.category.service.business;
 
 import com.example.bookstoremicroservice.category.dto.response.CategoryResponse;
-import com.example.bookstoremicroservice.category.service.CategoryService;
 import com.example.bookstoremicroservice.category.dto.response.GetCategoryResponse;
-import com.example.dto.response.DeleteCategoryResponse;
+import com.example.bookstoremicroservice.category.service.CategoryService;
 import org.springframework.stereotype.Service;
 
 @Service

@@ -5,12 +5,10 @@ import com.example.bookstoremicroservice.catalog.dto.response.AddedBookResponse;
 import com.example.bookstoremicroservice.catalog.dto.response.DeleteBookResponse;
 import com.example.bookstoremicroservice.catalog.dto.response.GetBookResponse;
 import com.example.bookstoremicroservice.category.dto.response.CategoryResponse;
-import com.example.bookstoremicroservice.category.dto.response.GetCategoryResponse;
 import com.example.bookstoremicroservice.catalog.service.CatalogService;
 import com.example.bookstoremicroservice.category.service.CategoryService;
-import com.example.controller.dto.request.AddCategoryRequest;
-import com.example.dto.response.AddedCategoryResponse;
-import com.example.dto.response.DeleteCategoryResponse;
+import com.example.bookstoremicroservice.category.dto.request.AddCategoryRequest;
+import com.example.bookstoremicroservice.category.dto.response.AddedCategoryResponse;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.annotation.RequestScope;
 

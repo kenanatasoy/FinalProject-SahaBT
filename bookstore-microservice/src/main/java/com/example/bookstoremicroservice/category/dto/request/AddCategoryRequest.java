@@ -1,4 +1,4 @@
-package com.example.controller.dto.request;
+package com.example.bookstoremicroservice.category.dto.request;
 
 public class AddCategoryRequest {
     private String catalogId;

@@ -1,4 +1,4 @@
-package com.example.dto.response;
+package com.example.bookstoremicroservice.category.dto.response;
 
 public class DeleteCategoryResponse {
     private int categoryId;
