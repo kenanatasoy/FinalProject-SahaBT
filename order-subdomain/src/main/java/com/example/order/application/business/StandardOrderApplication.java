@@ -6,7 +6,7 @@ import com.example.order.application.business.exception.ExistingOrderException;
 import com.example.order.application.business.exception.NoAmountLeftAtStockException;
 import com.example.order.domain.Order;
 import com.example.order.domain.OrderId;
-import com.example.order.infra.EventPublisher;
+import com.example.order.infra.OrderEventPublisher;
 import com.example.order.repository.OrderRepository;
 import com.example.stock.application.StockApplication;
 
@@ -16,12 +16,12 @@ import java.util.Optional;
 public class StandardOrderApplication implements OrderApplication {
 
     private final OrderRepository orderRepository;
-    private final EventPublisher eventPublisher;
+    private final OrderEventPublisher orderEventPublisher;
     private final StockApplication stockApplication;
 
-    public StandardOrderApplication(OrderRepository orderRepository, EventPublisher eventPublisher, StockApplication stockApplication) {
+    public StandardOrderApplication(OrderRepository orderRepository, OrderEventPublisher orderEventPublisher, StockApplication stockApplication) {
         this.orderRepository = orderRepository;
-        this.eventPublisher = eventPublisher;
+        this.orderEventPublisher = orderEventPublisher;
         this.stockApplication = stockApplication;
     }
 
@@ -37,7 +37,7 @@ public class StandardOrderApplication implements OrderApplication {
             throw new ExistingOrderException("Order already exists", orderId.getValue());
         Order savedOrder = orderRepository.saveOrder(order);
         var orderMadeEvent = new OrderMadeEvent(savedOrder);
-        eventPublisher.publishEvent(orderMadeEvent);
+        orderEventPublisher.publishEvent(orderMadeEvent);
         return savedOrder;
     }
 

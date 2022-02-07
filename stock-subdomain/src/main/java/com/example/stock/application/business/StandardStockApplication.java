@@ -1,7 +1,7 @@
 package com.example.stock.application.business;
 
-import com.example.sale.application.SaleApplication;
 import com.example.shared.domain.Isbn;
+import com.example.stock.application.business.exception.ExistingStockException;
 import com.example.stock.domain.Stock;
 import com.example.stock.domain.StockKeepingUnit;
 import com.example.stock.repository.StockRepository;
@@ -11,11 +11,17 @@ import com.example.stock.application.business.exception.StockNotFoundException;
 public class StandardStockApplication implements StockApplication {
 
     private final StockRepository stockRepository;
-    private final SaleApplication saleService;
 
-    public StandardStockApplication(StockRepository stockRepository, SaleApplication saleService) {
+    public StandardStockApplication(StockRepository stockRepository) {
         this.stockRepository = stockRepository;
-        this.saleService = saleService;
+    }
+
+    @Override
+    public Stock addStock(Stock stock) {
+        var sku = stock.getSku();
+        if (stockRepository.existsBySku(stock.getSku()))
+            throw new ExistingStockException("Stock already exist", sku.getValue());
+        return stockRepository.save(stock);
     }
 
     @Override
@@ -23,7 +29,6 @@ public class StandardStockApplication implements StockApplication {
         return stockRepository.updateStock(stock)
                 .orElseThrow(() -> new StockNotFoundException("Stock has not been found", stock.getSku().getValue()));
     }
-
 
 
     @Override
@@ -38,13 +43,7 @@ public class StandardStockApplication implements StockApplication {
                 .orElseThrow(() -> new StockNotFoundException("Stock has not been found", isbn.getValue()));
     }
 
-    @Override
-    public Boolean maintainThreeMonthStockByIsbn(Isbn isbn) {
 
-        // TODO what to do here?
-
-        return true;
-    }
 
 
 }

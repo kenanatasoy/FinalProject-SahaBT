@@ -9,7 +9,7 @@ import com.example.publisher.service.business.event.BookSupplyEvent;
 import com.example.publisher.service.business.exception.ExistingPublisherException;
 import com.example.publisher.service.business.exception.PublisherNotFoundException;
 import com.example.requisition.application.RequisitionApplication;
-import com.example.requisition.application.business.domain.Requisition;
+import com.example.requisition.domain.Requisition;
 import com.example.shared.domain.Isbn;
 
 import java.util.List;

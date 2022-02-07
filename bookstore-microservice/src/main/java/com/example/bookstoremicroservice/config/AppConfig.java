@@ -11,6 +11,9 @@ import com.example.sale.application.business.StandardSaleApplication;
 import com.example.sale.application.business.events.SaleEvent;
 import com.example.sale.infrastructure.SaleEventPublisher;
 import com.example.sale.repository.SaleRepository;
+import com.example.stock.application.StockApplication;
+import com.example.stock.application.business.StandardStockApplication;
+import com.example.stock.repository.StockRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -24,7 +27,12 @@ public class AppConfig {
 	}
 	@Bean
 	public CatalogApplication catalogApp(CatalogRepository catalogRepository, CategoryRepository categoryRepository, CatalogEventPublisher<BookEvent> catalogEventPublisher){
-		return  new StandardCatalogApplication(catalogEventPublisher,catalogRepository,categoryRepository);
+		return new StandardCatalogApplication(catalogEventPublisher,catalogRepository,categoryRepository);
+	}
+
+	@Bean
+	public StockApplication stockApp(StockRepository stockRepository){
+		return new StandardStockApplication(stockRepository);
 	}
 
 }

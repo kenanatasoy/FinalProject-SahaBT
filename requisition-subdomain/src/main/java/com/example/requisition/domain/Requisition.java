@@ -1,4 +1,4 @@
-package com.example.requisition.application.business.domain;
+package com.example.requisition.domain;
 
 
 import com.example.publisher.domain.PublisherId;
