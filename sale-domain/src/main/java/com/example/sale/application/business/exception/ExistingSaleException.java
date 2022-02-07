@@ -1,10 +1,10 @@
 package com.example.sale.application.business.exception;
 
-public class ExistingNotFoundException extends RuntimeException {
+public class ExistingSaleException extends RuntimeException {
 
     private final int saleId;
 
-    public ExistingNotFoundException(String message, int saleId){
+    public ExistingSaleException(String message, int saleId){
         super(message);
         this.saleId = saleId;
     }
