@@ -38,9 +38,5 @@ public class AppConfig {
 	public StockApplication stockApp(StockRepository stockRepository){
 		return new StandardStockApplication(stockRepository);
 	}
-	@Bean
-	public PublisherApplication PublisherApp(SaleEventPublisher<SaleEvent> PublisherEvent, PublisherRepository publisherRepository,RequisitionApplication requisitionApplication) {
-		return new StandardPublisherApplication(PublisherEvent,PublisherRepository,requisitionApplication);
-	}
 
 }

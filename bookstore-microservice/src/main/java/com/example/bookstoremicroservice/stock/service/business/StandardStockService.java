@@ -12,7 +12,6 @@ import com.example.stock.domain.Stock;
 import com.example.stock.domain.StockKeepingUnit;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.event.EventListener;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
@@ -71,8 +70,11 @@ public class StandardStockService implements StockService {
     @EventListener
     private void handleBookSoldEvent(MakeSaleEvent event){
         var isbn = event.getSale().getIsbn().getValue();
-        //TODO
+        var numberOfSales = event.getAmount();
 
+        Stock stock = modelMapper.map(findStockByBookIsbn(isbn), Stock.class);
+        stock.sellFromStock(numberOfSales);
+        updateStockInfo(modelMapper.map(stock, StockRequest.class));
     }
 
 

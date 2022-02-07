@@ -9,6 +9,7 @@ import com.example.requisition.domain.RequisitionId;
 import com.example.requisition.infra.EventPublisher;
 import com.example.requisition.repository.RequisitionRepository;
 import com.example.sale.application.SaleApplication;
+import com.example.shared.domain.Isbn;
 import com.example.stock.domain.Stock;
 import com.example.stock.application.StockApplication;
 
@@ -56,6 +57,13 @@ public class StandardRequisitionApplication implements RequisitionApplication {
     public Requisition findRequisitionById(RequisitionId requisitionId) {
         return requisitionRepository.findOneById(requisitionId)
                 .orElseThrow(() -> new RequisitionNotFoundException("Requisition has not been found", requisitionId.getValue()));
+    }
+
+    @Override
+    public Requisition findRequisitionByBookId(Isbn isbn) {
+        return requisitionRepository.findRequisitionByBookId(isbn)
+                .orElseThrow(() ->
+                        new RequisitionNotFoundException("Requisition has not been found for that isbn", isbn.getValue()));
     }
 
     @Override
