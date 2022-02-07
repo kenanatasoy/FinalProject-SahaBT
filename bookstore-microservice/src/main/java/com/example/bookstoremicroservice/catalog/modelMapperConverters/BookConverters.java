@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class BookConverters {
-    private  static final Converter<BookDocument, Book>
+    public  static final Converter<BookDocument, Book>
             BOOK_DOCUMENT_TO_BOOK_CONVERTER= context -> {
         var document =context.getSource();
         return new Book.Builder()
