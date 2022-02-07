@@ -1,4 +1,4 @@
-package com.example.publisher.service.business.event;
+package com.example.publisher.application.business.event;
 
 import java.util.UUID;
 

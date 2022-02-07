@@ -1,4 +1,4 @@
-package com.example.publisher.service.business.event;
+package com.example.publisher.application.business.event;
 
 import com.example.publisher.domain.PublisherId;
 import com.example.shared.domain.Isbn;

@@ -1,13 +1,13 @@
-package com.example.publisher.service.business;
+package com.example.publisher.application.business;
 
 import com.example.publisher.domain.Publisher;
 import com.example.publisher.domain.PublisherId;
 import com.example.publisher.infrastructure.EventPublisher;
 import com.example.publisher.repository.PublisherRepository;
-import com.example.publisher.service.PublisherApplication;
-import com.example.publisher.service.business.event.BookSupplyEvent;
-import com.example.publisher.service.business.exception.ExistingPublisherException;
-import com.example.publisher.service.business.exception.PublisherNotFoundException;
+import com.example.publisher.application.PublisherApplication;
+import com.example.publisher.application.business.event.BookSupplyEvent;
+import com.example.publisher.application.business.exception.ExistingPublisherException;
+import com.example.publisher.application.business.exception.PublisherNotFoundException;
 import com.example.requisition.application.RequisitionApplication;
 import com.example.requisition.domain.Requisition;
 import com.example.shared.domain.Isbn;

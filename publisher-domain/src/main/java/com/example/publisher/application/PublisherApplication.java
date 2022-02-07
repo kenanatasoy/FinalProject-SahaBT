@@ -1,4 +1,4 @@
-package com.example.publisher.service;
+package com.example.publisher.application;
 
 import com.example.publisher.domain.Publisher;
 import com.example.publisher.domain.PublisherId;

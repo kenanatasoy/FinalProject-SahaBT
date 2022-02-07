@@ -1,4 +1,4 @@
-package com.example.publisher.service.business.exception;
+package com.example.publisher.application.business.exception;
 
 public class ExistingPublisherException extends RuntimeException {
     private final int publisherId;

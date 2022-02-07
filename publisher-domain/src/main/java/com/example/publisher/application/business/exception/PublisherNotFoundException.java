@@ -1,4 +1,4 @@
-package com.example.publisher.service.business.exception;
+package com.example.publisher.application.business.exception;
 
 public class PublisherNotFoundException extends RuntimeException {
     private final int publisherId;
