@@ -4,6 +4,7 @@ import com.example.application.CategoryApplication;
 import com.example.application.business.exception.BookNotFoundException;
 import com.example.application.business.exception.CategoryNotFoundException;
 import com.example.bookstoremicroservice.catalog.dto.response.GetBookResponse;
+import com.example.bookstoremicroservice.category.dto.request.AddCategoryRequest;
 import com.example.bookstoremicroservice.category.dto.response.CategoryResponse;
 import com.example.bookstoremicroservice.category.service.CategoryService;
 import com.example.bookstoremicroservice.category.dto.response.GetCategoryResponse;

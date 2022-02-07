@@ -13,16 +13,16 @@ public class BookDocument {
     private String author;
     private String title;
     private String contents;
-    private byte[] coverPhoto;
+    private String coverPhoto;
     private String edition;
     private String popularty;
     private double price;
     private int publicationYear;
     private String review;
     @DBRef(db="category")
-    private String categoryId;
+    private int categoryId;
     @DBRef(db="publisher")
-    private String publisherId;
+    private int publisherId;
 
     public BookDocument() {
     }
@@ -59,11 +59,11 @@ public class BookDocument {
         this.contents = contents;
     }
 
-    public byte[] getCoverPhoto() {
+    public String getCoverPhoto() {
         return coverPhoto;
     }
 
-    public void setCoverPhoto(byte[] coverPhoto) {
+    public void setCoverPhoto(String coverPhoto) {
         this.coverPhoto = coverPhoto;
     }
 
@@ -107,19 +107,19 @@ public class BookDocument {
         this.review = review;
     }
 
-    public String getCategoryId() {
+    public int getCategoryId() {
         return categoryId;
     }
 
-    public void setCategoryId(String categoryId) {
+    public void setCategoryId(int categoryId) {
         this.categoryId = categoryId;
     }
 
-    public String getPublisherId() {
+    public int getPublisherId() {
         return publisherId;
     }
 
-    public void setPublisherId(String publisherId) {
+    public void setPublisherId(int publisherId) {
         this.publisherId = publisherId;
     }
 

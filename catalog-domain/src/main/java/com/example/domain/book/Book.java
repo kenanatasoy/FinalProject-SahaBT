@@ -73,7 +73,7 @@ public class Book {
             return this;
         }
 
-        public Builder reviews(double value) {
+        public Builder reviews(String value) {
             this.reviews = Reviews.valueOf(value);
             return this;
         }
@@ -83,7 +83,7 @@ public class Book {
             return this;
         }
 
-        public Builder coverPhoto(String value) {
+        public Builder coverPhoto(byte[] value) {
             this.coverPhoto = CoverPhoto.valueOf(value);
             return this;
         }

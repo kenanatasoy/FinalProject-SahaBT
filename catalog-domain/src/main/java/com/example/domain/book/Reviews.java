@@ -1,17 +1,17 @@
 package com.example.domain.book;
 
 public final class Reviews {
-    public final double value;
+    public final String value;
 
-    public Reviews(double value) {
+    public Reviews(String value) {
         this.value = value;
     }
 
-    public static Reviews valueOf(double value) {
+    public static Reviews valueOf(String value) {
         return Reviews.valueOf(value);
     }
 
-    public double getValue() {
+    public String getValue() {
         return value;
     }
 

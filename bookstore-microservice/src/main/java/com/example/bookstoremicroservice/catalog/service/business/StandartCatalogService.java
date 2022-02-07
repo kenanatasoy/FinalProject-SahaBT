@@ -39,7 +39,7 @@ public class StandartCatalogService implements CatalogService {
     @Override
     public AddedBookResponse addBook(AddBookRequest request,int amount) { //addedbook request to book - book to addedBook response
         var book = modelMapper.map(request, BookDocument.class);
-        var addedBook=catalogApplication.addBook(book,amount); //eventlistenrla amount alıncak
+        var addedBook=catalogApplication.addBook(book,amount);
         return null;
     }
 
