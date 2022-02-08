@@ -16,13 +16,11 @@ public interface RequisitionRepository {
 
     Optional<Requisition> findRequisitionByBookId(Isbn isbn);
 
-    Optional<Requisition> removeRequisition(RequisitionId requisitionId);
+    void removeRequisition(RequisitionId requisitionId);
 
     Optional<Requisition> findOneById(RequisitionId requisitionId);
 
     List<Requisition> findAllRequisitions();
-
-    Optional<Requisition> deleteRequisition(RequisitionId requisitionId);
 
     List<Requisition> findRequisitionsByPublisherId(PublisherId publisherId);
 

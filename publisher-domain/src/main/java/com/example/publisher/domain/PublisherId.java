@@ -1,16 +1,16 @@
 package com.example.publisher.domain;
 
 public class PublisherId {
-    private final int publisherId;
+    private final long publisherId;
 
-    private PublisherId(int publisherId) {
+    private PublisherId(long publisherId) {
         this.publisherId = publisherId;
     }
-    public static PublisherId valueOf(int publisherId){
+    public static PublisherId valueOf(long publisherId){
         return new PublisherId(publisherId);
     }
 
-    public int getPublisherId() {
+    public long getPublisherId() {
         return publisherId;
     }
 

@@ -47,7 +47,7 @@ public class StandardPublisherApplication implements PublisherApplication {
         List<Stock> stocks = bookIds.stream().map(bookId ->
                 stockApplication.findStockByBookIsbn(Isbn.valueOf(bookId)))
                 .toList();
-        stocks.forEach(stock -> supplyBook(stock.getIsbn(),stock.getNumberOfBooksSold().getValue()));
+        stocks.forEach(stock -> supplyBook(stock.getIsbn(), stock.getNumberOfBooksSold().getValue()));
 
     }
 

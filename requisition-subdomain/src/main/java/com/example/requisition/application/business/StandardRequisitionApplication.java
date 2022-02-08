@@ -6,7 +6,7 @@ import com.example.requisition.application.business.event.StockUnderCriticalLeve
 import com.example.requisition.application.business.exception.RequisitionNotFoundException;
 import com.example.requisition.domain.Requisition;
 import com.example.requisition.domain.RequisitionId;
-import com.example.requisition.infra.EventPublisher;
+import com.example.requisition.infra.RequisitionEventPublisher;
 import com.example.requisition.repository.RequisitionRepository;
 import com.example.sale.application.SaleApplication;
 import com.example.shared.domain.Isbn;
@@ -21,13 +21,13 @@ public class StandardRequisitionApplication implements RequisitionApplication {
     private final RequisitionRepository requisitionRepository;
     private final SaleApplication saleService;
     private final StockApplication stockApplication;
-    private final EventPublisher<StockUnderCriticalLevelEvent> eventPublisher;
+    private final RequisitionEventPublisher<StockUnderCriticalLevelEvent> requisitionEventPublisher;
 
-    public StandardRequisitionApplication(RequisitionRepository requisitionRepository, SaleApplication saleService, StockApplication stockApplication, EventPublisher eventPublisher) {
+    public StandardRequisitionApplication(RequisitionRepository requisitionRepository, SaleApplication saleService, StockApplication stockApplication, RequisitionEventPublisher requisitionEventPublisher) {
         this.requisitionRepository = requisitionRepository;
         this.saleService = saleService;
         this.stockApplication = stockApplication;
-        this.eventPublisher = eventPublisher;
+        this.requisitionEventPublisher = requisitionEventPublisher;
     }
 
     @Override
@@ -40,7 +40,7 @@ public class StandardRequisitionApplication implements RequisitionApplication {
         if(numberOfBooksLeft < lastThreeMonthSaleCountOfBook){
             var bookRequisitionAmount = lastThreeMonthSaleCountOfBook - numberOfBooksLeft;
             StockUnderCriticalLevelEvent event = new StockUnderCriticalLevelEvent(bookRequisitionAmount, requisition.getIsbn());
-            eventPublisher.publishEvent(event); // TODO What is unchecked call?
+            requisitionEventPublisher.publishEvent(event); // TODO What is unchecked call?
             return Optional.ofNullable(requisitionRepository.saveRequisition(requisition));
         }
 
@@ -73,7 +73,9 @@ public class StandardRequisitionApplication implements RequisitionApplication {
 
     @Override
     public Requisition clearRequisition(RequisitionId requisitionId) {
-        Optional<Requisition> removedRequisition = requisitionRepository.deleteRequisition(requisitionId);
+
+        //Todo should be fixed
+        Optional<Requisition> removedRequisition = requisitionRepository.removeRequisition(requisitionId);
         return removedRequisition.orElseThrow(() -> new RequisitionNotFoundException(
                 "Requisition does not exist", requisitionId.getValue()));
     }

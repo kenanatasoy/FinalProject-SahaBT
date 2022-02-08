@@ -1,13 +1,13 @@
 package com.example.publisher.application.business.exception;
 
 public class ExistingPublisherException extends RuntimeException {
-    private final int publisherId;
+    private final long publisherId;
 
-    public ExistingPublisherException(String message, int publisherId) {
+    public ExistingPublisherException(String message, long publisherId) {
        super(message);
        this.publisherId = publisherId;
     }
-    public int getPublisherId() {
+    public long getPublisherId() {
         return publisherId;
     }
 }
